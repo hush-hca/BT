@@ -1,95 +1,21 @@
-const configurations = [
-  { id: 5016, btc: { trades: 18, winRate: 27.8, expectancy: 0.07, pf: 1.09 }, eth: { trades: 11, winRate: 36.4, expectancy: 0.42, pf: 1.66 }, rules: { supportAge: 60, touchBand: 0.75, bodyRatio: 50, closeTop: 30, trendSma: 100, volume: null, stopBuffer: 0.10, targetR: 3.0 } },
-  { id: 4970, btc: { trades: 33, winRate: 27.3, expectancy: 0.06, pf: 1.08 }, eth: { trades: 24, winRate: 37.5, expectancy: 0.46, pf: 1.73 }, rules: { supportAge: 60, touchBand: 0.75, bodyRatio: 30, closeTop: 30, trendSma: null, volume: null, stopBuffer: 0.50, targetR: 3.0 } },
-  { id: 3350, btc: { trades: 23, winRate: 26.1, expectancy: 0.02, pf: 1.03 }, eth: { trades: 17, winRate: 41.2, expectancy: 0.60, pf: 2.02 }, rules: { supportAge: 40, touchBand: 0.50, bodyRatio: 30, closeTop: 30, trendSma: null, volume: null, stopBuffer: 0.50, targetR: 3.0 } },
-  { id: 4898, btc: { trades: 19, winRate: 26.3, expectancy: 0.03, pf: 1.05 }, eth: { trades: 13, winRate: 46.2, expectancy: 0.81, pf: 2.51 }, rules: { supportAge: 60, touchBand: 0.75, bodyRatio: 50, closeTop: 20, trendSma: null, volume: null, stopBuffer: 0.50, targetR: 3.0 } },
-  { id: 5114, btc: { trades: 29, winRate: 24.1, expectancy: -0.05, pf: 0.93 }, eth: { trades: 20, winRate: 45.0, expectancy: 0.76, pf: 2.38 }, rules: { supportAge: 60, touchBand: 0.75, bodyRatio: 50, closeTop: 40, trendSma: null, volume: null, stopBuffer: 0.50, targetR: 3.0 } },
+const baseline = [
+  {id:5016,btc:[18,27.8,.07,1.09],eth:[11,36.4,.42,1.66],rules:[60,.75,50,30,100,.10,3]},
+  {id:4970,btc:[33,27.3,.06,1.08],eth:[24,37.5,.46,1.73],rules:[60,.75,30,30,0,.50,3]},
+  {id:3350,btc:[23,26.1,.02,1.03],eth:[17,41.2,.60,2.02],rules:[40,.50,30,30,0,.50,3]}
 ];
-
-const reports = [{
-  id: "daily-support-bounce",
-  createdAt: "2026-08-03",
-  name: { ko: "일봉 지지선 강세 캔들", en: "Daily Support Bullish Candle" },
-  description: { ko: "BTC/ETH 일봉 지지선 반등 전략의 2024년 이후 홀드아웃 리포트입니다.", en: "2024+ holdout report for the BTC/ETH daily support-bounce strategy." },
-  market: { ko: "Binance 현물 · BTCUSDT / ETHUSDT · 일봉", en: "Binance spot · BTCUSDT / ETHUSDT · daily" },
-  configurations,
-  charts: ["/charts/config-5016-btc-equity.png", "/charts/config-5016-eth-equity.png"],
-  files: [
-    ["전략 설명 README", "Strategy README", "/assets/daily-support-bounce/README.md"],
-    ["백테스트 엔진", "Backtest engine", "/assets/daily-support-bounce/btc_support_backtest.py"],
-    ["BTC·ETH 최적화 코드", "BTC/ETH optimization", "/assets/daily-support-bounce/optimize_btc_eth.py"],
-    ["홀드아웃 실행 코드", "Holdout runner", "/assets/daily-support-bounce/run_holdout_from_development.py"],
-    ["결과 요약", "Result summary", "/assets/daily-support-bounce/SUMMARY.md"],
-    ["전체 설정 그리드", "Full configuration grid", "/assets/daily-support-bounce/config_grid.csv"],
-    ["개발 구간 전체 성과", "All development metrics", "/assets/daily-support-bounce/development_metrics_all.csv"],
-    ["홀드아웃 상위 결과", "Top holdout results", "/assets/daily-support-bounce/holdout_metrics_top20.csv"],
-    ["#5016 BTC 거래 내역", "#5016 BTC trades", "/assets/daily-support-bounce/config_5016_btc_trades.csv"],
-    ["#5016 ETH 거래 내역", "#5016 ETH trades", "/assets/daily-support-bounce/config_5016_eth_trades.csv"],
-  ],
-}];
-
-const copy = {
-  ko: {
-    dashboard: "백테스트 리서치 랩", reports: "리포트 선택", files: "전략 파일", fileHelp: "파일을 클릭하면 전체 내용을 확인할 수 있습니다.", copyText: "텍스트 복사", copied: "복사됨", copyError: "복사하지 못했습니다.", loading: "파일을 불러오는 중…", loadError: "파일을 불러오지 못했습니다.", subtitle: "BTC/ETH 일봉 지지선 반등 전략 연구. 이후 전략 연구도 같은 구조로 추가할 수 있습니다.",
-    source: "Binance 현물 · 일봉 · 아웃오브샘플 홀드아웃", result: "결과: 공통 합격 규칙을 찾지 못했습니다.",
-    resultDetail: "BTC와 ETH 모두 홀드아웃 승률 60%, 목표 3R, 양의 기대값, PF 1 초과, 최소 15회 거래를 충족해야 했습니다.",
-    grid: "그리드 탐색", eligible: "개발 구간 통과", tested: "홀드아웃 테스트", qualified: "합격", rules: "전략 공통 규칙",
-    ruleItems: ["좌우 3봉으로 확정된 스윙 저점 지지선", "오른쪽 3개 일봉 마감 후에만 지지선을 사용", "양봉이며 종가가 일중 범위 상위 구간에 위치", "다음 날 시가 진입, 동시 포지션 1개", "편도 불리한 슬리피지 0.03%, 왕복 수수료 0.10%", "하루 안에 손절·익절이 동시에 닿으면 손절 우선"],
-    inspector: "선택한 조합 규칙", inspectorDetail: "클릭한 조합의 실제 최적화 파라미터입니다. 성과는 2024년 이후 홀드아웃 기준입니다.",
-    supportAge: "지지선 사용 기간", touchBand: "지지선 터치 허용폭", bodyRatio: "최소 몸통 비율", closeTop: "종가 위치", trendSma: "추세 필터", volume: "거래량 필터", stopBuffer: "손절 여유폭", targetR: "익절 목표",
-    details: "근접 조합 성과", detailsHelp: "BTC / ETH 순서입니다. 기대값은 거래당 순 R, PF는 총 이익 R ÷ 총 손실 R입니다. 조합 번호를 클릭하면 규칙을 확인할 수 있습니다.",
-    config: "조합", trades: "거래 수", winRate: "승률", expectancy: "기대값 R", pf: "PF", noFilter: "없음", barsUnit: "봉", top: "상위", below: "신호봉 저가 아래", sma: "종가 > SMA", equity: "#5016 실제 홀드아웃 자산곡선", equityDetail: "수수료와 슬리피지 차감 후 누적 R입니다. 이 그래프는 #5016 조합에만 해당합니다.",
-  },
-  en: {
-    dashboard: "Backtest Research Lab", reports: "Select report", files: "Strategy files", fileHelp: "Click a file to view its complete contents.", copyText: "Copy text", copied: "Copied", copyError: "Could not copy text.", loading: "Loading file…", loadError: "Could not load the file.", subtitle: "BTC/ETH daily support-bounce research, ready to host additional strategy studies.",
-    source: "Binance spot · daily candles · out-of-sample holdout", result: "Result: no qualifying common rule found.",
-    resultDetail: "Both BTC and ETH required 60% holdout win rate, 3R target, positive expectancy, PF above 1, and at least 15 trades.",
-    grid: "Grid searched", eligible: "Development eligible", tested: "Holdout tested", qualified: "Qualified", rules: "Shared strategy rules",
-    ruleItems: ["3-left / 3-right confirmed swing-low support", "Support is usable only after the right three daily closes", "Bullish candle closing in the upper part of its range", "Enter at next-day open; one position maximum", "0.03% adverse slippage per side; 0.10% round-trip fees", "If stop and target both occur intraday, resolve to stop"],
-    inspector: "Selected configuration rules", inspectorDetail: "Actual optimization parameters for the selected configuration. Metrics use the 2024+ holdout.",
-    supportAge: "Support age", touchBand: "Touch band", bodyRatio: "Minimum body ratio", closeTop: "Close location", trendSma: "Trend filter", volume: "Volume filter", stopBuffer: "Stop buffer", targetR: "Profit target",
-    details: "Near-miss performance", detailsHelp: "BTC / ETH order. Expectancy is net R per trade; PF is gross winning R divided by gross losing R. Click a configuration ID to inspect its rules.",
-    config: "Config", trades: "Trades", winRate: "Win rate", expectancy: "Expectancy R", pf: "PF", noFilter: "None", barsUnit: "bars", top: "Top", below: "below signal low", sma: "Close > SMA", equity: "#5016 actual holdout equity curves", equityDetail: "Cumulative net R after fees and slippage. These charts apply to #5016 only.",
-  },
-};
-
-let selectedId = null;
-let selectedReportId = "daily-support-bounce";
-let language = "ko";
-const formatR = (value) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}R`;
-const ruleRows = (rules, t) => [
-  [t.supportAge, `${rules.supportAge} ${t.barsUnit}`], [t.touchBand, `±${rules.touchBand.toFixed(2)}%`],
-  [t.bodyRatio, `≥ ${rules.bodyRatio}%`], [t.closeTop, `${t.top} ${rules.closeTop}%`],
-  [t.trendSma, rules.trendSma ? `${t.sma} ${rules.trendSma}` : t.noFilter], [t.volume, t.noFilter],
-  [t.stopBuffer, `${rules.stopBuffer.toFixed(2)}% ${t.below}`], [t.targetR, `${rules.targetR.toFixed(1)}R`],
-].map(([label, value]) => `<div><span>${label}</span><b>${value}</b></div>`).join("");
-
-function renderDashboard() {
-  const t = copy[language];
-  const report = reports.find((item) => item.id === selectedReportId);
-  const rows = report.configurations.map((item) => {
-    const isSelected = item.id === selectedId;
-    const metrics = `<tr class="${isSelected ? "selected" : ""}"><td><button class="config-select" data-id="${item.id}" aria-expanded="${isSelected}">#${item.id}</button></td><td>${item.btc.trades} / ${item.eth.trades}</td><td>${item.btc.winRate.toFixed(1)}% / ${item.eth.winRate.toFixed(1)}%</td><td>${formatR(item.btc.expectancy)} / ${formatR(item.eth.expectancy)}</td><td>${item.btc.pf.toFixed(2)} / ${item.eth.pf.toFixed(2)}</td></tr>`;
-    const details = isSelected ? `<tr class="config-detail-row"><td colspan="5"><div class="inline-detail-heading"><b>${t.inspector}: #${item.id}</b><span>${t.inspectorDetail}</span></div><div class="config-grid inline-rules">${ruleRows(item.rules, t)}</div></td></tr>` : "";
-    return metrics + details;
-  }).join("");
-  const reportOptions = reports.map((item) => `<option value="${item.id}" ${item.id === selectedReportId ? "selected" : ""}>${item.name[language]} — ${item.createdAt}</option>`).join("");
-  const fileButtons = report.files.map(([ko, en, path], index) => `<button class="file-select" data-path="${path}" data-name="${language === "ko" ? ko : en}">${language === "ko" ? ko : en}</button>`).join("");
-  const copyIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg>`;
-  const checkIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>`;
-  document.querySelector("#app").innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control" for="report-selector"><span>${t.reports}</span><select id="report-selector">${reportOptions}</select></label><div id="language-toggle" aria-label="Language"><button class="language-button ${language === "ko" ? "active" : ""}" data-language="ko" aria-pressed="${language === "ko"}">KR</button><button class="language-button ${language === "en" ? "active" : ""}" data-language="en" aria-pressed="${language === "en"}">EN</button></div></div></nav><p class="eyebrow">${report.market[language]} <span class="date-chip">${report.createdAt}</span></p><h1>${report.name[language]}</h1><p class="sub">${report.description[language]}</p><div class="banner"><b>${t.result}</b> ${t.resultDetail}</div><section class="metrics"><div><span>${t.grid}</span><b>5,184</b></div><div><span>${t.eligible}</span><b>34</b></div><div><span>${t.tested}</span><b>20</b></div><div><span>${t.qualified}</span><b class="bad">0</b></div></section><section><h2>${t.rules}</h2><div class="rules">${t.ruleItems.map((rule) => `<div>${rule}</div>`).join("")}</div></section><section><h2>${t.equity}</h2><p class="muted">${t.equityDetail}</p><div class="charts"><figure><img src="${report.charts[0]}" alt="BTC cumulative R equity curve for config 5016" /><figcaption>BTCUSDT — 18 ${t.trades} — +0.07R — PF 1.09</figcaption></figure><figure><img src="${report.charts[1]}" alt="ETH cumulative R equity curve for config 5016" /><figcaption>ETHUSDT — 11 ${t.trades} — +0.42R — PF 1.66</figcaption></figure></div></section><section><h2>${t.details}</h2><p class="muted">${t.detailsHelp}</p><div class="table-wrap"><table><thead><tr><th>${t.config}</th><th>${t.trades}</th><th>${t.winRate}</th><th>${t.expectancy}</th><th>${t.pf}</th></tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><p class="muted">${t.fileHelp}</p><div class="file-layout"><div class="file-list">${fileButtons}</div><div class="file-viewer"><div class="file-toolbar"><div id="file-name"></div><button id="copy-file" class="copy-file" title="${t.copyText}" aria-label="${t.copyText}">${copyIcon}</button></div><pre id="file-content">${t.loading}</pre></div></div></section></div>`;
-  document.querySelectorAll(".config-select").forEach((button) => button.addEventListener("click", () => { const id = Number(button.dataset.id); selectedId = selectedId === id ? null : id; renderDashboard(); }));
-  document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => { language = button.dataset.language; renderDashboard(); }));
-  Object.assign(document.querySelector(".file-toolbar").style, { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", marginBottom: "8px" });
-  document.querySelectorAll("tr.selected, .config-detail-row td").forEach((element) => { element.style.background = "#fff"; });
-  Object.assign(document.querySelector("#copy-file").style, { width: "32px", height: "32px", display: "grid", placeItems: "center", border: "1px solid var(--line)", borderRadius: "8px", background: "#fff", color: "var(--green)", cursor: "pointer", flex: "none" });
-  document.querySelector("#copy-file svg").style.cssText = "width:16px;height:16px;display:block";
-  document.querySelector("#report-selector").addEventListener("change", (event) => { selectedReportId = event.target.value; selectedId = null; renderDashboard(); });
-  const loadFile = async (path, name) => { document.querySelector("#file-name").textContent = name; document.querySelector("#file-content").textContent = t.loading; try { const response = await fetch(path); if (!response.ok) throw new Error(response.status); document.querySelector("#file-content").textContent = await response.text(); } catch { document.querySelector("#file-content").textContent = t.loadError; } };
-  document.querySelectorAll(".file-select").forEach((button) => button.addEventListener("click", () => loadFile(button.dataset.path, button.dataset.name)));
-  document.querySelector("#copy-file").addEventListener("click", async () => { const button = document.querySelector("#copy-file"); const text = document.querySelector("#file-content").textContent; const fallback = () => { const area = document.createElement("textarea"); area.value = text; area.style.cssText = "position:fixed;opacity:0"; document.body.append(area); area.select(); const copied = document.execCommand("copy"); area.remove(); if (!copied) throw new Error("copy failed"); }; try { if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(text); else fallback(); button.innerHTML = checkIcon; button.title = t.copied; setTimeout(() => { button.innerHTML = copyIcon; button.title = t.copyText; }, 1600); } catch { try { fallback(); button.innerHTML = checkIcon; } catch { button.title = t.copyError; } } });
-  const [firstKo, firstEn, firstPath] = report.files[0];
-  loadFile(firstPath, language === "ko" ? firstKo : firstEn);
-}
-
-renderDashboard();
+const variants = [
+  {id:21,btc:[13,38.5,.47,1.76],eth:[14,50.0,.96,2.92],rules:[60,.75,30,30,0,.50,3]},
+  {id:20,btc:[13,30.8,.15,1.22],eth:[14,50.0,.95,2.91],rules:[60,.75,30,30,0,.10,3]},
+  {id:29,btc:[9,33.3,.28,1.42],eth:[13,53.8,1.11,3.40],rules:[60,.75,50,30,0,.50,3]}
+];
+const reports=[
+ {id:'daily-support-bounce',date:'2026-08-03',name:{ko:'일봉 지지선 강세 캔들',en:'Daily Support Bullish Candle'},desc:{ko:'기존 BTC/ETH 일봉 지지선 반등 연구',en:'Original BTC/ETH daily support-bounce study.'},status:{ko:'공통 60% 승률 조건을 만족한 조합은 찾지 못했습니다.',en:'No common configuration met the 60% win-rate condition.'},configs:baseline,charts:['/charts/config-5016-btc-equity.png','/charts/config-5016-eth-equity.png'],captions:['BTCUSDT · 18 trades · +0.07R · PF 1.09','ETHUSDT · 11 trades · +0.42R · PF 1.66'],files:[['전략 README','Strategy README','/assets/daily-support-bounce/README.md'],['백테스트 엔진','Backtest engine','/assets/daily-support-bounce/btc_support_backtest.py'],['결과 요약','Result summary','/assets/daily-support-bounce/SUMMARY.md']]},
+ {id:'daily-support-variants',date:'2026-08-03',name:{ko:'지지선 강세 캔들 · 스윕 회복 연구',en:'Support Bullish Candle · Sweep-Reclaim Study'},desc:{ko:'강한 종가·불리시 엔걸핑·지지선 하향 스윕 후 회복을 2024+ 보류 구간에서 비교했습니다.',en:'Compared strong-close, bullish-engulfing, and sweep-reclaim variants on the 2024+ holdout.'},status:{ko:'최선 균형 후보: 지지선 하향 스윕 후 회복 #21. BTC 38.5%, ETH 50.0% 승률로 60% 목표는 미달입니다.',en:'Best balanced candidate: sweep reclaim #21. BTC 38.5% and ETH 50.0% win rates do not meet the 60% target.'},configs:variants,charts:['/charts/support-variants-sweep-21-btc.png','/charts/support-variants-sweep-21-eth.png'],captions:['BTCUSDT · 13 trades · +0.47R · PF 1.76','ETHUSDT · 14 trades · +0.96R · PF 2.92'],files:[['연구 요약','Research summary','/assets/daily-support-variants-2026-08-03/SUMMARY.md'],['변형 백테스트 코드','Variant backtest code','/assets/daily-support-variants-2026-08-03/research_support_variants.py'],['백테스트 엔진','Backtest engine','/assets/daily-support-variants-2026-08-03/btc_support_backtest.py'],['설정 그리드','Configuration grid','/assets/daily-support-variants-2026-08-03/config_grid.csv'],['개발 구간 성과','Development metrics','/assets/daily-support-variants-2026-08-03/development_metrics.csv'],['보류 구간 성과','Holdout metrics','/assets/daily-support-variants-2026-08-03/holdout_metrics.csv'],['#21 BTC 거래','#21 BTC trades','/assets/daily-support-variants-2026-08-03/sweep_reclaim_21_btc_trades.csv'],['#21 ETH 거래','#21 ETH trades','/assets/daily-support-variants-2026-08-03/sweep_reclaim_21_eth_trades.csv']]}
+];
+let lang='ko', selectedReport='daily-support-variants', selectedId=21;
+const text={ko:{reports:'리포트 선택',rules:'선택한 조합 규칙',perf:'후보 조합 성과',files:'전략 파일',copy:'텍스트 복사',loading:'파일을 불러오는 중…',support:'지지선',touch:'터치 범위',body:'몸통 비율',close:'종가 위치',trend:'추세 필터',stop:'손절 버퍼',target:'익절 목표',none:'없음',result:'검증 결과'},en:{reports:'Select report',rules:'Selected configuration rules',perf:'Candidate performance',files:'Strategy files',copy:'Copy text',loading:'Loading file…',support:'Support age',touch:'Touch band',body:'Body ratio',close:'Close location',trend:'Trend filter',stop:'Stop buffer',target:'Profit target',none:'None',result:'Validation result'}};
+function rules(r,t){return [[t.support,`${r[0]} bars (3-left / 3-right swing low)`],[t.touch,`±${r[1].toFixed(2)}%`],[t.body,`≥ ${r[2]}% of range`],[t.close,`Top ${r[3]}%`],[t.trend,r[4]?`Close > SMA ${r[4]}`:t.none],[t.stop,`${r[5].toFixed(2)}% below signal low`],[t.target,`${r[6].toFixed(1)}R`]].map(x=>`<div><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}
+function render(){const t=text[lang],r=reports.find(x=>x.id===selectedReport); const rows=r.configs.map(c=>`<tr><td><button class="config-select" data-id="${c.id}">#${c.id}</button></td><td>${c.btc[0]} / ${c.eth[0]}</td><td>${c.btc[1]}% / ${c.eth[1]}%</td><td>+${c.btc[2].toFixed(2)}R / +${c.eth[2].toFixed(2)}R</td><td>${c.btc[3].toFixed(2)} / ${c.eth[3].toFixed(2)}</td></tr>${selectedId===c.id?`<tr class="config-detail-row"><td colspan="5"><div class="config-grid">${rules(c.rules,t)}</div></td></tr>`:''}`).join('');
+document.querySelector('#app').innerHTML=`<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control">${t.reports}<select id="report">${reports.map(x=>`<option value="${x.id}" ${x.id===r.id?'selected':''}>${x.name[lang]} · ${x.date}</option>`).join('')}</select></label><div id="language-toggle"><button data-lang="ko" class="${lang==='ko'?'active':''}">KR</button><button data-lang="en" class="${lang==='en'?'active':''}">EN</button></div></div></nav><p class="eyebrow">BTCUSDT / ETHUSDT · Daily <span class="date-chip">${r.date}</span></p><h1>${r.name[lang]}</h1><p class="sub">${r.desc[lang]}</p><div class="banner"><b>${t.result}</b> ${r.status[lang]}</div><section><h2>${t.rules}: #${selectedId}</h2><div class="rules">${rules(r.configs.find(c=>c.id===selectedId).rules,t)}</div></section><section><h2>Equity curves</h2><div class="charts">${r.charts.map((p,i)=>`<figure><img src="${p}" alt="equity curve"/><figcaption>${r.captions[i]}</figcaption></figure>`).join('')}</div></section><section><h2>${t.perf}</h2><div class="table-wrap"><table><thead><tr><th>Config</th><th>Trades<br>BTC / ETH</th><th>Win rate<br>BTC / ETH</th><th>Expectancy R<br>BTC / ETH</th><th>PF<br>BTC / ETH</th></tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><div class="file-layout"><div class="file-list">${r.files.map(([ko,en,p])=>`<button class="file-select" data-path="${p}">${lang==='ko'?ko:en}</button>`).join('')}</div><div class="file-viewer"><div class="file-toolbar"><b id="file-name"></b><button id="copy-file">${t.copy}</button></div><pre id="file-content">${t.loading}</pre></div></div></section></div>`;
+document.querySelector('#report').onchange=e=>{selectedReport=e.target.value;selectedId=reports.find(x=>x.id===selectedReport).configs[0].id;render()};document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;render()});document.querySelectorAll('.config-select').forEach(b=>b.onclick=()=>{selectedId=+b.dataset.id;render()});const load=async b=>{document.querySelector('#file-name').textContent=b.textContent;const out=document.querySelector('#file-content');out.textContent=t.loading;try{const q=await fetch(b.dataset.path);out.textContent=q.ok?await q.text():'Could not load file.'}catch{out.textContent='Could not load file.'}};document.querySelectorAll('.file-select').forEach(b=>b.onclick=()=>load(b));document.querySelector('#copy-file').onclick=()=>navigator.clipboard?.writeText(document.querySelector('#file-content').textContent);load(document.querySelector('.file-select'));}
+render();
