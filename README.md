@@ -7,6 +7,7 @@ Static dashboard for multi-strategy backtest research. The first study presents 
 - Click any configuration ID to open its exact backtest rules directly below that table row; click it again to close the rules.
 - Use the `KR` / `EN` buttons in the top navigation to switch dashboard language.
 - The two equity-curve charts use actual trade logs for Config #5016 only; they are not relabelled when another configuration is selected.
+- Use the report selector in navigation to choose a completed backtest study. Add a new completed strategy as a `reports` data object with its title, market, metrics, rules, configurations, and chart references.
 
 ## Vercel deployment
 

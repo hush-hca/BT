@@ -6,9 +6,18 @@ const configurations = [
   { id: 5114, btc: { trades: 29, winRate: 24.1, expectancy: -0.05, pf: 0.93 }, eth: { trades: 20, winRate: 45.0, expectancy: 0.76, pf: 2.38 }, rules: { supportAge: 60, touchBand: 0.75, bodyRatio: 50, closeTop: 40, trendSma: null, volume: null, stopBuffer: 0.50, targetR: 3.0 } },
 ];
 
+const reports = [{
+  id: "daily-support-bounce",
+  name: { ko: "일봉 지지선 강세 캔들", en: "Daily Support Bullish Candle" },
+  description: { ko: "BTC/ETH 일봉 지지선 반등 전략의 2024년 이후 홀드아웃 리포트입니다.", en: "2024+ holdout report for the BTC/ETH daily support-bounce strategy." },
+  market: { ko: "Binance 현물 · BTCUSDT / ETHUSDT · 일봉", en: "Binance spot · BTCUSDT / ETHUSDT · daily" },
+  configurations,
+  charts: ["/charts/config-5016-btc-equity.png", "/charts/config-5016-eth-equity.png"],
+}];
+
 const copy = {
   ko: {
-    dashboard: "백테스트 리서치 랩", subtitle: "BTC/ETH 일봉 지지선 반등 전략 연구. 이후 전략 연구도 같은 구조로 추가할 수 있습니다.",
+    dashboard: "백테스트 리서치 랩", reports: "리포트 선택", subtitle: "BTC/ETH 일봉 지지선 반등 전략 연구. 이후 전략 연구도 같은 구조로 추가할 수 있습니다.",
     source: "Binance 현물 · 일봉 · 아웃오브샘플 홀드아웃", result: "결과: 공통 합격 규칙을 찾지 못했습니다.",
     resultDetail: "BTC와 ETH 모두 홀드아웃 승률 60%, 목표 3R, 양의 기대값, PF 1 초과, 최소 15회 거래를 충족해야 했습니다.",
     grid: "그리드 탐색", eligible: "개발 구간 통과", tested: "홀드아웃 테스트", qualified: "합격", rules: "전략 공통 규칙",
@@ -19,7 +28,7 @@ const copy = {
     config: "조합", trades: "거래 수", winRate: "승률", expectancy: "기대값 R", pf: "PF", noFilter: "없음", barsUnit: "봉", top: "상위", below: "신호봉 저가 아래", sma: "종가 > SMA", equity: "#5016 실제 홀드아웃 자산곡선", equityDetail: "수수료와 슬리피지 차감 후 누적 R입니다. 이 그래프는 #5016 조합에만 해당합니다.",
   },
   en: {
-    dashboard: "Backtest Research Lab", subtitle: "BTC/ETH daily support-bounce research, ready to host additional strategy studies.",
+    dashboard: "Backtest Research Lab", reports: "Select report", subtitle: "BTC/ETH daily support-bounce research, ready to host additional strategy studies.",
     source: "Binance spot · daily candles · out-of-sample holdout", result: "Result: no qualifying common rule found.",
     resultDetail: "Both BTC and ETH required 60% holdout win rate, 3R target, positive expectancy, PF above 1, and at least 15 trades.",
     grid: "Grid searched", eligible: "Development eligible", tested: "Holdout tested", qualified: "Qualified", rules: "Shared strategy rules",
@@ -32,6 +41,7 @@ const copy = {
 };
 
 let selectedId = null;
+let selectedReportId = "daily-support-bounce";
 let language = "ko";
 const formatR = (value) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}R`;
 const ruleRows = (rules, t) => [
@@ -43,15 +53,18 @@ const ruleRows = (rules, t) => [
 
 function renderDashboard() {
   const t = copy[language];
-  const rows = configurations.map((item) => {
+  const report = reports.find((item) => item.id === selectedReportId);
+  const rows = report.configurations.map((item) => {
     const isSelected = item.id === selectedId;
     const metrics = `<tr class="${isSelected ? "selected" : ""}"><td><button class="config-select" data-id="${item.id}" aria-expanded="${isSelected}">#${item.id}</button></td><td>${item.btc.trades} / ${item.eth.trades}</td><td>${item.btc.winRate.toFixed(1)}% / ${item.eth.winRate.toFixed(1)}%</td><td>${formatR(item.btc.expectancy)} / ${formatR(item.eth.expectancy)}</td><td>${item.btc.pf.toFixed(2)} / ${item.eth.pf.toFixed(2)}</td></tr>`;
     const details = isSelected ? `<tr class="config-detail-row"><td colspan="5"><div class="inline-detail-heading"><b>${t.inspector}: #${item.id}</b><span>${t.inspectorDetail}</span></div><div class="config-grid inline-rules">${ruleRows(item.rules, t)}</div></td></tr>` : "";
     return metrics + details;
   }).join("");
-  document.querySelector("#app").innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB</span><div id="language-toggle" aria-label="Language"><button class="language-button ${language === "ko" ? "active" : ""}" data-language="ko" aria-pressed="${language === "ko"}">KR</button><button class="language-button ${language === "en" ? "active" : ""}" data-language="en" aria-pressed="${language === "en"}">EN</button></div></nav><p class="eyebrow">${t.source}</p><h1>${t.dashboard}</h1><p class="sub">${t.subtitle}</p><div class="banner"><b>${t.result}</b> ${t.resultDetail}</div><section class="metrics"><div><span>${t.grid}</span><b>5,184</b></div><div><span>${t.eligible}</span><b>34</b></div><div><span>${t.tested}</span><b>20</b></div><div><span>${t.qualified}</span><b class="bad">0</b></div></section><section><h2>${t.rules}</h2><div class="rules">${t.ruleItems.map((rule) => `<div>${rule}</div>`).join("")}</div></section><section><h2>${t.equity}</h2><p class="muted">${t.equityDetail}</p><div class="charts"><figure><img src="/charts/config-5016-btc-equity.png" alt="BTC cumulative R equity curve for config 5016" /><figcaption>BTCUSDT — 18 ${t.trades} — +0.07R — PF 1.09</figcaption></figure><figure><img src="/charts/config-5016-eth-equity.png" alt="ETH cumulative R equity curve for config 5016" /><figcaption>ETHUSDT — 11 ${t.trades} — +0.42R — PF 1.66</figcaption></figure></div></section><section><h2>${t.details}</h2><p class="muted">${t.detailsHelp}</p><div class="table-wrap"><table><thead><tr><th>${t.config}</th><th>${t.trades}</th><th>${t.winRate}</th><th>${t.expectancy}</th><th>${t.pf}</th></tr></thead><tbody>${rows}</tbody></table></div></section></div>`;
+  const reportOptions = reports.map((item) => `<option value="${item.id}" ${item.id === selectedReportId ? "selected" : ""}>${item.name[language]}</option>`).join("");
+  document.querySelector("#app").innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB</span><div class="nav-controls"><label class="report-control" for="report-selector"><span>${t.reports}</span><select id="report-selector">${reportOptions}</select></label><div id="language-toggle" aria-label="Language"><button class="language-button ${language === "ko" ? "active" : ""}" data-language="ko" aria-pressed="${language === "ko"}">KR</button><button class="language-button ${language === "en" ? "active" : ""}" data-language="en" aria-pressed="${language === "en"}">EN</button></div></div></nav><p class="eyebrow">${report.market[language]}</p><h1>${report.name[language]}</h1><p class="sub">${report.description[language]}</p><div class="banner"><b>${t.result}</b> ${t.resultDetail}</div><section class="metrics"><div><span>${t.grid}</span><b>5,184</b></div><div><span>${t.eligible}</span><b>34</b></div><div><span>${t.tested}</span><b>20</b></div><div><span>${t.qualified}</span><b class="bad">0</b></div></section><section><h2>${t.rules}</h2><div class="rules">${t.ruleItems.map((rule) => `<div>${rule}</div>`).join("")}</div></section><section><h2>${t.equity}</h2><p class="muted">${t.equityDetail}</p><div class="charts"><figure><img src="${report.charts[0]}" alt="BTC cumulative R equity curve for config 5016" /><figcaption>BTCUSDT — 18 ${t.trades} — +0.07R — PF 1.09</figcaption></figure><figure><img src="${report.charts[1]}" alt="ETH cumulative R equity curve for config 5016" /><figcaption>ETHUSDT — 11 ${t.trades} — +0.42R — PF 1.66</figcaption></figure></div></section><section><h2>${t.details}</h2><p class="muted">${t.detailsHelp}</p><div class="table-wrap"><table><thead><tr><th>${t.config}</th><th>${t.trades}</th><th>${t.winRate}</th><th>${t.expectancy}</th><th>${t.pf}</th></tr></thead><tbody>${rows}</tbody></table></div></section></div>`;
   document.querySelectorAll(".config-select").forEach((button) => button.addEventListener("click", () => { const id = Number(button.dataset.id); selectedId = selectedId === id ? null : id; renderDashboard(); }));
   document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => { language = button.dataset.language; renderDashboard(); }));
+  document.querySelector("#report-selector").addEventListener("change", (event) => { selectedReportId = event.target.value; selectedId = null; renderDashboard(); });
 }
 
 renderDashboard();
