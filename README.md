@@ -10,6 +10,6 @@ The site is a root-level static site and includes a zero-dependency build verifi
 - Root Directory: `./` (leave as the repository root)
 - Framework Preset: `Other`
 - Build Command: turn on Override and leave it empty
-- Output Directory: leave empty
+- Output Directory: `.` (repository root)
 
-Vercel will serve the repository root because this project deliberately has no `public/` directory. Before every push, run `node scripts/verify-dashboard.mjs`; it fails if the HTML, JavaScript, CSS, chart files, or Config #5016 details are missing. The deployment URL must be opened at `/`, for example `https://your-project.vercel.app/`.
+`vercel.json` explicitly sets the output directory to `.` so a stale Vercel project setting cannot make a deployment look for `public/`. Before every push, run `node scripts/verify-dashboard.mjs`; it fails if the HTML, JavaScript, CSS, chart files, or Config #5016 details are missing. The deployment URL must be opened at `/`, for example `https://your-project.vercel.app/`.
