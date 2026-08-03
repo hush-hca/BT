@@ -14,11 +14,23 @@ const reports = [{
   market: { ko: "Binance 현물 · BTCUSDT / ETHUSDT · 일봉", en: "Binance spot · BTCUSDT / ETHUSDT · daily" },
   configurations,
   charts: ["/charts/config-5016-btc-equity.png", "/charts/config-5016-eth-equity.png"],
+  files: [
+    ["전략 설명 README", "Strategy README", "/assets/daily-support-bounce/README.md"],
+    ["백테스트 엔진", "Backtest engine", "/assets/daily-support-bounce/btc_support_backtest.py"],
+    ["BTC·ETH 최적화 코드", "BTC/ETH optimization", "/assets/daily-support-bounce/optimize_btc_eth.py"],
+    ["홀드아웃 실행 코드", "Holdout runner", "/assets/daily-support-bounce/run_holdout_from_development.py"],
+    ["결과 요약", "Result summary", "/assets/daily-support-bounce/SUMMARY.md"],
+    ["전체 설정 그리드", "Full configuration grid", "/assets/daily-support-bounce/config_grid.csv"],
+    ["개발 구간 전체 성과", "All development metrics", "/assets/daily-support-bounce/development_metrics_all.csv"],
+    ["홀드아웃 상위 결과", "Top holdout results", "/assets/daily-support-bounce/holdout_metrics_top20.csv"],
+    ["#5016 BTC 거래 내역", "#5016 BTC trades", "/assets/daily-support-bounce/config_5016_btc_trades.csv"],
+    ["#5016 ETH 거래 내역", "#5016 ETH trades", "/assets/daily-support-bounce/config_5016_eth_trades.csv"],
+  ],
 }];
 
 const copy = {
   ko: {
-    dashboard: "백테스트 리서치 랩", reports: "리포트 선택", subtitle: "BTC/ETH 일봉 지지선 반등 전략 연구. 이후 전략 연구도 같은 구조로 추가할 수 있습니다.",
+    dashboard: "백테스트 리서치 랩", reports: "리포트 선택", files: "전략 파일", fileHelp: "파일을 클릭하면 전체 내용을 확인할 수 있습니다.", loading: "파일을 불러오는 중…", loadError: "파일을 불러오지 못했습니다.", subtitle: "BTC/ETH 일봉 지지선 반등 전략 연구. 이후 전략 연구도 같은 구조로 추가할 수 있습니다.",
     source: "Binance 현물 · 일봉 · 아웃오브샘플 홀드아웃", result: "결과: 공통 합격 규칙을 찾지 못했습니다.",
     resultDetail: "BTC와 ETH 모두 홀드아웃 승률 60%, 목표 3R, 양의 기대값, PF 1 초과, 최소 15회 거래를 충족해야 했습니다.",
     grid: "그리드 탐색", eligible: "개발 구간 통과", tested: "홀드아웃 테스트", qualified: "합격", rules: "전략 공통 규칙",
@@ -29,7 +41,7 @@ const copy = {
     config: "조합", trades: "거래 수", winRate: "승률", expectancy: "기대값 R", pf: "PF", noFilter: "없음", barsUnit: "봉", top: "상위", below: "신호봉 저가 아래", sma: "종가 > SMA", equity: "#5016 실제 홀드아웃 자산곡선", equityDetail: "수수료와 슬리피지 차감 후 누적 R입니다. 이 그래프는 #5016 조합에만 해당합니다.",
   },
   en: {
-    dashboard: "Backtest Research Lab", reports: "Select report", subtitle: "BTC/ETH daily support-bounce research, ready to host additional strategy studies.",
+    dashboard: "Backtest Research Lab", reports: "Select report", files: "Strategy files", fileHelp: "Click a file to view its complete contents.", loading: "Loading file…", loadError: "Could not load the file.", subtitle: "BTC/ETH daily support-bounce research, ready to host additional strategy studies.",
     source: "Binance spot · daily candles · out-of-sample holdout", result: "Result: no qualifying common rule found.",
     resultDetail: "Both BTC and ETH required 60% holdout win rate, 3R target, positive expectancy, PF above 1, and at least 15 trades.",
     grid: "Grid searched", eligible: "Development eligible", tested: "Holdout tested", qualified: "Qualified", rules: "Shared strategy rules",
@@ -62,10 +74,15 @@ function renderDashboard() {
     return metrics + details;
   }).join("");
   const reportOptions = reports.map((item) => `<option value="${item.id}" ${item.id === selectedReportId ? "selected" : ""}>${item.name[language]} — ${item.createdAt}</option>`).join("");
-  document.querySelector("#app").innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control" for="report-selector"><span>${t.reports}</span><select id="report-selector">${reportOptions}</select></label><div id="language-toggle" aria-label="Language"><button class="language-button ${language === "ko" ? "active" : ""}" data-language="ko" aria-pressed="${language === "ko"}">KR</button><button class="language-button ${language === "en" ? "active" : ""}" data-language="en" aria-pressed="${language === "en"}">EN</button></div></div></nav><p class="eyebrow">${report.market[language]} <span class="date-chip">${report.createdAt}</span></p><h1>${report.name[language]}</h1><p class="sub">${report.description[language]}</p><div class="banner"><b>${t.result}</b> ${t.resultDetail}</div><section class="metrics"><div><span>${t.grid}</span><b>5,184</b></div><div><span>${t.eligible}</span><b>34</b></div><div><span>${t.tested}</span><b>20</b></div><div><span>${t.qualified}</span><b class="bad">0</b></div></section><section><h2>${t.rules}</h2><div class="rules">${t.ruleItems.map((rule) => `<div>${rule}</div>`).join("")}</div></section><section><h2>${t.equity}</h2><p class="muted">${t.equityDetail}</p><div class="charts"><figure><img src="${report.charts[0]}" alt="BTC cumulative R equity curve for config 5016" /><figcaption>BTCUSDT — 18 ${t.trades} — +0.07R — PF 1.09</figcaption></figure><figure><img src="${report.charts[1]}" alt="ETH cumulative R equity curve for config 5016" /><figcaption>ETHUSDT — 11 ${t.trades} — +0.42R — PF 1.66</figcaption></figure></div></section><section><h2>${t.details}</h2><p class="muted">${t.detailsHelp}</p><div class="table-wrap"><table><thead><tr><th>${t.config}</th><th>${t.trades}</th><th>${t.winRate}</th><th>${t.expectancy}</th><th>${t.pf}</th></tr></thead><tbody>${rows}</tbody></table></div></section></div>`;
+  const fileButtons = report.files.map(([ko, en, path], index) => `<button class="file-select" data-path="${path}" data-name="${language === "ko" ? ko : en}">${language === "ko" ? ko : en}</button>`).join("");
+  document.querySelector("#app").innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control" for="report-selector"><span>${t.reports}</span><select id="report-selector">${reportOptions}</select></label><div id="language-toggle" aria-label="Language"><button class="language-button ${language === "ko" ? "active" : ""}" data-language="ko" aria-pressed="${language === "ko"}">KR</button><button class="language-button ${language === "en" ? "active" : ""}" data-language="en" aria-pressed="${language === "en"}">EN</button></div></div></nav><p class="eyebrow">${report.market[language]} <span class="date-chip">${report.createdAt}</span></p><h1>${report.name[language]}</h1><p class="sub">${report.description[language]}</p><div class="banner"><b>${t.result}</b> ${t.resultDetail}</div><section class="metrics"><div><span>${t.grid}</span><b>5,184</b></div><div><span>${t.eligible}</span><b>34</b></div><div><span>${t.tested}</span><b>20</b></div><div><span>${t.qualified}</span><b class="bad">0</b></div></section><section><h2>${t.rules}</h2><div class="rules">${t.ruleItems.map((rule) => `<div>${rule}</div>`).join("")}</div></section><section><h2>${t.equity}</h2><p class="muted">${t.equityDetail}</p><div class="charts"><figure><img src="${report.charts[0]}" alt="BTC cumulative R equity curve for config 5016" /><figcaption>BTCUSDT — 18 ${t.trades} — +0.07R — PF 1.09</figcaption></figure><figure><img src="${report.charts[1]}" alt="ETH cumulative R equity curve for config 5016" /><figcaption>ETHUSDT — 11 ${t.trades} — +0.42R — PF 1.66</figcaption></figure></div></section><section><h2>${t.details}</h2><p class="muted">${t.detailsHelp}</p><div class="table-wrap"><table><thead><tr><th>${t.config}</th><th>${t.trades}</th><th>${t.winRate}</th><th>${t.expectancy}</th><th>${t.pf}</th></tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><p class="muted">${t.fileHelp}</p><div class="file-layout"><div class="file-list">${fileButtons}</div><div class="file-viewer"><div id="file-name"></div><pre id="file-content">${t.loading}</pre></div></div></section></div>`;
   document.querySelectorAll(".config-select").forEach((button) => button.addEventListener("click", () => { const id = Number(button.dataset.id); selectedId = selectedId === id ? null : id; renderDashboard(); }));
   document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => { language = button.dataset.language; renderDashboard(); }));
   document.querySelector("#report-selector").addEventListener("change", (event) => { selectedReportId = event.target.value; selectedId = null; renderDashboard(); });
+  const loadFile = async (path, name) => { document.querySelector("#file-name").textContent = name; document.querySelector("#file-content").textContent = t.loading; try { const response = await fetch(path); if (!response.ok) throw new Error(response.status); document.querySelector("#file-content").textContent = await response.text(); } catch { document.querySelector("#file-content").textContent = t.loadError; } };
+  document.querySelectorAll(".file-select").forEach((button) => button.addEventListener("click", () => loadFile(button.dataset.path, button.dataset.name)));
+  const [firstKo, firstEn, firstPath] = report.files[0];
+  loadFile(firstPath, language === "ko" ? firstKo : firstEn);
 }
 
 renderDashboard();
