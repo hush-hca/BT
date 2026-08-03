@@ -81,6 +81,7 @@ function renderDashboard() {
   document.querySelectorAll(".config-select").forEach((button) => button.addEventListener("click", () => { const id = Number(button.dataset.id); selectedId = selectedId === id ? null : id; renderDashboard(); }));
   document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => { language = button.dataset.language; renderDashboard(); }));
   Object.assign(document.querySelector(".file-toolbar").style, { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", marginBottom: "8px" });
+  document.querySelectorAll("tr.selected, .config-detail-row td").forEach((element) => { element.style.background = "#fff"; });
   Object.assign(document.querySelector("#copy-file").style, { width: "32px", height: "32px", display: "grid", placeItems: "center", border: "1px solid var(--line)", borderRadius: "8px", background: "#fff", color: "var(--green)", cursor: "pointer", flex: "none" });
   document.querySelector("#copy-file svg").style.cssText = "width:16px;height:16px;display:block";
   document.querySelector("#report-selector").addEventListener("change", (event) => { selectedReportId = event.target.value; selectedId = null; renderDashboard(); });
