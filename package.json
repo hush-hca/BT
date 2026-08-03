@@ -1,0 +1,11 @@
+{
+  "name": "backtest-research-lab",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/verify-dashboard.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
