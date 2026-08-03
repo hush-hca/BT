@@ -4,7 +4,7 @@ Static dashboard for multi-strategy backtest research. The first study presents 
 
 ## Dashboard controls
 
-- Click any configuration ID to inspect that configuration's exact backtest rules.
+- Click any configuration ID to open its exact backtest rules directly below that table row; click it again to close the rules.
 - Use the `KR` / `EN` buttons in the top navigation to switch dashboard language.
 - The two equity-curve charts use actual trade logs for Config #5016 only; they are not relabelled when another configuration is selected.
 
