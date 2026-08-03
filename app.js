@@ -10,6 +10,12 @@ const variants = [
   { id: 29, btc: [9, 33.3, 0.28, 1.42], eth: [13, 53.8, 1.11, 3.40], rules: [60, 0.75, 50, 30, 0, 0.50, 3] },
 ];
 
+const pepe = [
+  { id: 21, pepe: [11, 9.1, -0.65, 0.29, -8.0], rules: [60, 0.75, 30, 30, 0, 0.50, 3] },
+  { id: 20, pepe: [11, 9.1, -0.65, 0.29, -8.0], rules: [60, 0.75, 30, 30, 0, 0.10, 3] },
+  { id: 29, pepe: [9, 11.1, -0.57, 0.36, -6.0], rules: [60, 0.75, 50, 30, 0, 0.50, 3] },
+];
+
 const reports = [
   {
     id: 'daily-support-bounce', date: '2026-08-03',
@@ -31,6 +37,16 @@ const reports = [
     captions: ['BTCUSDT · 13 trades · +0.47R · PF 1.76', 'ETHUSDT · 14 trades · +0.96R · PF 2.92'],
     files: [['연구 요약', 'Research summary', '/assets/daily-support-variants-2026-08-03/SUMMARY.md'], ['변형 백테스트 코드', 'Variant backtest code', '/assets/daily-support-variants-2026-08-03/research_support_variants.py'], ['백테스트 엔진', 'Backtest engine', '/assets/daily-support-variants-2026-08-03/btc_support_backtest.py'], ['설정 그리드', 'Configuration grid', '/assets/daily-support-variants-2026-08-03/config_grid.csv'], ['개발 구간 성과', 'Development metrics', '/assets/daily-support-variants-2026-08-03/development_metrics.csv'], ['보류 구간 성과', 'Holdout metrics', '/assets/daily-support-variants-2026-08-03/holdout_metrics.csv'], ['#21 BTC 거래', '#21 BTC trades', '/assets/daily-support-variants-2026-08-03/sweep_reclaim_21_btc_trades.csv'], ['#21 ETH 거래', '#21 ETH trades', '/assets/daily-support-variants-2026-08-03/sweep_reclaim_21_eth_trades.csv']],
   },
+  {
+    id: 'pepe-fixed-sweep-reclaim', date: '2026-08-04', symbol: 'PEPEUSDT',
+    name: { ko: 'PEPE · Sweep-Reclaim 고정 조합', en: 'PEPE · Fixed Sweep-Reclaim Configurations' },
+    desc: { ko: 'BTC·ETH에서 정한 #21, #20, #29를 재최적화 없이 PEPEUSDT에 그대로 적용한 보류구간 검증입니다.', en: 'Applied BTC/ETH-selected #21, #20, and #29 to PEPEUSDT without PEPE re-optimization.' },
+    status: { ko: '세 조합 모두 음의 기대값과 PF 1 미만입니다. PEPE에서 이 규칙을 채택할 근거가 없습니다.', en: 'All three configurations have negative expectancy and PF below 1. PEPE does not support adopting this rule.' },
+    configs: pepe,
+    charts: ['/charts/pepe-sweep-21-equity.png', '/charts/pepe-sweep-21-r-distribution.png'],
+    captions: ['PEPEUSDT · #21 equity curve · 2024+ holdout', 'PEPEUSDT · #21 net R distribution'],
+    files: [['결과 요약', 'Result summary', '/assets/pepe-sweep-reclaim-2026-08-04/SUMMARY.md'], ['PEPE 백테스트 코드', 'PEPE backtest code', '/assets/pepe-sweep-reclaim-2026-08-04/backtest_pepe_sweep_configs.py'], ['설정 그리드', 'Configuration grid', '/assets/pepe-sweep-reclaim-2026-08-04/config_grid.csv'], ['보류 구간 성과', 'Holdout metrics', '/assets/pepe-sweep-reclaim-2026-08-04/holdout_metrics.csv'], ['#21 PEPE 거래', '#21 PEPE trades', '/assets/pepe-sweep-reclaim-2026-08-04/sweep_reclaim_21_pepe_trades.csv'], ['#20 PEPE 거래', '#20 PEPE trades', '/assets/pepe-sweep-reclaim-2026-08-04/sweep_reclaim_20_pepe_trades.csv'], ['#29 PEPE 거래', '#29 PEPE trades', '/assets/pepe-sweep-reclaim-2026-08-04/sweep_reclaim_29_pepe_trades.csv']],
+  },
 ];
 
 const copy = {
@@ -39,7 +55,7 @@ const copy = {
 };
 
 let lang = 'ko';
-let selectedReport = 'daily-support-variants';
+let selectedReport = 'pepe-fixed-sweep-reclaim';
 let selectedId = 21;
 
 function ruleCards(ruleSet, t) {
@@ -64,9 +80,17 @@ function render() {
   const t = copy[lang];
   const report = reports.find((item) => item.id === selectedReport);
   const activeConfig = report.configs.find((item) => item.id === selectedId);
-  const rows = report.configs.map((config) => `<tr class="${selectedId === config.id ? 'selected' : ''}"><td><button class="config-select" data-id="${config.id}">#${config.id}</button></td><td>${config.btc[0]} / ${config.eth[0]}</td><td>${config.btc[1]}% / ${config.eth[1]}%</td><td>+${config.btc[2].toFixed(2)}R / +${config.eth[2].toFixed(2)}R</td><td>${config.btc[3].toFixed(2)} / ${config.eth[3].toFixed(2)}</td></tr>${selectedId === config.id ? `<tr class="config-detail-row"><td colspan="5"><div class="config-grid">${ruleCards(config.rules, t)}</div></td></tr>` : ''}`).join('');
+  const isSingleAsset = Boolean(report.symbol);
+  const rows = report.configs.map((config) => {
+    const cells = isSingleAsset
+      ? `<td>${config.pepe[0]}</td><td>${config.pepe[1].toFixed(1)}%</td><td>${config.pepe[2] >= 0 ? '+' : ''}${config.pepe[2].toFixed(2)}R</td><td>${config.pepe[3].toFixed(2)}</td>`
+      : `<td>${config.btc[0]} / ${config.eth[0]}</td><td>${config.btc[1]}% / ${config.eth[1]}%</td><td>+${config.btc[2].toFixed(2)}R / +${config.eth[2].toFixed(2)}R</td><td>${config.btc[3].toFixed(2)} / ${config.eth[3].toFixed(2)}</td>`;
+    return `<tr class="${selectedId === config.id ? 'selected' : ''}"><td><button class="config-select" data-id="${config.id}">#${config.id}</button></td>${cells}</tr>${selectedId === config.id ? `<tr class="config-detail-row"><td colspan="5"><div class="config-grid">${ruleCards(config.rules, t)}</div></td></tr>` : ''}`;
+  }).join('');
 
-  document.querySelector('#app').innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control">${t.reports}<select id="report">${reports.map((item) => `<option value="${item.id}" ${item.id === report.id ? 'selected' : ''}>${item.name[lang]} · ${item.date}</option>`).join('')}</select></label><div id="language-toggle" role="group" aria-label="Language"><button type="button" data-lang="ko" class="${lang === 'ko' ? 'active' : ''}" aria-pressed="${lang === 'ko'}">KR</button><button type="button" data-lang="en" class="${lang === 'en' ? 'active' : ''}" aria-pressed="${lang === 'en'}">EN</button></div></div></nav><p class="eyebrow">BTCUSDT / ETHUSDT · Daily <span class="date-chip">${report.date}</span></p><h1>${report.name[lang]}</h1><p class="sub">${report.desc[lang]}</p><div class="banner"><b>${t.result}</b> ${report.status[lang]}</div><section><h2>${t.rules}: #${selectedId}</h2><div class="rules">${ruleCards(activeConfig.rules, t)}</div></section><section><h2>${t.equity}</h2><div class="charts">${report.charts.map((path, index) => `<figure><img src="${path}" alt="${t.equity}"/><figcaption>${report.captions[index]}</figcaption></figure>`).join('')}</div></section><section><h2>${t.perf}</h2><div class="table-wrap"><table><thead><tr><th>Config</th><th>Trades<br>BTC / ETH</th><th>Win rate<br>BTC / ETH</th><th>Expectancy R<br>BTC / ETH</th><th>PF<br>BTC / ETH</th></tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><div class="file-layout"><div class="file-list">${report.files.map(([ko, en, path]) => `<button type="button" class="file-select" data-path="${path}">${lang === 'ko' ? ko : en}</button>`).join('')}</div><div class="file-viewer"><div class="file-toolbar"><b id="file-name"></b><button type="button" id="copy-file" class="icon-button" aria-label="${t.copied}" title="${t.copied}"><span aria-hidden="true">⧉</span></button></div><pre id="file-content">${t.loading}</pre><p id="copy-status" class="sr-only" aria-live="polite"></p></div></div></section></div>`;
+  const marketLabel = report.symbol || 'BTCUSDT / ETHUSDT';
+  const tableLabels = isSingleAsset ? '<th>Config</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : '<th>Config</th><th>Trades<br>BTC / ETH</th><th>Win rate<br>BTC / ETH</th><th>Expectancy R<br>BTC / ETH</th><th>PF<br>BTC / ETH</th>';
+  document.querySelector('#app').innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control">${t.reports}<select id="report">${reports.map((item) => `<option value="${item.id}" ${item.id === report.id ? 'selected' : ''}>${item.name[lang]} · ${item.date}</option>`).join('')}</select></label><div id="language-toggle" role="group" aria-label="Language"><button type="button" data-lang="ko" class="${lang === 'ko' ? 'active' : ''}" aria-pressed="${lang === 'ko'}">KR</button><button type="button" data-lang="en" class="${lang === 'en' ? 'active' : ''}" aria-pressed="${lang === 'en'}">EN</button></div></div></nav><p class="eyebrow">${marketLabel} · Daily <span class="date-chip">${report.date}</span></p><h1>${report.name[lang]}</h1><p class="sub">${report.desc[lang]}</p><div class="banner"><b>${t.result}</b> ${report.status[lang]}</div><section><h2>${t.rules}: #${selectedId}</h2><div class="rules">${ruleCards(activeConfig.rules, t)}</div></section><section><h2>${t.equity}</h2><div class="charts">${report.charts.map((path, index) => `<figure><img src="${path}" alt="${t.equity}"/><figcaption>${report.captions[index]}</figcaption></figure>`).join('')}</div></section><section><h2>${t.perf}</h2><div class="table-wrap"><table><thead><tr>${tableLabels}</tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><div class="file-layout"><div class="file-list">${report.files.map(([ko, en, path]) => `<button type="button" class="file-select" data-path="${path}">${lang === 'ko' ? ko : en}</button>`).join('')}</div><div class="file-viewer"><div class="file-toolbar"><b id="file-name"></b><button type="button" id="copy-file" class="icon-button" aria-label="${t.copied}" title="${t.copied}"><span aria-hidden="true">⧉</span></button></div><pre id="file-content">${t.loading}</pre><p id="copy-status" class="sr-only" aria-live="polite"></p></div></div></section></div>`;
 
   document.querySelector('.brand').innerHTML = '<img src="/assets/brand/bt-logo.png" alt="BT Lab logo"/><span class="brand-copy">BT LAB<small>BACKTEST RESEARCH</small></span>';
   document.querySelector('#report').onchange = (event) => { selectedReport = event.target.value; selectedId = reports.find((item) => item.id === selectedReport).configs[0].id; render(); };
