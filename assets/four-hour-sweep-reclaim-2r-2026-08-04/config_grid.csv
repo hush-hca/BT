@@ -1,0 +1,4 @@
+config_id,lookback,swing_side,support_tolerance,stop_buffer,reward_risk,slippage,commission_per_side,min_body_ratio,close_top_fraction,trend_sma,volume_multiplier
+21,60,3,0.0075,0.005,2.0,0.0003,0.0005,0.3,0.3,0,0.0
+20,60,3,0.0075,0.001,2.0,0.0003,0.0005,0.3,0.3,0,0.0
+29,60,3,0.0075,0.005,2.0,0.0003,0.0005,0.5,0.3,0,0.0

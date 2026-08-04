@@ -22,6 +22,12 @@ const fourHour = [
   { id: 29, assets: { BTCUSDT: [103, 30.1, 0.12, 1.17], ETHUSDT: [99, 25.3, -0.05, 0.93], PEPEUSDT: [55, 30.9, 0.19, 1.28], XRPUSDT: [97, 23.7, -0.12, 0.84], SOLUSDT: [101, 26.7, 0.02, 1.03], ADAUSDT: [99, 31.3, 0.18, 1.27], AVAXUSDT: [98, 24.5, -0.07, 0.91], LINKUSDT: [93, 32.3, 0.23, 1.33] }, rules: [60, 0.75, 50, 30, 0, 0.50, 3] },
 ];
 
+const fourHour2r = [
+  { id: 21, assets: { BTCUSDT: [155, 36.1, 0.01, 1.01], ETHUSDT: [131, 32.1, -0.10, 0.86], PEPEUSDT: [82, 37.8, 0.09, 1.15], XRPUSDT: [139, 31.7, -0.11, 0.83], SOLUSDT: [134, 33.6, -0.04, 0.94], ADAUSDT: [137, 37.2, 0.06, 1.09], AVAXUSDT: [136, 30.1, -0.15, 0.79], LINKUSDT: [131, 33.6, -0.04, 0.93] }, rules: [60, 0.75, 30, 30, 0, 0.50, 2] },
+  { id: 20, assets: { BTCUSDT: [173, 35.8, -0.03, 0.96], ETHUSDT: [139, 30.2, -0.17, 0.76], PEPEUSDT: [85, 35.3, 0.01, 1.02], XRPUSDT: [156, 27.6, -0.24, 0.66], SOLUSDT: [153, 32.0, -0.09, 0.86], ADAUSDT: [145, 37.9, 0.06, 1.10], AVAXUSDT: [147, 29.9, -0.16, 0.77], LINKUSDT: [138, 34.1, -0.04, 0.94] }, rules: [60, 0.75, 30, 30, 0, 0.10, 2] },
+  { id: 29, assets: { BTCUSDT: [116, 38.8, 0.09, 1.14], ETHUSDT: [101, 32.7, -0.08, 0.88], PEPEUSDT: [57, 40.4, 0.17, 1.28], XRPUSDT: [102, 29.4, -0.18, 0.75], SOLUSDT: [107, 35.5, 0.02, 1.03], ADAUSDT: [102, 40.2, 0.14, 1.23], AVAXUSDT: [108, 29.6, -0.15, 0.78], LINKUSDT: [102, 37.3, 0.06, 1.10] }, rules: [60, 0.75, 50, 30, 0, 0.50, 2] },
+];
+
 const reports = [
   {
     id: 'daily-support-bounce', date: '2026-08-03',
@@ -63,6 +69,16 @@ const reports = [
     captions: ['LINKUSDT · 4h #29 equity curve · 2024+ holdout', 'LINKUSDT · 4h #29 net R distribution'],
     files: [['결과 요약', 'Result summary', '/assets/four-hour-sweep-reclaim-2026-08-04/SUMMARY.md'], ['4시간 백테스트 코드', '4-hour backtest code', '/assets/four-hour-sweep-reclaim-2026-08-04/backtest_4h_fixed_sweep.py'], ['설정 그리드', 'Configuration grid', '/assets/four-hour-sweep-reclaim-2026-08-04/config_grid.csv'], ['보류 구간 성과', 'Holdout metrics', '/assets/four-hour-sweep-reclaim-2026-08-04/holdout_metrics.csv'], ['#29 BTC 거래', '#29 BTC trades', '/assets/four-hour-sweep-reclaim-2026-08-04/sweep_reclaim_29_btcusdt_trades.csv'], ['#29 LINK 거래', '#29 LINK trades', '/assets/four-hour-sweep-reclaim-2026-08-04/sweep_reclaim_29_linkusdt_trades.csv'], ['#29 ADA 거래', '#29 ADA trades', '/assets/four-hour-sweep-reclaim-2026-08-04/sweep_reclaim_29_adausdt_trades.csv'], ['#29 PEPE 거래', '#29 PEPE trades', '/assets/four-hour-sweep-reclaim-2026-08-04/sweep_reclaim_29_pepeusdt_trades.csv']],
   },
+  {
+    id: 'four-hour-fixed-sweep-reclaim-2r', date: '2026-08-04', multiAsset: true, timeframe: '4h',
+    name: { ko: '4시간 · Sweep-Reclaim 고정 조합 · 2R', en: '4-Hour · Fixed Sweep-Reclaim Configurations · 2R' },
+    desc: { ko: '#20·#21·#29의 나머지 규칙은 유지하고 목표 익절만 3R에서 2R로 낮춘 재검증입니다.', en: 'Re-tested #20, #21, and #29 with every rule unchanged except the profit target, reduced from 3R to 2R.' },
+    status: { ko: 'PEPE #29가 +0.17R로 가장 높고 ADA #29가 뒤를 잇습니다. ETH·AVAX·XRP는 모든 조합에서 음수입니다.', en: 'PEPE #29 is highest at +0.17R, followed by ADA #29. ETH, AVAX, and XRP are negative in every configuration.' },
+    configs: fourHour2r,
+    charts: ['/charts/four-hour-2r-pepe-29-equity.png', '/charts/four-hour-2r-pepe-29-r-distribution.png'],
+    captions: ['PEPEUSDT · 4h #29 · 2R equity curve · 2024+ holdout', 'PEPEUSDT · 4h #29 · 2R net R distribution'],
+    files: [['결과 요약', 'Result summary', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/SUMMARY.md'], ['4시간 2R 백테스트 코드', '4-hour 2R backtest code', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/backtest_4h_fixed_sweep_2r.py'], ['설정 그리드', 'Configuration grid', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/config_grid.csv'], ['보류 구간 성과', 'Holdout metrics', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/holdout_metrics.csv'], ['#29 PEPE 거래', '#29 PEPE trades', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/sweep_reclaim_29_pepeusdt_trades.csv'], ['#29 ADA 거래', '#29 ADA trades', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/sweep_reclaim_29_adausdt_trades.csv'], ['#29 BTC 거래', '#29 BTC trades', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/sweep_reclaim_29_btcusdt_trades.csv'], ['#29 LINK 거래', '#29 LINK trades', '/assets/four-hour-sweep-reclaim-2r-2026-08-04/sweep_reclaim_29_linkusdt_trades.csv']],
+  },
 ];
 
 const copy = {
@@ -71,7 +87,7 @@ const copy = {
 };
 
 let lang = 'ko';
-let selectedReport = 'four-hour-fixed-sweep-reclaim';
+let selectedReport = 'four-hour-fixed-sweep-reclaim-2r';
 let selectedId = 21;
 
 function ruleCards(ruleSet, t) {
