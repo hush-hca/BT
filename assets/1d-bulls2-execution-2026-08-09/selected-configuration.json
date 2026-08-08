@@ -1,0 +1,50 @@
+{
+  "0Day": {
+    "id": "breakout:support:fixed:1.5:score0:relvol-1-4",
+    "config": {
+      "entryFamily": "breakout",
+      "stopFamily": "support",
+      "exitFamily": "fixed",
+      "targetR": 1.5,
+      "minimumScore": 0,
+      "contextFilter": "relvol-1-4",
+      "id": "breakout:support:fixed:1.5:score0:relvol-1-4"
+    },
+    "metrics": {
+      "tradeCount": 165,
+      "expectancy": 0.245447229731,
+      "profitFactor": 1.552208688299,
+      "medianR": 0.21428084652,
+      "winRate": 0.509090909091,
+      "maxDrawdownR": 11.152686649092,
+      "consecutiveLosses": 15,
+      "totalCostsR": 6.874147641094,
+      "eligibleSignals": 10388,
+      "fillRate": 0.01588371197535618
+    }
+  },
+  "1Day": {
+    "id": "breakout:sweep:time:14:score70:relvol-1-4",
+    "config": {
+      "entryFamily": "breakout",
+      "stopFamily": "sweep",
+      "exitFamily": "time",
+      "timeExitDays": 14,
+      "minimumScore": 70,
+      "contextFilter": "relvol-1-4",
+      "id": "breakout:sweep:time:14:score70:relvol-1-4"
+    },
+    "metrics": {
+      "tradeCount": 226,
+      "expectancy": 0.700888699412,
+      "profitFactor": 2.950482778762,
+      "medianR": 0.082390141331,
+      "winRate": 0.522123893805,
+      "maxDrawdownR": 15.185463823672,
+      "consecutiveLosses": 10,
+      "totalCostsR": 5.172280377798,
+      "eligibleSignals": 581,
+      "fillRate": 0.3889845094664372
+    }
+  }
+}
