@@ -1,0 +1,2534 @@
+{
+  "generatedAt": "2026-08-08T18:46:18.369Z",
+  "command": {
+    "start": "2022-07-01",
+    "end": "2026-06-30",
+    "virtualEntry": "1h close ending five hours after first valid signal"
+  },
+  "dataSource": {
+    "historicalKlines": "Binance public monthly USDT-M 1h ZIP archive",
+    "dailyCandles": "UTC aggregation of archived 1h candles"
+  },
+  "promotionEligible": true,
+  "universeProvenance": {
+    "kind": "futures-archive",
+    "equivalent": true,
+    "promotionEligible": true,
+    "asOfUtc": "2026-06-30T23:59:59.999Z",
+    "limitations": [
+      "Archive availability can lag live markets.",
+      "Listing is inferred from symbols present under the official monthly USD-M kline prefix.",
+      "Domestic-volume filtering uses currently accessible Upbit/Bithumb 24h feeds rather than a historical as-of snapshot."
+    ]
+  },
+  "range": {
+    "start": "2022-07-01T00:00:00.000Z",
+    "endExclusive": "2026-07-01T00:00:00.000Z",
+    "dailyWarmupDays": 70,
+    "outcomeHorizonDays": 30
+  },
+  "universe": {
+    "symbols": [
+      "SUI",
+      "ONDO",
+      "ENA",
+      "ARB",
+      "INJ",
+      "SYN",
+      "ZEC",
+      "DOGE",
+      "AIGENSYN",
+      "RE",
+      "WLD",
+      "XLM",
+      "NEAR",
+      "AAVE",
+      "PAXG",
+      "ADA",
+      "AVAX",
+      "LINK",
+      "BCH",
+      "ORDI",
+      "TAO",
+      "PUMP",
+      "PYTH",
+      "FIL",
+      "RIF",
+      "XPL",
+      "TRX",
+      "UNI",
+      "JTO",
+      "LTC",
+      "DOT",
+      "MANTA",
+      "AGLD",
+      "TIA",
+      "HEI",
+      "CHZ",
+      "ACT",
+      "XAUT",
+      "ONG",
+      "WLFI",
+      "FET",
+      "TRUMP",
+      "GLM",
+      "BICO",
+      "DYDX",
+      "PENGU",
+      "ASTER",
+      "APT",
+      "ID",
+      "ALLO",
+      "WIF",
+      "BIO",
+      "HBAR",
+      "OP",
+      "OPG",
+      "ZBT",
+      "ESP",
+      "MEGA",
+      "POWR",
+      "ICP",
+      "FF",
+      "PENDLE",
+      "RENDER",
+      "ZRO",
+      "VIRTUAL",
+      "JUP",
+      "ETC",
+      "ATOM",
+      "GAS",
+      "EIGEN",
+      "HYPER",
+      "AERO",
+      "DASH",
+      "LDO",
+      "DEXE",
+      "ALGO",
+      "S",
+      "CHIP",
+      "KAITO",
+      "SEI",
+      "KITE",
+      "BEL",
+      "MET",
+      "HOME",
+      "MORPHO",
+      "SAHARA",
+      "STG",
+      "G",
+      "CRV",
+      "MEME",
+      "ETHFI",
+      "AXS",
+      "POL",
+      "CELO",
+      "ZAMA",
+      "GALA",
+      "OPN",
+      "ONT",
+      "GENIUS",
+      "STRK",
+      "APE",
+      "CAKE",
+      "SKY",
+      "SYRUP",
+      "TOWNS",
+      "TNSR",
+      "W",
+      "RESOLV",
+      "SAND",
+      "MAGIC",
+      "ROBO",
+      "IO",
+      "NMR",
+      "TURBO",
+      "A",
+      "SNX",
+      "EDEN",
+      "ALICE",
+      "QNT",
+      "AR",
+      "MMT",
+      "SUSHI",
+      "VANA",
+      "LAYER",
+      "PORTAL",
+      "USDC",
+      "SPK",
+      "GRT",
+      "CFG",
+      "ZEN",
+      "IOTA",
+      "ENSO",
+      "STO",
+      "BERA",
+      "ANIME",
+      "GIGGLE",
+      "BABY",
+      "FIDA",
+      "NEO",
+      "BANANAS31",
+      "OPEN",
+      "PHA",
+      "ENS",
+      "AWE",
+      "BAT",
+      "AVNT",
+      "HOLO",
+      "HMSTR",
+      "ORCA",
+      "VET",
+      "PNUT",
+      "MANA",
+      "NIGHT",
+      "CATI",
+      "ENJ",
+      "JST",
+      "MITO",
+      "SAGA",
+      "JASMY",
+      "FOGO",
+      "ICX",
+      "CFX",
+      "NEIRO",
+      "BOME",
+      "EPIC",
+      "PARTI",
+      "GUN",
+      "RPL",
+      "PUNDIX",
+      "COOKIE",
+      "STX",
+      "NOM",
+      "ZK",
+      "VIC",
+      "ARK",
+      "SENT",
+      "LINEA",
+      "HUMA",
+      "ARKM",
+      "POLYX",
+      "STEEM",
+      "RED",
+      "EGLD",
+      "PLUME"
+    ],
+    "assets": [
+      {
+        "symbol": "SUI",
+        "quoteVolume": 100500872.00365,
+        "lastPrice": 0.6903,
+        "sourceSymbol": "SUIUSDT"
+      },
+      {
+        "symbol": "ONDO",
+        "quoteVolume": 38422712.02577999,
+        "lastPrice": 0.3083,
+        "sourceSymbol": "ONDOUSDT"
+      },
+      {
+        "symbol": "ENA",
+        "quoteVolume": 132334910.56254001,
+        "lastPrice": 0.07213,
+        "sourceSymbol": "ENAUSDT"
+      },
+      {
+        "symbol": "ARB",
+        "quoteVolume": 18214158.978596006,
+        "lastPrice": 0.07605,
+        "sourceSymbol": "ARBUSDT"
+      },
+      {
+        "symbol": "INJ",
+        "quoteVolume": 28434241.090599995,
+        "lastPrice": 4.548,
+        "sourceSymbol": "INJUSDT"
+      },
+      {
+        "symbol": "SYN",
+        "quoteVolume": 544561898.1163299,
+        "lastPrice": 0.56297,
+        "sourceSymbol": "SYNUSDT"
+      },
+      {
+        "symbol": "ZEC",
+        "quoteVolume": 400561294.5728,
+        "lastPrice": 399.17,
+        "sourceSymbol": "ZECUSDT"
+      },
+      {
+        "symbol": "DOGE",
+        "quoteVolume": 371656912.66828,
+        "lastPrice": 0.07204,
+        "sourceSymbol": "DOGEUSDT"
+      },
+      {
+        "symbol": "AIGENSYN",
+        "quoteVolume": 324121178.82065,
+        "lastPrice": 0.03494,
+        "sourceSymbol": "AIGENSYNUSDT"
+      },
+      {
+        "symbol": "RE",
+        "quoteVolume": 252206660.9691,
+        "lastPrice": 0.6454,
+        "sourceSymbol": "REUSDT"
+      },
+      {
+        "symbol": "WLD",
+        "quoteVolume": 194263387.91239998,
+        "lastPrice": 0.4066,
+        "sourceSymbol": "WLDUSDT"
+      },
+      {
+        "symbol": "XLM",
+        "quoteVolume": 153070246.76944,
+        "lastPrice": 0.18902,
+        "sourceSymbol": "XLMUSDT"
+      },
+      {
+        "symbol": "NEAR",
+        "quoteVolume": 114321566.44299999,
+        "lastPrice": 1.782,
+        "sourceSymbol": "NEARUSDT"
+      },
+      {
+        "symbol": "AAVE",
+        "quoteVolume": 100341236.60200001,
+        "lastPrice": 85.09,
+        "sourceSymbol": "AAVEUSDT"
+      },
+      {
+        "symbol": "PAXG",
+        "quoteVolume": 94341741.4835,
+        "lastPrice": 4002.11,
+        "sourceSymbol": "PAXGUSDT"
+      },
+      {
+        "symbol": "ADA",
+        "quoteVolume": 92430890.10489999,
+        "lastPrice": 0.1442,
+        "sourceSymbol": "ADAUSDT"
+      },
+      {
+        "symbol": "AVAX",
+        "quoteVolume": 69885111.62699999,
+        "lastPrice": 6.534,
+        "sourceSymbol": "AVAXUSDT"
+      },
+      {
+        "symbol": "LINK",
+        "quoteVolume": 68631803.09322998,
+        "lastPrice": 7.196,
+        "sourceSymbol": "LINKUSDT"
+      },
+      {
+        "symbol": "BCH",
+        "quoteVolume": 64760476.73041,
+        "lastPrice": 199.89,
+        "sourceSymbol": "BCHUSDT"
+      },
+      {
+        "symbol": "ORDI",
+        "quoteVolume": 62769050.95950001,
+        "lastPrice": 3.641,
+        "sourceSymbol": "ORDIUSDT"
+      },
+      {
+        "symbol": "TAO",
+        "quoteVolume": 61970040.11152,
+        "lastPrice": 201.99,
+        "sourceSymbol": "TAOUSDT"
+      },
+      {
+        "symbol": "PUMP",
+        "quoteVolume": 60605587.00103,
+        "lastPrice": 0.001412,
+        "sourceSymbol": "PUMPUSDT"
+      },
+      {
+        "symbol": "PYTH",
+        "quoteVolume": 60511559.044630006,
+        "lastPrice": 0.03744,
+        "sourceSymbol": "PYTHUSDT"
+      },
+      {
+        "symbol": "FIL",
+        "quoteVolume": 53440505.631699994,
+        "lastPrice": 0.718,
+        "sourceSymbol": "FILUSDT"
+      },
+      {
+        "symbol": "RIF",
+        "quoteVolume": 52507089.37935001,
+        "lastPrice": 0.09056,
+        "sourceSymbol": "RIFUSDT"
+      },
+      {
+        "symbol": "XPL",
+        "quoteVolume": 50239745.57538001,
+        "lastPrice": 0.08652,
+        "sourceSymbol": "XPLUSDT"
+      },
+      {
+        "symbol": "TRX",
+        "quoteVolume": 49570704.979509994,
+        "lastPrice": 0.31501,
+        "sourceSymbol": "TRXUSDT"
+      },
+      {
+        "symbol": "UNI",
+        "quoteVolume": 45267465.46,
+        "lastPrice": 2.775,
+        "sourceSymbol": "UNIUSDT"
+      },
+      {
+        "symbol": "JTO",
+        "quoteVolume": 43765295.4193,
+        "lastPrice": 0.7121,
+        "sourceSymbol": "JTOUSDT"
+      },
+      {
+        "symbol": "LTC",
+        "quoteVolume": 42616487.279810004,
+        "lastPrice": 41.91,
+        "sourceSymbol": "LTCUSDT"
+      },
+      {
+        "symbol": "DOT",
+        "quoteVolume": 40386746.3994,
+        "lastPrice": 0.822,
+        "sourceSymbol": "DOTUSDT"
+      },
+      {
+        "symbol": "MANTA",
+        "quoteVolume": 40072029.193142,
+        "lastPrice": 0.06603,
+        "sourceSymbol": "MANTAUSDT"
+      },
+      {
+        "symbol": "AGLD",
+        "quoteVolume": 33655512.1303,
+        "lastPrice": 0.185,
+        "sourceSymbol": "AGLDUSDT"
+      },
+      {
+        "symbol": "TIA",
+        "quoteVolume": 31905008.045599997,
+        "lastPrice": 0.3554,
+        "sourceSymbol": "TIAUSDT"
+      },
+      {
+        "symbol": "HEI",
+        "quoteVolume": 31693113.127881,
+        "lastPrice": 0.13727,
+        "sourceSymbol": "HEIUSDT"
+      },
+      {
+        "symbol": "CHZ",
+        "quoteVolume": 31297874.24843,
+        "lastPrice": 0.01785,
+        "sourceSymbol": "CHZUSDT"
+      },
+      {
+        "symbol": "ACT",
+        "quoteVolume": 31182869.31158,
+        "lastPrice": 0.01026,
+        "sourceSymbol": "ACTUSDT"
+      },
+      {
+        "symbol": "XAUT",
+        "quoteVolume": 30277755.786830008,
+        "lastPrice": 3999.09,
+        "sourceSymbol": "XAUTUSDT"
+      },
+      {
+        "symbol": "ONG",
+        "quoteVolume": 28163820.621170007,
+        "lastPrice": 0.04655,
+        "sourceSymbol": "ONGUSDT"
+      },
+      {
+        "symbol": "WLFI",
+        "quoteVolume": 27703613.53255,
+        "lastPrice": 0.05778,
+        "sourceSymbol": "WLFIUSDT"
+      },
+      {
+        "symbol": "FET",
+        "quoteVolume": 24650205.051200002,
+        "lastPrice": 0.1716,
+        "sourceSymbol": "FETUSDT"
+      },
+      {
+        "symbol": "TRUMP",
+        "quoteVolume": 24255790.404,
+        "lastPrice": 1.657,
+        "sourceSymbol": "TRUMPUSDT"
+      },
+      {
+        "symbol": "GLM",
+        "quoteVolume": 23586485.588519998,
+        "lastPrice": 0.10586,
+        "sourceSymbol": "GLMUSDT"
+      },
+      {
+        "symbol": "BICO",
+        "quoteVolume": 23527269.711319994,
+        "lastPrice": 0.01606,
+        "sourceSymbol": "BICOUSDT"
+      },
+      {
+        "symbol": "DYDX",
+        "quoteVolume": 22691404.8896,
+        "lastPrice": 0.1798,
+        "sourceSymbol": "DYDXUSDT"
+      },
+      {
+        "symbol": "PENGU",
+        "quoteVolume": 22617321.571078,
+        "lastPrice": 0.006007,
+        "sourceSymbol": "PENGUUSDT"
+      },
+      {
+        "symbol": "ASTER",
+        "quoteVolume": 22493798.904499996,
+        "lastPrice": 0.6229,
+        "sourceSymbol": "ASTERUSDT"
+      },
+      {
+        "symbol": "APT",
+        "quoteVolume": 21800775.03023,
+        "lastPrice": 0.5714,
+        "sourceSymbol": "APTUSDT"
+      },
+      {
+        "symbol": "ID",
+        "quoteVolume": 21386358.435130008,
+        "lastPrice": 0.03467,
+        "sourceSymbol": "IDUSDT"
+      },
+      {
+        "symbol": "ALLO",
+        "quoteVolume": 20357876.23935,
+        "lastPrice": 0.25162,
+        "sourceSymbol": "ALLOUSDT"
+      },
+      {
+        "symbol": "WIF",
+        "quoteVolume": 19710947.355389997,
+        "lastPrice": 0.1656,
+        "sourceSymbol": "WIFUSDT"
+      },
+      {
+        "symbol": "BIO",
+        "quoteVolume": 19652001.981570005,
+        "lastPrice": 0.03005,
+        "sourceSymbol": "BIOUSDT"
+      },
+      {
+        "symbol": "HBAR",
+        "quoteVolume": 19565938.8135,
+        "lastPrice": 0.06947,
+        "sourceSymbol": "HBARUSDT"
+      },
+      {
+        "symbol": "OP",
+        "quoteVolume": 19203857.529080003,
+        "lastPrice": 0.0963,
+        "sourceSymbol": "OPUSDT"
+      },
+      {
+        "symbol": "OPG",
+        "quoteVolume": 19117721.6645,
+        "lastPrice": 0.1308,
+        "sourceSymbol": "OPGUSDT"
+      },
+      {
+        "symbol": "ZBT",
+        "quoteVolume": 18346848.221130002,
+        "lastPrice": 0.12112,
+        "sourceSymbol": "ZBTUSDT"
+      },
+      {
+        "symbol": "ESP",
+        "quoteVolume": 18081893.762679998,
+        "lastPrice": 0.06679,
+        "sourceSymbol": "ESPUSDT"
+      },
+      {
+        "symbol": "MEGA",
+        "quoteVolume": 16938080.72039,
+        "lastPrice": 0.04529,
+        "sourceSymbol": "MEGAUSDT"
+      },
+      {
+        "symbol": "POWR",
+        "quoteVolume": 16437119.584299996,
+        "lastPrice": 0.04496,
+        "sourceSymbol": "POWRUSDT"
+      },
+      {
+        "symbol": "ICP",
+        "quoteVolume": 16033800.177999998,
+        "lastPrice": 2.097,
+        "sourceSymbol": "ICPUSDT"
+      },
+      {
+        "symbol": "FF",
+        "quoteVolume": 15277638.55917,
+        "lastPrice": 0.06859,
+        "sourceSymbol": "FFUSDT"
+      },
+      {
+        "symbol": "PENDLE",
+        "quoteVolume": 14791028.791,
+        "lastPrice": 1.3168,
+        "sourceSymbol": "PENDLEUSDT"
+      },
+      {
+        "symbol": "RENDER",
+        "quoteVolume": 13883166.180599999,
+        "lastPrice": 1.508,
+        "sourceSymbol": "RENDERUSDT"
+      },
+      {
+        "symbol": "ZRO",
+        "quoteVolume": 13436764.13149,
+        "lastPrice": 0.8211,
+        "sourceSymbol": "ZROUSDT"
+      },
+      {
+        "symbol": "VIRTUAL",
+        "quoteVolume": 13352397.590949997,
+        "lastPrice": 0.5251,
+        "sourceSymbol": "VIRTUALUSDT"
+      },
+      {
+        "symbol": "JUP",
+        "quoteVolume": 13226416.5446,
+        "lastPrice": 0.2116,
+        "sourceSymbol": "JUPUSDT"
+      },
+      {
+        "symbol": "ETC",
+        "quoteVolume": 13206162.62731,
+        "lastPrice": 6.885,
+        "sourceSymbol": "ETCUSDT"
+      },
+      {
+        "symbol": "ATOM",
+        "quoteVolume": 13089866.40855,
+        "lastPrice": 1.512,
+        "sourceSymbol": "ATOMUSDT"
+      },
+      {
+        "symbol": "GAS",
+        "quoteVolume": 12714073.035400003,
+        "lastPrice": 1.045,
+        "sourceSymbol": "GASUSDT"
+      },
+      {
+        "symbol": "EIGEN",
+        "quoteVolume": 12575111.167,
+        "lastPrice": 0.2027,
+        "sourceSymbol": "EIGENUSDT"
+      },
+      {
+        "symbol": "HYPER",
+        "quoteVolume": 12573093.283580001,
+        "lastPrice": 0.07975,
+        "sourceSymbol": "HYPERUSDT"
+      },
+      {
+        "symbol": "AERO",
+        "quoteVolume": 11627124.05877,
+        "lastPrice": 0.477,
+        "sourceSymbol": "AEROUSDT"
+      },
+      {
+        "symbol": "DASH",
+        "quoteVolume": 11444708.5131,
+        "lastPrice": 32.51,
+        "sourceSymbol": "DASHUSDT"
+      },
+      {
+        "symbol": "LDO",
+        "quoteVolume": 11373304.969100002,
+        "lastPrice": 0.2397,
+        "sourceSymbol": "LDOUSDT"
+      },
+      {
+        "symbol": "DEXE",
+        "quoteVolume": 11277443.25427,
+        "lastPrice": 23.33,
+        "sourceSymbol": "DEXEUSDT"
+      },
+      {
+        "symbol": "ALGO",
+        "quoteVolume": 11005734.813919999,
+        "lastPrice": 0.0829,
+        "sourceSymbol": "ALGOUSDT"
+      },
+      {
+        "symbol": "S",
+        "quoteVolume": 10974446.853139998,
+        "lastPrice": 0.0227,
+        "sourceSymbol": "SUSDT"
+      },
+      {
+        "symbol": "CHIP",
+        "quoteVolume": 10962169.520939998,
+        "lastPrice": 0.03056,
+        "sourceSymbol": "CHIPUSDT"
+      },
+      {
+        "symbol": "KAITO",
+        "quoteVolume": 10825907.28997,
+        "lastPrice": 0.5615,
+        "sourceSymbol": "KAITOUSDT"
+      },
+      {
+        "symbol": "SEI",
+        "quoteVolume": 10825610.425579999,
+        "lastPrice": 0.04743,
+        "sourceSymbol": "SEIUSDT"
+      },
+      {
+        "symbol": "KITE",
+        "quoteVolume": 10612663.30267,
+        "lastPrice": 0.10858,
+        "sourceSymbol": "KITEUSDT"
+      },
+      {
+        "symbol": "BEL",
+        "quoteVolume": 9925762.927020002,
+        "lastPrice": 0.10329,
+        "sourceSymbol": "BELUSDT"
+      },
+      {
+        "symbol": "MET",
+        "quoteVolume": 9653605.6986,
+        "lastPrice": 0.1616,
+        "sourceSymbol": "METUSDT"
+      },
+      {
+        "symbol": "HOME",
+        "quoteVolume": 9081031.767774003,
+        "lastPrice": 0.01754,
+        "sourceSymbol": "HOMEUSDT"
+      },
+      {
+        "symbol": "MORPHO",
+        "quoteVolume": 8857440.37827,
+        "lastPrice": 1.8962,
+        "sourceSymbol": "MORPHOUSDT"
+      },
+      {
+        "symbol": "SAHARA",
+        "quoteVolume": 8844425.113049999,
+        "lastPrice": 0.01038,
+        "sourceSymbol": "SAHARAUSDT"
+      },
+      {
+        "symbol": "STG",
+        "quoteVolume": 8842034.3825,
+        "lastPrice": 0.1669,
+        "sourceSymbol": "STGUSDT"
+      },
+      {
+        "symbol": "G",
+        "quoteVolume": 8621705.677686,
+        "lastPrice": 0.003216,
+        "sourceSymbol": "GUSDT"
+      },
+      {
+        "symbol": "CRV",
+        "quoteVolume": 8487380.00298,
+        "lastPrice": 0.1842,
+        "sourceSymbol": "CRVUSDT"
+      },
+      {
+        "symbol": "MEME",
+        "quoteVolume": 8399875.4796696,
+        "lastPrice": 0.0006171,
+        "sourceSymbol": "MEMEUSDT"
+      },
+      {
+        "symbol": "ETHFI",
+        "quoteVolume": 8350467.036969999,
+        "lastPrice": 0.3211,
+        "sourceSymbol": "ETHFIUSDT"
+      },
+      {
+        "symbol": "AXS",
+        "quoteVolume": 7606621.565000001,
+        "lastPrice": 0.962,
+        "sourceSymbol": "AXSUSDT"
+      },
+      {
+        "symbol": "POL",
+        "quoteVolume": 7523255.164740001,
+        "lastPrice": 0.06845,
+        "sourceSymbol": "POLUSDT"
+      },
+      {
+        "symbol": "CELO",
+        "quoteVolume": 7499424.75764,
+        "lastPrice": 0.05848,
+        "sourceSymbol": "CELOUSDT"
+      },
+      {
+        "symbol": "ZAMA",
+        "quoteVolume": 7403688.701710001,
+        "lastPrice": 0.03334,
+        "sourceSymbol": "ZAMAUSDT"
+      },
+      {
+        "symbol": "GALA",
+        "quoteVolume": 7103066.906593,
+        "lastPrice": 0.002232,
+        "sourceSymbol": "GALAUSDT"
+      },
+      {
+        "symbol": "OPN",
+        "quoteVolume": 7082204.24137,
+        "lastPrice": 0.06418,
+        "sourceSymbol": "OPNUSDT"
+      },
+      {
+        "symbol": "ONT",
+        "quoteVolume": 6913327.324206999,
+        "lastPrice": 0.04216,
+        "sourceSymbol": "ONTUSDT"
+      },
+      {
+        "symbol": "GENIUS",
+        "quoteVolume": 6741777.791300001,
+        "lastPrice": 0.3948,
+        "sourceSymbol": "GENIUSUSDT"
+      },
+      {
+        "symbol": "STRK",
+        "quoteVolume": 6363219.825873999,
+        "lastPrice": 0.02912,
+        "sourceSymbol": "STRKUSDT"
+      },
+      {
+        "symbol": "APE",
+        "quoteVolume": 6334252.371600001,
+        "lastPrice": 0.1455,
+        "sourceSymbol": "APEUSDT"
+      },
+      {
+        "symbol": "CAKE",
+        "quoteVolume": 6177296.3287,
+        "lastPrice": 1.31,
+        "sourceSymbol": "CAKEUSDT"
+      },
+      {
+        "symbol": "SKY",
+        "quoteVolume": 5796959.804270001,
+        "lastPrice": 0.05224,
+        "sourceSymbol": "SKYUSDT"
+      },
+      {
+        "symbol": "SYRUP",
+        "quoteVolume": 5688869.854680001,
+        "lastPrice": 0.1379,
+        "sourceSymbol": "SYRUPUSDT"
+      },
+      {
+        "symbol": "TOWNS",
+        "quoteVolume": 5655131.423060001,
+        "lastPrice": 0.002057,
+        "sourceSymbol": "TOWNSUSDT"
+      },
+      {
+        "symbol": "TNSR",
+        "quoteVolume": 5554809.466866999,
+        "lastPrice": 0.03371,
+        "sourceSymbol": "TNSRUSDT"
+      },
+      {
+        "symbol": "W",
+        "quoteVolume": 5524435.195661,
+        "lastPrice": 0.00942,
+        "sourceSymbol": "WUSDT"
+      },
+      {
+        "symbol": "RESOLV",
+        "quoteVolume": 5411192.27306,
+        "lastPrice": 0.01899,
+        "sourceSymbol": "RESOLVUSDT"
+      },
+      {
+        "symbol": "SAND",
+        "quoteVolume": 5035961.1219,
+        "lastPrice": 0.04651,
+        "sourceSymbol": "SANDUSDT"
+      },
+      {
+        "symbol": "MAGIC",
+        "quoteVolume": 4892115.962805999,
+        "lastPrice": 0.0406,
+        "sourceSymbol": "MAGICUSDT"
+      },
+      {
+        "symbol": "ROBO",
+        "quoteVolume": 4751879.591840001,
+        "lastPrice": 0.01707,
+        "sourceSymbol": "ROBOUSDT"
+      },
+      {
+        "symbol": "IO",
+        "quoteVolume": 4686429.83864,
+        "lastPrice": 0.1651,
+        "sourceSymbol": "IOUSDT"
+      },
+      {
+        "symbol": "NMR",
+        "quoteVolume": 4631950.6333,
+        "lastPrice": 8.878,
+        "sourceSymbol": "NMRUSDT"
+      },
+      {
+        "symbol": "TURBO",
+        "quoteVolume": 4538993.4284775,
+        "lastPrice": 0.0008075,
+        "sourceSymbol": "TURBOUSDT"
+      },
+      {
+        "symbol": "A",
+        "quoteVolume": 4513897.53968,
+        "lastPrice": 0.06288,
+        "sourceSymbol": "AUSDT"
+      },
+      {
+        "symbol": "SNX",
+        "quoteVolume": 4506306.194069999,
+        "lastPrice": 0.2121,
+        "sourceSymbol": "SNXUSDT"
+      },
+      {
+        "symbol": "EDEN",
+        "quoteVolume": 4465991.9706000015,
+        "lastPrice": 0.04381,
+        "sourceSymbol": "EDENUSDT"
+      },
+      {
+        "symbol": "ALICE",
+        "quoteVolume": 4396512.166559999,
+        "lastPrice": 0.1153,
+        "sourceSymbol": "ALICEUSDT"
+      },
+      {
+        "symbol": "QNT",
+        "quoteVolume": 4389821.188,
+        "lastPrice": 64.77,
+        "sourceSymbol": "QNTUSDT"
+      },
+      {
+        "symbol": "AR",
+        "quoteVolume": 4386298.998,
+        "lastPrice": 1.994,
+        "sourceSymbol": "ARUSDT"
+      },
+      {
+        "symbol": "MMT",
+        "quoteVolume": 4338230.6933,
+        "lastPrice": 0.1641,
+        "sourceSymbol": "MMTUSDT"
+      },
+      {
+        "symbol": "SUSHI",
+        "quoteVolume": 4305812.5447,
+        "lastPrice": 0.1487,
+        "sourceSymbol": "SUSHIUSDT"
+      },
+      {
+        "symbol": "VANA",
+        "quoteVolume": 4301293.208490001,
+        "lastPrice": 1.083,
+        "sourceSymbol": "VANAUSDT"
+      },
+      {
+        "symbol": "LAYER",
+        "quoteVolume": 4212521.591713,
+        "lastPrice": 0.06275,
+        "sourceSymbol": "LAYERUSDT"
+      },
+      {
+        "symbol": "PORTAL",
+        "quoteVolume": 4086341.316813999,
+        "lastPrice": 0.01236,
+        "sourceSymbol": "PORTALUSDT"
+      },
+      {
+        "symbol": "USDC",
+        "quoteVolume": 3966769.233116,
+        "lastPrice": 1.000589,
+        "sourceSymbol": "USDCUSDT"
+      },
+      {
+        "symbol": "SPK",
+        "quoteVolume": 3940036.56231,
+        "lastPrice": 0.01753,
+        "sourceSymbol": "SPKUSDT"
+      },
+      {
+        "symbol": "GRT",
+        "quoteVolume": 3918180.94126,
+        "lastPrice": 0.01766,
+        "sourceSymbol": "GRTUSDT"
+      },
+      {
+        "symbol": "CFG",
+        "quoteVolume": 3888019.8493000004,
+        "lastPrice": 0.1948,
+        "sourceSymbol": "CFGUSDT"
+      },
+      {
+        "symbol": "ZEN",
+        "quoteVolume": 3851189.5335000004,
+        "lastPrice": 4.014,
+        "sourceSymbol": "ZENUSDT"
+      },
+      {
+        "symbol": "IOTA",
+        "quoteVolume": 3827738.195188001,
+        "lastPrice": 0.03518,
+        "sourceSymbol": "IOTAUSDT"
+      },
+      {
+        "symbol": "ENSO",
+        "quoteVolume": 3759484.33424,
+        "lastPrice": 0.6207,
+        "sourceSymbol": "ENSOUSDT"
+      },
+      {
+        "symbol": "STO",
+        "quoteVolume": 3656769.7284700004,
+        "lastPrice": 0.04589,
+        "sourceSymbol": "STOUSDT"
+      },
+      {
+        "symbol": "BERA",
+        "quoteVolume": 3641806.1716199997,
+        "lastPrice": 0.2022,
+        "sourceSymbol": "BERAUSDT"
+      },
+      {
+        "symbol": "ANIME",
+        "quoteVolume": 3638397.770104001,
+        "lastPrice": 0.002629,
+        "sourceSymbol": "ANIMEUSDT"
+      },
+      {
+        "symbol": "GIGGLE",
+        "quoteVolume": 3627965.2487,
+        "lastPrice": 24.1,
+        "sourceSymbol": "GIGGLEUSDT"
+      },
+      {
+        "symbol": "BABY",
+        "quoteVolume": 3546879.8582900004,
+        "lastPrice": 0.01331,
+        "sourceSymbol": "BABYUSDT"
+      },
+      {
+        "symbol": "FIDA",
+        "quoteVolume": 3532712.1787099997,
+        "lastPrice": 0.02031,
+        "sourceSymbol": "FIDAUSDT"
+      },
+      {
+        "symbol": "NEO",
+        "quoteVolume": 3501519.5285300002,
+        "lastPrice": 1.879,
+        "sourceSymbol": "NEOUSDT"
+      },
+      {
+        "symbol": "BANANAS31",
+        "quoteVolume": 3497619.2951680003,
+        "lastPrice": 0.008649,
+        "sourceSymbol": "BANANAS31USDT"
+      },
+      {
+        "symbol": "OPEN",
+        "quoteVolume": 3459972.1891,
+        "lastPrice": 0.1605,
+        "sourceSymbol": "OPENUSDT"
+      },
+      {
+        "symbol": "PHA",
+        "quoteVolume": 3426350.51004,
+        "lastPrice": 0.02681,
+        "sourceSymbol": "PHAUSDT"
+      },
+      {
+        "symbol": "ENS",
+        "quoteVolume": 3291283.7819000003,
+        "lastPrice": 4.07,
+        "sourceSymbol": "ENSUSDT"
+      },
+      {
+        "symbol": "AWE",
+        "quoteVolume": 3208135.8406800004,
+        "lastPrice": 0.05144,
+        "sourceSymbol": "AWEUSDT"
+      },
+      {
+        "symbol": "BAT",
+        "quoteVolume": 3194788.0909700003,
+        "lastPrice": 0.0778,
+        "sourceSymbol": "BATUSDT"
+      },
+      {
+        "symbol": "AVNT",
+        "quoteVolume": 3168635.0364000006,
+        "lastPrice": 0.0891,
+        "sourceSymbol": "AVNTUSDT"
+      },
+      {
+        "symbol": "HOLO",
+        "quoteVolume": 3140493.960290001,
+        "lastPrice": 0.06561,
+        "sourceSymbol": "HOLOUSDT"
+      },
+      {
+        "symbol": "HMSTR",
+        "quoteVolume": 3105481.5330925,
+        "lastPrice": 0.0001884,
+        "sourceSymbol": "HMSTRUSDT"
+      },
+      {
+        "symbol": "ORCA",
+        "quoteVolume": 3083371.8904,
+        "lastPrice": 1.17,
+        "sourceSymbol": "ORCAUSDT"
+      },
+      {
+        "symbol": "VET",
+        "quoteVolume": 3070398.028857,
+        "lastPrice": 0.004369,
+        "sourceSymbol": "VETUSDT"
+      },
+      {
+        "symbol": "PNUT",
+        "quoteVolume": 3063460.2631200007,
+        "lastPrice": 0.0411,
+        "sourceSymbol": "PNUTUSDT"
+      },
+      {
+        "symbol": "MANA",
+        "quoteVolume": 3056794.2903000005,
+        "lastPrice": 0.0621,
+        "sourceSymbol": "MANAUSDT"
+      },
+      {
+        "symbol": "NIGHT",
+        "quoteVolume": 3048991.579630001,
+        "lastPrice": 0.03098,
+        "sourceSymbol": "NIGHTUSDT"
+      },
+      {
+        "symbol": "CATI",
+        "quoteVolume": 3033593.1605200004,
+        "lastPrice": 0.05837,
+        "sourceSymbol": "CATIUSDT"
+      },
+      {
+        "symbol": "ENJ",
+        "quoteVolume": 3007396.49796,
+        "lastPrice": 0.02793,
+        "sourceSymbol": "ENJUSDT"
+      },
+      {
+        "symbol": "JST",
+        "quoteVolume": 2989053.33879,
+        "lastPrice": 0.08749,
+        "sourceSymbol": "JSTUSDT"
+      },
+      {
+        "symbol": "MITO",
+        "quoteVolume": 2901418.4100800003,
+        "lastPrice": 0.02384,
+        "sourceSymbol": "MITOUSDT"
+      },
+      {
+        "symbol": "SAGA",
+        "quoteVolume": 2862644.3159779995,
+        "lastPrice": 0.01257,
+        "sourceSymbol": "SAGAUSDT"
+      },
+      {
+        "symbol": "JASMY",
+        "quoteVolume": 2861451.8078560005,
+        "lastPrice": 0.004248,
+        "sourceSymbol": "JASMYUSDT"
+      },
+      {
+        "symbol": "FOGO",
+        "quoteVolume": 2812965.0217999998,
+        "lastPrice": 0.00913,
+        "sourceSymbol": "FOGOUSDT"
+      },
+      {
+        "symbol": "ICX",
+        "quoteVolume": 2810339.7064699996,
+        "lastPrice": 0.02385,
+        "sourceSymbol": "ICXUSDT"
+      },
+      {
+        "symbol": "CFX",
+        "quoteVolume": 2798849.2611700003,
+        "lastPrice": 0.0426,
+        "sourceSymbol": "CFXUSDT"
+      },
+      {
+        "symbol": "NEIRO",
+        "quoteVolume": 2758019.9257641793,
+        "lastPrice": 0.00006127,
+        "sourceSymbol": "NEIROUSDT"
+      },
+      {
+        "symbol": "BOME",
+        "quoteVolume": 2706450.2846129,
+        "lastPrice": 0.0004091,
+        "sourceSymbol": "BOMEUSDT"
+      },
+      {
+        "symbol": "EPIC",
+        "quoteVolume": 2670192.47348,
+        "lastPrice": 0.4234,
+        "sourceSymbol": "EPICUSDT"
+      },
+      {
+        "symbol": "PARTI",
+        "quoteVolume": 2669547.54666,
+        "lastPrice": 0.04655,
+        "sourceSymbol": "PARTIUSDT"
+      },
+      {
+        "symbol": "GUN",
+        "quoteVolume": 2659277.024742,
+        "lastPrice": 0.004039,
+        "sourceSymbol": "GUNUSDT"
+      },
+      {
+        "symbol": "RPL",
+        "quoteVolume": 2626434.9775,
+        "lastPrice": 1.375,
+        "sourceSymbol": "RPLUSDT"
+      },
+      {
+        "symbol": "PUNDIX",
+        "quoteVolume": 2620468.3117999993,
+        "lastPrice": 0.0815,
+        "sourceSymbol": "PUNDIXUSDT"
+      },
+      {
+        "symbol": "COOKIE",
+        "quoteVolume": 2614321.6279299995,
+        "lastPrice": 0.0085,
+        "sourceSymbol": "COOKIEUSDT"
+      },
+      {
+        "symbol": "STX",
+        "quoteVolume": 2588299.635400001,
+        "lastPrice": 0.1609,
+        "sourceSymbol": "STXUSDT"
+      },
+      {
+        "symbol": "NOM",
+        "quoteVolume": 2546951.972614,
+        "lastPrice": 0.001338,
+        "sourceSymbol": "NOMUSDT"
+      },
+      {
+        "symbol": "ZK",
+        "quoteVolume": 2500035.9501200006,
+        "lastPrice": 0.00993,
+        "sourceSymbol": "ZKUSDT"
+      },
+      {
+        "symbol": "VIC",
+        "quoteVolume": 2493766.8315,
+        "lastPrice": 0.03593,
+        "sourceSymbol": "VICUSDT"
+      },
+      {
+        "symbol": "ARK",
+        "quoteVolume": 2481926.3188000005,
+        "lastPrice": 0.1049,
+        "sourceSymbol": "ARKUSDT"
+      },
+      {
+        "symbol": "SENT",
+        "quoteVolume": 2467643.67652,
+        "lastPrice": 0.01284,
+        "sourceSymbol": "SENTUSDT"
+      },
+      {
+        "symbol": "LINEA",
+        "quoteVolume": 2430964.4143869993,
+        "lastPrice": 0.002276,
+        "sourceSymbol": "LINEAUSDT"
+      },
+      {
+        "symbol": "HUMA",
+        "quoteVolume": 2429849.705221,
+        "lastPrice": 0.022286,
+        "sourceSymbol": "HUMAUSDT"
+      },
+      {
+        "symbol": "ARKM",
+        "quoteVolume": 2285143.7278,
+        "lastPrice": 0.1099,
+        "sourceSymbol": "ARKMUSDT"
+      },
+      {
+        "symbol": "POLYX",
+        "quoteVolume": 2262733.0336499996,
+        "lastPrice": 0.03503,
+        "sourceSymbol": "POLYXUSDT"
+      },
+      {
+        "symbol": "STEEM",
+        "quoteVolume": 2214458.4639100004,
+        "lastPrice": 0.03957,
+        "sourceSymbol": "STEEMUSDT"
+      },
+      {
+        "symbol": "RED",
+        "quoteVolume": 2204348.4631,
+        "lastPrice": 0.0898,
+        "sourceSymbol": "REDUSDT"
+      },
+      {
+        "symbol": "EGLD",
+        "quoteVolume": 2183679.954,
+        "lastPrice": 2.524,
+        "sourceSymbol": "EGLDUSDT"
+      },
+      {
+        "symbol": "PLUME",
+        "quoteVolume": 2174993.41247,
+        "lastPrice": 0.00957,
+        "sourceSymbol": "PLUMEUSDT"
+      }
+    ],
+    "qualifiedUniverseSize": 184,
+    "dominanceThreshold": 0.4,
+    "manualBlacklist": [
+      "BTC",
+      "ETH",
+      "BNB",
+      "SOL",
+      "XRP"
+    ],
+    "candidates": 552,
+    "criteria": {
+      "candidateMarket": "Binance USD-M monthly Futures archive symbols",
+      "rankingMetric": "sum of quoteVolume for final 24 completed 1h candles on UTC as-of date",
+      "candidatePoolCap": 552,
+      "finalCap": 184,
+      "requireBinanceSpotAndArchivedUsdtPerpetual": true,
+      "domesticShareMustBeBelow": 0.4
+    },
+    "filterStats": {
+      "input": 552,
+      "included": 314,
+      "excluded": 238,
+      "manual": 5,
+      "listing": 226,
+      "domestic": 7,
+      "threshold": 0.4,
+      "warnings": []
+    },
+    "excluded": [
+      {
+        "symbol": "BTC",
+        "reason": "manual"
+      },
+      {
+        "symbol": "ETH",
+        "reason": "manual"
+      },
+      {
+        "symbol": "SOL",
+        "reason": "manual"
+      },
+      {
+        "symbol": "SOXL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XAG",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XAU",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SNDK",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SPCX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MU",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "IN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "HYPE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SKHYNIX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LAB",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MSTR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XRP",
+        "reason": "manual"
+      },
+      {
+        "symbol": "KORU",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TAC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CRCL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BNB",
+        "reason": "manual"
+      },
+      {
+        "symbol": "SLX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MRVL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "DRAM",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "UB",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "VELVET",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "INTC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "EWY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "QQQ",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CAP",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "GLW",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TSLA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "NVDA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BTW",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BZ",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "RAVE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CBRS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "H",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LIT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BAS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "GWEI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "NBIS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "RKLB",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TAIKO",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AMD",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "COIN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AAOI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "O",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BEAT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "WDC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BASED",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SAMSUNG",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LITE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "HOOD",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SKYAI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "M",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ARM",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "NATGAS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "FARTCOIN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ARX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XMR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "EVAA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SPY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XPT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "QCOM",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ORCL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AMAT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TSM",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "GOOGL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "USELESS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MSFT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ASTS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "VVV",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MVLL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AAPL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CLO",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ESPORTS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "FLNC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "NFP",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BILL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SIREN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AVGO",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PLTR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "META",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BSB",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AMZN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BABA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "QNTX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "APR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BLESS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "KAS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "RIVER",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "KLAC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "NOK",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TQQQ",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CRWV",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MAGMA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MYX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AIOT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "KGEN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AXTI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PIPPIN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "IBM",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "GUA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ALAB",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PIEVERSE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LRCX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ICNT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "DODOX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "FOLKS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "GRASS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BBX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "COPPER",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SPX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AERGO",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TRIA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "COHR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "JELLYJELLY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AGT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CRDO",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PRL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "STABLE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ZEREBRO",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "EDGE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PLAY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "OPENAI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XNY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MON",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "COLLECT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ON",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "DELL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TRUTH",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "POWER",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "UAI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SMCI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SOON",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "0G",
+        "reason": "domestic-dominant",
+        "domesticShare": 0.46039759989333207
+      },
+      {
+        "symbol": "MOODENG",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SKR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ASML",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XPD",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TRUST",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LA",
+        "reason": "domestic-dominant",
+        "domesticShare": 0.6697240852332015
+      },
+      {
+        "symbol": "SQQQ",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "4",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CYS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BTCDOM",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "JCT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "USAR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LIGHT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XPIN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "COAI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SAFE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BULLA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "STXX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "XAN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ANTHROPIC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TRADOOR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CARV",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BMNR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ONDS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "KAT",
+        "reason": "domestic-dominant",
+        "domesticShare": 0.5386855282717717
+      },
+      {
+        "symbol": "AIN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SPACE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "FLUID",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "B2",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LLY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "HFT",
+        "reason": "domestic-dominant",
+        "domesticShare": 0.561396989545597
+      },
+      {
+        "symbol": "TOSHI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BAN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ARC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "KOMA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PTB",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "HIMS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "TAG",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CRM",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MAVIA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ARIA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ZORA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "POPCAT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PHAROS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AKT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "INX",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AVAAI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "B",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AIA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "IDOL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "US",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BSV",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AZTEC",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "HYUNDAI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "STAR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "GOAT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "IREN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MIRA",
+        "reason": "domestic-dominant",
+        "domesticShare": 0.555709878624545
+      },
+      {
+        "symbol": "SWARMS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LUNA2",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "DIS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "SPORTFUN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CTR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "WET",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "EWJ",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ALL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "NAORIS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "FHE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BLUAI",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "DRIFT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "RAYSOL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AIO",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "LYN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ELSA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ETHW",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ZEST",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "GRIFFAIN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MERL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "AKE",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "STBL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BIRB",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "DOOD",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "Q",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "EUL",
+        "reason": "domestic-dominant",
+        "domesticShare": 0.47285464814778316
+      },
+      {
+        "symbol": "FIGHT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "IRYS",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "PROMPT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CIEN",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "KMNO",
+        "reason": "domestic-dominant",
+        "domesticShare": 0.6558588944463181
+      },
+      {
+        "symbol": "RECALL",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MELANIA",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BTR",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ATH",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "ORDER",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "DEEP",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "CHILLGUY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "UVXY",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "BRETT",
+        "reason": "not-spot-and-perpetual"
+      },
+      {
+        "symbol": "MEW",
+        "reason": "not-spot-and-perpetual"
+      }
+    ],
+    "snapshot": {
+      "sources": {
+        "archiveBucket": "https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/futures/um/monthly/klines/",
+        "hourlyArchive": "https://data.binance.vision/data/futures/um/monthly/klines",
+        "spotInfo": "https://data-api.binance.vision/api/v3/exchangeInfo",
+        "spotTicker": "https://data-api.binance.vision/api/v3/ticker/24hr",
+        "upbit": "https://api.upbit.com/v1/ticker/all?quote_currencies=KRW",
+        "bithumbMarkets": "https://api.bithumb.com/v1/market/all?isDetails=false"
+      },
+      "warnings": [],
+      "archivedFuturesListingCount": 829,
+      "turnoverRows": 744,
+      "krwPerUsdt": 1405
+    },
+    "provenance": {
+      "kind": "futures-archive",
+      "equivalent": true,
+      "promotionEligible": true,
+      "asOfUtc": "2026-06-30T23:59:59.999Z",
+      "limitations": [
+        "Archive availability can lag live markets.",
+        "Listing is inferred from symbols present under the official monthly USD-M kline prefix.",
+        "Domestic-volume filtering uses currently accessible Upbit/Bithumb 24h feeds rather than a historical as-of snapshot."
+      ]
+    },
+    "selectedSymbols": [
+      "SUI",
+      "ONDO",
+      "ENA",
+      "ARB",
+      "INJ",
+      "SYN",
+      "ZEC",
+      "DOGE",
+      "AIGENSYN",
+      "RE",
+      "WLD",
+      "XLM",
+      "NEAR",
+      "AAVE",
+      "PAXG",
+      "ADA",
+      "AVAX",
+      "LINK",
+      "BCH",
+      "ORDI",
+      "TAO",
+      "PUMP",
+      "PYTH",
+      "FIL",
+      "RIF",
+      "XPL",
+      "TRX",
+      "UNI",
+      "JTO",
+      "LTC",
+      "DOT",
+      "MANTA",
+      "AGLD",
+      "TIA",
+      "HEI",
+      "CHZ",
+      "ACT",
+      "XAUT",
+      "ONG",
+      "WLFI",
+      "FET",
+      "TRUMP",
+      "GLM",
+      "BICO",
+      "DYDX",
+      "PENGU",
+      "ASTER",
+      "APT",
+      "ID",
+      "ALLO",
+      "WIF",
+      "BIO",
+      "HBAR",
+      "OP",
+      "OPG",
+      "ZBT",
+      "ESP",
+      "MEGA",
+      "POWR",
+      "ICP",
+      "FF",
+      "PENDLE",
+      "RENDER",
+      "ZRO",
+      "VIRTUAL",
+      "JUP",
+      "ETC",
+      "ATOM",
+      "GAS",
+      "EIGEN",
+      "HYPER",
+      "AERO",
+      "DASH",
+      "LDO",
+      "DEXE",
+      "ALGO",
+      "S",
+      "CHIP",
+      "KAITO",
+      "SEI",
+      "KITE",
+      "BEL",
+      "MET",
+      "HOME",
+      "MORPHO",
+      "SAHARA",
+      "STG",
+      "G",
+      "CRV",
+      "MEME",
+      "ETHFI",
+      "AXS",
+      "POL",
+      "CELO",
+      "ZAMA",
+      "GALA",
+      "OPN",
+      "ONT",
+      "GENIUS",
+      "STRK",
+      "APE",
+      "CAKE",
+      "SKY",
+      "SYRUP",
+      "TOWNS",
+      "TNSR",
+      "W",
+      "RESOLV",
+      "SAND",
+      "MAGIC",
+      "ROBO",
+      "IO",
+      "NMR",
+      "TURBO",
+      "A",
+      "SNX",
+      "EDEN",
+      "ALICE",
+      "QNT",
+      "AR",
+      "MMT",
+      "SUSHI",
+      "VANA",
+      "LAYER",
+      "PORTAL",
+      "USDC",
+      "SPK",
+      "GRT",
+      "CFG",
+      "ZEN",
+      "IOTA",
+      "ENSO",
+      "STO",
+      "BERA",
+      "ANIME",
+      "GIGGLE",
+      "BABY",
+      "FIDA",
+      "NEO",
+      "BANANAS31",
+      "OPEN",
+      "PHA",
+      "ENS",
+      "AWE",
+      "BAT",
+      "AVNT",
+      "HOLO",
+      "HMSTR",
+      "ORCA",
+      "VET",
+      "PNUT",
+      "MANA",
+      "NIGHT",
+      "CATI",
+      "ENJ",
+      "JST",
+      "MITO",
+      "SAGA",
+      "JASMY",
+      "FOGO",
+      "ICX",
+      "CFX",
+      "NEIRO",
+      "BOME",
+      "EPIC",
+      "PARTI",
+      "GUN",
+      "RPL",
+      "PUNDIX",
+      "COOKIE",
+      "STX",
+      "NOM",
+      "ZK",
+      "VIC",
+      "ARK",
+      "SENT",
+      "LINEA",
+      "HUMA",
+      "ARKM",
+      "POLYX",
+      "STEEM",
+      "RED",
+      "EGLD",
+      "PLUME"
+    ]
+  },
+  "counts": {
+    "symbolsRequested": 184,
+    "symbolsCompleted": 184,
+    "failures": 0,
+    "observations": 24335,
+    "bySignalType": {
+      "0Day": 17323,
+      "1Day": 7012
+    }
+  }
+}

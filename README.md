@@ -1,5 +1,9 @@
 # Backtest Research Dashboard
 
+## Research packages
+
+- [1D Bulls2 validation (2026-08-09)](./assets/1d-bulls2-validation-2026-08-09/README.md) — four-year Binance USD-M Futures validation of 0Day/1Day reclaim signals; final decision: `DO NOT PROMOTE`.
+
 Static dashboard for multi-strategy backtest research. The first study presents the BTC/ETH daily support-bounce bullish-candle test and its 2024+ holdout result.
 
 ## Dashboard controls
