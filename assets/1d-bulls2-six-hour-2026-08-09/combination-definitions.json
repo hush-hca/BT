@@ -1,0 +1,86 @@
+[
+  {
+    "id": "c01-score40-immediate",
+    "minimumScore": 40,
+    "entry": "immediate",
+    "stop": "atr",
+    "targetR": 1.5
+  },
+  {
+    "id": "c02-score60-immediate",
+    "minimumScore": 60,
+    "entry": "immediate",
+    "stop": "atr",
+    "targetR": 1.5
+  },
+  {
+    "id": "c03-score80-immediate",
+    "minimumScore": 80,
+    "entry": "immediate",
+    "stop": "atr",
+    "targetR": 1.5
+  },
+  {
+    "id": "c04-score40-relvol-confirm",
+    "minimumScore": 40,
+    "relVol": [
+      1.2,
+      3
+    ],
+    "entry": "confirmation",
+    "stop": "trigger-low",
+    "targetR": 1.5
+  },
+  {
+    "id": "c05-score60-relvol-confirm",
+    "minimumScore": 60,
+    "relVol": [
+      1.2,
+      3
+    ],
+    "entry": "confirmation",
+    "stop": "atr",
+    "targetR": 2
+  },
+  {
+    "id": "c06-score80-relvol-confirm",
+    "minimumScore": 80,
+    "relVol": [
+      1.2,
+      3
+    ],
+    "entry": "confirmation",
+    "stop": "atr",
+    "targetR": 2
+  },
+  {
+    "id": "c07-score40-support-retest",
+    "minimumScore": 40,
+    "maxSupportDistance": 0.03,
+    "entry": "retest",
+    "stop": "trigger-low-atr-quarter",
+    "targetR": 1.5
+  },
+  {
+    "id": "c08-score60-support-breakout",
+    "minimumScore": 60,
+    "maxSupportDistance": 0.03,
+    "entry": "breakout",
+    "stop": "atr",
+    "targetR": 2
+  },
+  {
+    "id": "c09-score60-btc-vwap",
+    "minimumScore": 60,
+    "entry": "vwap-convergence",
+    "stop": "atr",
+    "exit": "split-1r-2r"
+  },
+  {
+    "id": "c10-score80-rs-volume-breakout",
+    "minimumScore": 80,
+    "entry": "rs-volume-breakout",
+    "stop": "trigger-low-atr-quarter",
+    "targetR": 2
+  }
+]

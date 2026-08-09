@@ -2,6 +2,8 @@
 
 ## Research packages
 
+- [1D Bulls2 six-hour intraday backtest (2026-08-09)](./assets/1d-bulls2-six-hour-2026-08-09/README.md) - ten preregistered 0Day strategies on Binance USD-M Futures; final decision: `NO ROBUST SIX-HOUR EDGE`.
+
 - [1D Bulls2 execution backtest (2026-08-09)](./assets/1d-bulls2-execution-2026-08-09/README.md) - four-year Binance USD-M Futures entry/exit study; final decision: `NO ROBUST EXECUTION EDGE`.
 
 - [1D Bulls2 validation (2026-08-09)](./assets/1d-bulls2-validation-2026-08-09/README.md) — four-year Binance USD-M Futures validation of 0Day/1Day reclaim signals; final decision: `DO NOT PROMOTE`.
