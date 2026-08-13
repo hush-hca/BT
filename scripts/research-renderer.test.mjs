@@ -33,6 +33,19 @@ test('escapes authored and tabular content', () => {
   assert.match(html, /&lt;img src=x&gt;/);
 });
 
+for (const lang of ['ko', 'en']) {
+  test(`renders the complete branching lineage with ${lang} titles`, () => {
+    const latest = researchReports.find(({ id }) => id === 'daily-support-1h-confirmation');
+    const html = renderResearchReport(latest, { lang, lineage: researchLineage, reports: researchReports });
+    assert.equal((html.match(/class="lineage-node(?: |")/g) || []).length, 9);
+    for (const item of researchReports) assert.match(html, new RegExp(item.title[lang].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    assert.match(html, /class="lineage-branch"/);
+    assert.match(html, /data-report-id="1d-bulls2-six-hour"/);
+    assert.match(html, /data-report-id="1d-bulls2-execution"/);
+    assert.match(html, /data-report-id="daily-support-1h-confirmation" aria-current="page" disabled/);
+  });
+}
+
 test('exposes stable structural classes for responsive research styling', () => {
   const html = renderResearchReport(report, { lang: 'en', lineage: researchLineage });
   for (const className of [
