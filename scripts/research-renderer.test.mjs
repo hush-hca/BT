@@ -33,6 +33,39 @@ test('escapes authored and tabular content', () => {
   assert.match(html, /&lt;img src=x&gt;/);
 });
 
+test('exposes stable structural classes for responsive research styling', () => {
+  const html = renderResearchReport(report, { lang: 'en', lineage: researchLineage });
+  for (const className of [
+    'research-report',
+    'verdict-reject',
+    'research-verdict',
+    'research-metrics',
+    'research-metric',
+    'research-narrative',
+    'research-process',
+    'research-table-wrap',
+    'research-table',
+    'research-disclosure',
+    'research-lineage',
+    'lineage-nodes',
+    'lineage-node',
+    'research-evidence',
+  ]) {
+    assert.match(html, new RegExp(`class="[^"]*\\b${className}\\b`), className);
+  }
+});
+
+test('research stylesheet includes mobile, focus, sticky table, and motion safeguards', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+  assert.match(css, /\.verdict-reject\s+\.research-verdict/);
+  assert.match(css, /\.verdict-inconclusive\s+\.research-verdict/);
+  assert.match(css, /\.lineage-nodes[^{]*\{[^}]*overflow-x\s*:\s*auto/s);
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /\.research-table[^}]*th:first-child[^}]*position\s*:\s*sticky/s);
+  assert.match(css, /@media\s*\(max-width\s*:\s*720px\)/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion\s*:\s*reduce\)/);
+});
+
 test('application dispatches both schemas and wires research interactions', async () => {
   const [app, index] = await Promise.all([readFile(new URL('../app.js', import.meta.url), 'utf8'), readFile(new URL('../index.html', import.meta.url), 'utf8')]);
   assert.match(index, /script type="module" src="\/app\.js"/);
