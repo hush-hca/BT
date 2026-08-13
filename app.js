@@ -1,3 +1,6 @@
+import { researchReports, researchLineage } from './research-reports.js';
+import { renderResearchReport } from './research-renderer.js';
+
 const baseline = [
   { id: 5016, btc: [18, 27.8, 0.07, 1.09], eth: [11, 36.4, 0.42, 1.66], rules: [60, 0.75, 50, 30, 100, 0.10, 3] },
   { id: 4970, btc: [33, 27.3, 0.06, 1.08], eth: [24, 37.5, 0.46, 1.73], rules: [60, 0.75, 30, 30, 0, 0.50, 3] },
@@ -108,8 +111,51 @@ function copyText(value) {
   return copied ? Promise.resolve() : Promise.reject(new Error('Copy unavailable'));
 }
 
+function reportOptions() {
+  const legacy = reports.map((item) => `<option value="${item.id}" ${item.id === selectedReport ? 'selected' : ''}>${item.name[lang]} · ${item.date}</option>`).join('');
+  const research = researchReports.map((item) => `<option value="${item.id}" ${item.id === selectedReport ? 'selected' : ''}>${item.title[lang]} · ${item.date}</option>`).join('');
+  return `<optgroup label="BT Lab">${legacy}</optgroup><optgroup label="Catching Cat">${research}</optgroup>`;
+}
+
+function selectReport(id, focus = true) {
+  selectedReport = id;
+  const legacy = reports.find((item) => item.id === id);
+  if (legacy) selectedId = legacy.configs[0].id;
+  render();
+  if (focus) {
+    const heading = document.querySelector('#report-title, h1');
+    heading?.focus({ preventScroll: true });
+    heading?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function bindResearchFileViewer() {
+  const buttons = document.querySelectorAll('.file-select');
+  const load = async (button) => {
+    document.querySelector('#file-name').textContent = button.textContent;
+    const output = document.querySelector('#file-content');
+    output.textContent = copy[lang].loading;
+    try { const response = await fetch(`/assets/catching-cat-research/${button.dataset.evidencePath}`); output.textContent = response.ok ? await response.text() : 'Could not load file.'; }
+    catch { output.textContent = 'Could not load file.'; }
+  };
+  buttons.forEach((button) => { button.onclick = () => load(button); });
+  document.querySelector('#copy-file').onclick = async () => { const status = document.querySelector('#copy-status'); try { await copyText(document.querySelector('#file-content').textContent); status.textContent = copy[lang].copied; } catch { status.textContent = copy[lang].failed; } };
+  if (buttons[0]) load(buttons[0]);
+}
+
+function renderResearchPage(report) {
+  const t = copy[lang];
+  document.querySelector('#app').innerHTML = `<div class="wrap"><nav><span class="brand"><img src="/assets/brand/bt-logo.png" alt="BT Lab logo"><span class="brand-copy">BT LAB<small>BACKTEST RESEARCH</small></span></span><div class="nav-controls"><label class="report-control">${t.reports}<select id="report">${reportOptions()}</select></label><div id="language-toggle" role="group" aria-label="Language"><button type="button" data-lang="ko" class="${lang === 'ko' ? 'active' : ''}" aria-pressed="${lang === 'ko'}">KR</button><button type="button" data-lang="en" class="${lang === 'en' ? 'active' : ''}" aria-pressed="${lang === 'en'}">EN</button></div></div></nav>${renderResearchReport(report, { lang, lineage: researchLineage })}</div>`;
+  document.querySelector('#report').onchange = (event) => selectReport(event.target.value);
+  document.querySelectorAll('[data-lang]').forEach((button) => { button.onclick = () => { lang = button.dataset.lang; render(); }; });
+  document.querySelectorAll('[data-report-id]:not([disabled])').forEach((button) => { button.onclick = () => selectReport(button.dataset.reportId); });
+  bindResearchFileViewer();
+}
+
 function render() {
   const t = copy[lang];
+  const researchReport = researchReports.find((item) => item.id === selectedReport);
+  if (researchReport) { renderResearchPage(researchReport); return; }
   const report = reports.find((item) => item.id === selectedReport);
   const activeConfig = report.configs.find((item) => item.id === selectedId);
   const isSingleAsset = Boolean(report.symbol);
@@ -131,7 +177,8 @@ function render() {
   document.querySelector('#app').innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control">${t.reports}<select id="report">${reports.map((item) => `<option value="${item.id}" ${item.id === report.id ? 'selected' : ''}>${item.name[lang]} · ${item.date}</option>`).join('')}</select></label><div id="language-toggle" role="group" aria-label="Language"><button type="button" data-lang="ko" class="${lang === 'ko' ? 'active' : ''}" aria-pressed="${lang === 'ko'}">KR</button><button type="button" data-lang="en" class="${lang === 'en' ? 'active' : ''}" aria-pressed="${lang === 'en'}">EN</button></div></div></nav><p class="eyebrow">${marketLabel} · ${report.timeframe || 'Daily'} <span class="date-chip">${report.date}</span></p><h1>${report.name[lang]}</h1><p class="sub">${report.desc[lang]}</p><div class="banner"><b>${t.result}</b> ${report.status[lang]}</div><section><h2>${t.rules}: #${selectedId}</h2><div class="rules">${ruleCards(activeConfig.rules, t)}</div></section><section><h2>${t.equity}</h2><div class="charts">${report.charts.map((path, index) => `<figure><img src="${path}" alt="${t.equity}"/><figcaption>${report.captions[index]}</figcaption></figure>`).join('')}</div></section><section><h2>${t.perf}</h2><div class="table-wrap"><table><thead><tr>${tableLabels}</tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><div class="file-layout"><div class="file-list">${report.files.map(([ko, en, path]) => `<button type="button" class="file-select" data-path="${path}">${lang === 'ko' ? ko : en}</button>`).join('')}</div><div class="file-viewer"><div class="file-toolbar"><b id="file-name"></b><button type="button" id="copy-file" class="icon-button" aria-label="${t.copied}" title="${t.copied}"><span aria-hidden="true">⧉</span></button></div><pre id="file-content">${t.loading}</pre><p id="copy-status" class="sr-only" aria-live="polite"></p></div></div></section></div>`;
 
   document.querySelector('.brand').innerHTML = '<img src="/assets/brand/bt-logo.png" alt="BT Lab logo"/><span class="brand-copy">BT LAB<small>BACKTEST RESEARCH</small></span>';
-  document.querySelector('#report').onchange = (event) => { selectedReport = event.target.value; selectedId = reports.find((item) => item.id === selectedReport).configs[0].id; render(); };
+  document.querySelector('#report').insertAdjacentHTML('beforeend', `<optgroup label="Catching Cat">${researchReports.map((item) => `<option value="${item.id}">${item.title[lang]} · ${item.date}</option>`).join('')}</optgroup>`);
+  document.querySelector('#report').onchange = (event) => selectReport(event.target.value);
   document.querySelectorAll('[data-lang]').forEach((button) => { button.onclick = () => { lang = button.dataset.lang; render(); }; });
   document.querySelectorAll('.config-select').forEach((button) => { button.onclick = () => { selectedId = Number(button.dataset.id); render(); }; });
   const load = async (button) => { document.querySelector('#file-name').textContent = button.textContent; const output = document.querySelector('#file-content'); output.textContent = t.loading; try { const response = await fetch(button.dataset.path); output.textContent = response.ok ? await response.text() : 'Could not load file.'; } catch { output.textContent = 'Could not load file.'; } };
