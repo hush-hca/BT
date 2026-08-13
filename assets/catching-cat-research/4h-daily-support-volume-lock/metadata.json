@@ -1,0 +1,14 @@
+{
+  "pipeline": [
+    "load-broad",
+    "refine",
+    "controls-development-validation",
+    "raw-development",
+    "raw-validation"
+  ],
+  "secondaryValidation": true,
+  "holdoutStatus": "sealed",
+  "broadSignalCount": 6948,
+  "refinedSignalCount": 634,
+  "dataFailureCount": 8623
+}

@@ -1,0 +1,14 @@
+{
+  "pipeline": [
+    "load-broad",
+    "load-research-1h",
+    "rank",
+    "confirm",
+    "walk-forward"
+  ],
+  "holdoutStatus": "sealed",
+  "researchCount": 5557,
+  "holdoutCount": 1391,
+  "configurationCount": 16,
+  "dataFailureCount": 8225
+}

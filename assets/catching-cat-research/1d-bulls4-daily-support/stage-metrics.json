@@ -1,0 +1,326 @@
+{
+  "development": {
+    "horizons": {
+      "1d": {
+        "signal": {
+          "count": 1597,
+          "meanReturn": -0.0017353065478194986,
+          "medianReturn": -0.002172114283884417,
+          "winRate": 0.469630557294928
+        },
+        "away": {
+          "count": 805,
+          "meanReturn": -0.020295819187248813,
+          "medianReturn": -0.020426714058553785,
+          "winRate": 0.29316770186335406
+        },
+        "touch": {
+          "count": 1559,
+          "meanReturn": 0.06460441938115902,
+          "medianReturn": 0.058809193200861865,
+          "winRate": 0.946119307248236
+        }
+      },
+      "2d": {
+        "signal": {
+          "count": 1597,
+          "meanReturn": -0.002305363695498276,
+          "medianReturn": -0.0026879944960438423,
+          "winRate": 0.46086412022542267
+        },
+        "away": {
+          "count": 805,
+          "meanReturn": -0.03232311985886287,
+          "medianReturn": -0.028678141135972446,
+          "winRate": 0.29440993788819875
+        },
+        "touch": {
+          "count": 1559,
+          "meanReturn": 0.06687536634876969,
+          "medianReturn": 0.056016219588271854,
+          "winRate": 0.8774855676715844
+        }
+      },
+      "3d": {
+        "signal": {
+          "count": 1597,
+          "meanReturn": -0.0067606295767113555,
+          "medianReturn": -0.010459891958006338,
+          "winRate": 0.4289292423293676
+        },
+        "away": {
+          "count": 805,
+          "meanReturn": -0.044548992379065656,
+          "medianReturn": -0.04151336175522524,
+          "winRate": 0.2720496894409938
+        },
+        "touch": {
+          "count": 1559,
+          "meanReturn": 0.06754128571894684,
+          "medianReturn": 0.05602197802197817,
+          "winRate": 0.8159076330981399
+        }
+      }
+    },
+    "scoreBands": [
+      {
+        "label": "0-49",
+        "minimum": 0,
+        "maximum": 49.999,
+        "metrics": {
+          "count": 339,
+          "meanReturn": -0.011745810539309206,
+          "medianReturn": -0.01047457627118653,
+          "winRate": 0.4247787610619469
+        }
+      },
+      {
+        "label": "50-59",
+        "minimum": 50,
+        "maximum": 59.999,
+        "metrics": {
+          "count": 369,
+          "meanReturn": -0.0030385535432766223,
+          "medianReturn": -0.008696428571428603,
+          "winRate": 0.44173441734417346
+        }
+      },
+      {
+        "label": "60-69",
+        "minimum": 60,
+        "maximum": 69.999,
+        "metrics": {
+          "count": 482,
+          "meanReturn": -0.011865593450601192,
+          "medianReturn": -0.014556067653047287,
+          "winRate": 0.4087136929460581
+        }
+      },
+      {
+        "label": "70-79",
+        "minimum": 70,
+        "maximum": 79.999,
+        "metrics": {
+          "count": 310,
+          "meanReturn": 0.0010153240518693657,
+          "medianReturn": -0.00564780177470081,
+          "winRate": 0.45161290322580644
+        }
+      },
+      {
+        "label": "80-100",
+        "minimum": 80,
+        "maximum": 100,
+        "metrics": {
+          "count": 97,
+          "meanReturn": -0.0029814826453905367,
+          "medianReturn": -0.0027217315158760674,
+          "winRate": 0.422680412371134
+        }
+      }
+    ],
+    "yearly": [
+      {
+        "year": 2022,
+        "metrics": {
+          "count": 194,
+          "meanReturn": 0.005243038098111856,
+          "medianReturn": -0.00422102554954462,
+          "winRate": 0.4742268041237113
+        }
+      },
+      {
+        "year": 2023,
+        "metrics": {
+          "count": 332,
+          "meanReturn": 0.0007778035750692068,
+          "medianReturn": -0.002150013705568275,
+          "winRate": 0.463855421686747
+        }
+      },
+      {
+        "year": 2024,
+        "metrics": {
+          "count": 613,
+          "meanReturn": 0.008789756667200901,
+          "medianReturn": -0.00003321678321665904,
+          "winRate": 0.499184339314845
+        }
+      },
+      {
+        "year": 2025,
+        "metrics": {
+          "count": 458,
+          "meanReturn": -0.03812276517239931,
+          "medianReturn": -0.04145820827534502,
+          "winRate": 0.2903930131004367
+        }
+      }
+    ]
+  },
+  "validation": {
+    "horizons": {
+      "1d": {
+        "signal": {
+          "count": 529,
+          "meanReturn": 0.0007938874199947101,
+          "medianReturn": -0.006905523255814059,
+          "winRate": 0.41965973534971646
+        },
+        "away": {
+          "count": 308,
+          "meanReturn": -0.01337547858988982,
+          "medianReturn": -0.006822506821006545,
+          "winRate": 0.41233766233766234
+        },
+        "touch": {
+          "count": 479,
+          "meanReturn": 0.06724207537437063,
+          "medianReturn": 0.06028121353558924,
+          "winRate": 0.9582463465553236
+        }
+      },
+      "2d": {
+        "signal": {
+          "count": 529,
+          "meanReturn": 0.002709619579629983,
+          "medianReturn": -0.0014527544691718113,
+          "winRate": 0.4877126654064272
+        },
+        "away": {
+          "count": 308,
+          "meanReturn": -0.03646848977355516,
+          "medianReturn": -0.043025539995991735,
+          "winRate": 0.2662337662337662
+        },
+        "touch": {
+          "count": 479,
+          "meanReturn": 0.06870629262060346,
+          "medianReturn": 0.05577555777555765,
+          "winRate": 0.9123173277661796
+        }
+      },
+      "3d": {
+        "signal": {
+          "count": 529,
+          "meanReturn": -0.01596049969889279,
+          "medianReturn": -0.017444015444015304,
+          "winRate": 0.3799621928166352
+        },
+        "away": {
+          "count": 308,
+          "meanReturn": -0.044577246113695235,
+          "medianReturn": -0.054711542252349754,
+          "winRate": 0.2305194805194805
+        },
+        "touch": {
+          "count": 479,
+          "meanReturn": 0.07606935278633176,
+          "medianReturn": 0.06696551724137922,
+          "winRate": 0.8350730688935282
+        }
+      }
+    },
+    "scoreBands": [
+      {
+        "label": "0-49",
+        "minimum": 0,
+        "maximum": 49.999,
+        "metrics": {
+          "count": 95,
+          "meanReturn": -0.0325415220864461,
+          "medianReturn": -0.029723870252287288,
+          "winRate": 0.3684210526315789
+        }
+      },
+      {
+        "label": "50-59",
+        "minimum": 50,
+        "maximum": 59.999,
+        "metrics": {
+          "count": 116,
+          "meanReturn": -0.032262095430333176,
+          "medianReturn": -0.01782700867892928,
+          "winRate": 0.3275862068965517
+        }
+      },
+      {
+        "label": "60-69",
+        "minimum": 60,
+        "maximum": 69.999,
+        "metrics": {
+          "count": 164,
+          "meanReturn": 0.014874628296878746,
+          "medianReturn": -0.011387824751268592,
+          "winRate": 0.4268292682926829
+        }
+      },
+      {
+        "label": "70-79",
+        "minimum": 70,
+        "maximum": 79.999,
+        "metrics": {
+          "count": 123,
+          "meanReturn": -0.03677727990175735,
+          "medianReturn": -0.025265833692373896,
+          "winRate": 0.34146341463414637
+        }
+      },
+      {
+        "label": "80-100",
+        "minimum": 80,
+        "maximum": 100,
+        "metrics": {
+          "count": 31,
+          "meanReturn": 0.015319668214348037,
+          "medianReturn": 0.022513445253305564,
+          "winRate": 0.5161290322580645
+        }
+      }
+    ],
+    "yearly": [
+      {
+        "year": 2025,
+        "metrics": {
+          "count": 529,
+          "meanReturn": -0.01596049969889279,
+          "medianReturn": -0.017444015444015304,
+          "winRate": 0.3799621928166352
+        }
+      }
+    ],
+    "gate": {
+      "passed": false,
+      "reasons": [
+        "mean-return-not-positive",
+        "median-return-not-positive",
+        "win-rate-not-above-50-percent",
+        "no-positive-touch-control-uplift"
+      ],
+      "signal": {
+        "count": 529,
+        "meanReturn": -0.01596049969889279,
+        "medianReturn": -0.017444015444015304,
+        "winRate": 0.3799621928166352
+      },
+      "controls": {
+        "away": {
+          "count": 308,
+          "meanReturn": -0.044577246113695235,
+          "medianReturn": -0.054711542252349754,
+          "winRate": 0.2305194805194805
+        },
+        "touch": {
+          "count": 479,
+          "meanReturn": 0.07606935278633176,
+          "medianReturn": 0.06696551724137922,
+          "winRate": 0.8350730688935282
+        }
+      },
+      "meanReturnUplift": {
+        "away": 0.028616746414802444,
+        "touch": -0.09202985248522455
+      }
+    }
+  }
+}

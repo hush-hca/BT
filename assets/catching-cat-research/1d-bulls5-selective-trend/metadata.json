@@ -1,0 +1,19 @@
+{
+  "startTime": 1656633600000,
+  "endExclusive": 1782864000000,
+  "symbols": 184,
+  "gridSize": 54,
+  "dailyArchiveRequests": 10488,
+  "intradayArchiveRequests": 3756,
+  "allSymbolIntradayRequests": 20976,
+  "pipelineOrder": [
+    "daily-discovery",
+    "timestamp-split",
+    "targeted-intraday",
+    "development"
+  ],
+  "holdoutStatus": "sealed",
+  "validationPassed": false,
+  "candidateCount": 2272,
+  "dataFailureCount": 4800
+}

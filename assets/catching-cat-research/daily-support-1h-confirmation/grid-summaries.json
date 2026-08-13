@@ -1,0 +1,970 @@
+[
+  {
+    "configId": "valid6-top30-breakout-hold6",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid6-top30-breakout-hold12",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid6-top30-retest-hold6",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid6-top30-retest-hold12",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid6-top50-breakout-hold6",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid6-top50-breakout-hold12",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid6-top50-retest-hold6",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid6-top50-retest-hold12",
+    "metrics": {
+      "tradeCount": 0,
+      "totalReturn": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "meanReturn": 0,
+      "medianReturn": 0,
+      "expectancy": 0,
+      "averageHoldingHours": 0,
+      "medianHoldingHours": 0,
+      "costs": 0,
+      "foldExpectancy": [],
+      "yearly": {},
+      "bootstrapInterval": {
+        "lower": 0,
+        "upper": 0,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top30-breakout-hold6",
+    "metrics": {
+      "tradeCount": 4,
+      "totalReturn": -0.004063413511376612,
+      "maxDrawdown": 0.005566388254826649,
+      "winRate": 0.5,
+      "profitFactor": 0.14752131907950564,
+      "meanReturn": -0.003982455549025009,
+      "medianReturn": -0.003421110460484332,
+      "expectancy": -0.003982455549025009,
+      "averageHoldingHours": 5.499999791666667,
+      "medianHoldingHours": 5.999999722222222,
+      "costs": 0.1409307376125576,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 1,
+          "totalReturn": -0.002565906391371109,
+          "meanReturn": -0.013243474769107253,
+          "medianReturn": -0.013243474769107253
+        },
+        "2024": {
+          "tradeCount": 2,
+          "totalReturn": -0.0018603391877977608,
+          "meanReturn": -0.003421110460484332,
+          "medianReturn": -0.003421110460484332
+        },
+        "2025": {
+          "tradeCount": 1,
+          "totalReturn": 0.0003628320677922577,
+          "meanReturn": 0.004155873493975883,
+          "medianReturn": 0.004155873493975883
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.008332292614795792,
+        "upper": 0.00036738151674577547,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.013243474769107253,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": -0.003421110460484332,
+        "profitFactor": 0.1546526720053459
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.004155873493975883,
+        "profitFactor": null
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top30-breakout-hold12",
+    "metrics": {
+      "tradeCount": 4,
+      "totalReturn": -0.005677900713990277,
+      "maxDrawdown": 0.010830876515103682,
+      "winRate": 0.75,
+      "profitFactor": 0.27488958518902085,
+      "meanReturn": -0.005605642487388018,
+      "medianReturn": 0.0022478237798785232,
+      "expectancy": -0.005605642487388018,
+      "averageHoldingHours": 9.24999986111111,
+      "medianHoldingHours": 10.49999986111111,
+      "costs": 0.1409307376125576,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 1,
+          "totalReturn": -0.007830394651648169,
+          "meanReturn": -0.04041520546111632,
+          "medianReturn": -0.04041520546111632
+        },
+        "2024": {
+          "tradeCount": 2,
+          "totalReturn": 0.0009741279323836667,
+          "meanReturn": 0.0022478237798785232,
+          "medianReturn": 0.0022478237798785232
+        },
+        "2025": {
+          "tradeCount": 1,
+          "totalReturn": 0.0011783660052742254,
+          "meanReturn": 0.013496987951807206,
+          "medianReturn": 0.013496987951807206
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.018940029034412997,
+        "upper": 0.007728744059636961,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.04041520546111632,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.0022478237798785232,
+        "profitFactor": null
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.013496987951807206,
+        "profitFactor": null
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top30-retest-hold6",
+    "metrics": {
+      "tradeCount": 4,
+      "totalReturn": -0.005337834560869861,
+      "maxDrawdown": 0.008273957243235089,
+      "winRate": 0.75,
+      "profitFactor": 0.35486316837881726,
+      "meanReturn": -0.005009687333262716,
+      "medianReturn": 0.003035600153706116,
+      "expectancy": -0.005009687333262716,
+      "averageHoldingHours": 5.499999791666667,
+      "medianHoldingHours": 5.999999722222222,
+      "costs": 0.18367889028422413,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 1,
+          "totalReturn": -0.008273957243235153,
+          "meanReturn": -0.03309582897294061,
+          "medianReturn": -0.03309582897294061
+        },
+        "2024": {
+          "tradeCount": 1,
+          "totalReturn": 0.0010103282526940556,
+          "meanReturn": 0.004407813244402017,
+          "medianReturn": 0.004407813244402017
+        },
+        "2025": {
+          "tradeCount": 2,
+          "totalReturn": 0.001925794429671235,
+          "meanReturn": 0.004324633197743868,
+          "medianReturn": 0.004324633197743868
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.015030114409617247,
+        "upper": 0.005010739743091818,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.03309582897294061,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.004407813244402017,
+        "profitFactor": null
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.004324633197743868,
+        "profitFactor": null
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top30-retest-hold12",
+    "metrics": {
+      "tradeCount": 4,
+      "totalReturn": -0.006911521355118224,
+      "maxDrawdown": 0.008967165603384473,
+      "winRate": 0.5,
+      "profitFactor": 0.22924124959735798,
+      "meanReturn": -0.006692147855952801,
+      "medianReturn": 0.0007185610081975736,
+      "expectancy": -0.006692147855952801,
+      "averageHoldingHours": 7.249999930555555,
+      "medianHoldingHours": 6.5,
+      "costs": 0.18367889028422413,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 1,
+          "totalReturn": -0.008273957243235153,
+          "meanReturn": -0.03309582897294061,
+          "medianReturn": -0.03309582897294061
+        },
+        "2024": {
+          "tradeCount": 1,
+          "totalReturn": -0.0006932083601493903,
+          "meanReturn": -0.003024297284421237,
+          "medianReturn": -0.003024297284421237
+        },
+        "2025": {
+          "tradeCount": 2,
+          "totalReturn": 0.002055644248266319,
+          "meanReturn": 0.004675767416775324,
+          "medianReturn": 0.004675767416775324
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.01618863398237152,
+        "upper": 0.0028043382704659187,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.03309582897294061,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": -0.003024297284421237,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.004675767416775324,
+        "profitFactor": null
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top50-breakout-hold6",
+    "metrics": {
+      "tradeCount": 6,
+      "totalReturn": -0.00457418257998988,
+      "maxDrawdown": 0.007510247329043373,
+      "winRate": 0.3333333333333333,
+      "profitFactor": 0.1332434627870792,
+      "meanReturn": -0.0031424565312306533,
+      "medianReturn": -0.0014624584956419427,
+      "expectancy": -0.0031424565312306533,
+      "averageHoldingHours": 5.666666435185185,
+      "medianHoldingHours": 5.999999722222222,
+      "costs": 0.22456531050799322,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 2,
+          "totalReturn": -0.0026235810237240386,
+          "meanReturn": -0.006737086649259486,
+          "medianReturn": -0.006737086649259486
+        },
+        "2024": {
+          "tradeCount": 3,
+          "totalReturn": -0.0023134336240581,
+          "meanReturn": -0.0031788131276136097,
+          "medianReturn": -0.0026942184618721655
+        },
+        "2025": {
+          "tradeCount": 1,
+          "totalReturn": 0.0003628320677922577,
+          "meanReturn": 0.004155873493975883,
+          "medianReturn": 0.004155873493975883
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.007060431679505046,
+        "upper": 0.0007755186170437388,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.006737086649259486,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": -0.003421110460484332,
+        "profitFactor": 0.1546526720053459
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.0007308275160518587,
+        "profitFactor": 0.8007868531490455
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top50-breakout-hold12",
+    "metrics": {
+      "tradeCount": 6,
+      "totalReturn": -0.00807942995758059,
+      "maxDrawdown": 0.011675032301922454,
+      "winRate": 0.5,
+      "profitFactor": 0.21037040147059485,
+      "meanReturn": -0.0059866044516098645,
+      "medianReturn": 0.00017556258373337564,
+      "expectancy": -0.0059866044516098645,
+      "averageHoldingHours": 9.333333194444444,
+      "medianHoldingHours": 10.49999986111111,
+      "costs": 0.22456531050799322,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 2,
+          "totalReturn": -0.008232738401648159,
+          "meanReturn": -0.021012290230558145,
+          "medianReturn": -0.021012290230558145
+        },
+        "2024": {
+          "tradeCount": 3,
+          "totalReturn": -0.0010250575612066556,
+          "meanReturn": -0.0024640114001167005,
+          "medianReturn": 0.001960500167466718
+        },
+        "2025": {
+          "tradeCount": 1,
+          "totalReturn": 0.0011783660052742254,
+          "meanReturn": 0.013496987951807206,
+          "medianReturn": 0.013496987951807206
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.014971970020430452,
+        "upper": 0.0029029865797401224,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.021012290230558145,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.0022478237798785232,
+        "profitFactor": null
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.0008046530958500291,
+        "profitFactor": 0.5894230470620346
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top50-retest-hold6",
+    "metrics": {
+      "tradeCount": 4,
+      "totalReturn": -0.005337834560869861,
+      "maxDrawdown": 0.008273957243235089,
+      "winRate": 0.75,
+      "profitFactor": 0.35486316837881726,
+      "meanReturn": -0.005009687333262716,
+      "medianReturn": 0.003035600153706116,
+      "expectancy": -0.005009687333262716,
+      "averageHoldingHours": 5.499999791666667,
+      "medianHoldingHours": 5.999999722222222,
+      "costs": 0.18367889028422413,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 1,
+          "totalReturn": -0.008273957243235153,
+          "meanReturn": -0.03309582897294061,
+          "medianReturn": -0.03309582897294061
+        },
+        "2024": {
+          "tradeCount": 1,
+          "totalReturn": 0.0010103282526940556,
+          "meanReturn": 0.004407813244402017,
+          "medianReturn": 0.004407813244402017
+        },
+        "2025": {
+          "tradeCount": 2,
+          "totalReturn": 0.001925794429671235,
+          "meanReturn": 0.004324633197743868,
+          "medianReturn": 0.004324633197743868
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.015030114409617247,
+        "upper": 0.005010739743091818,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.03309582897294061,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.004407813244402017,
+        "profitFactor": null
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.004324633197743868,
+        "profitFactor": null
+      }
+    ]
+  },
+  {
+    "configId": "valid12-top50-retest-hold12",
+    "metrics": {
+      "tradeCount": 4,
+      "totalReturn": -0.006911521355118224,
+      "maxDrawdown": 0.008967165603384473,
+      "winRate": 0.5,
+      "profitFactor": 0.22924124959735798,
+      "meanReturn": -0.006692147855952801,
+      "medianReturn": 0.0007185610081975736,
+      "expectancy": -0.006692147855952801,
+      "averageHoldingHours": 7.249999930555555,
+      "medianHoldingHours": 6.5,
+      "costs": 0.18367889028422413,
+      "foldExpectancy": [],
+      "yearly": {
+        "2022": {
+          "tradeCount": 1,
+          "totalReturn": -0.008273957243235153,
+          "meanReturn": -0.03309582897294061,
+          "medianReturn": -0.03309582897294061
+        },
+        "2024": {
+          "tradeCount": 1,
+          "totalReturn": -0.0006932083601493903,
+          "meanReturn": -0.003024297284421237,
+          "medianReturn": -0.003024297284421237
+        },
+        "2025": {
+          "tradeCount": 2,
+          "totalReturn": 0.002055644248266319,
+          "meanReturn": 0.004675767416775324,
+          "medianReturn": 0.004675767416775324
+        }
+      },
+      "bootstrapInterval": {
+        "lower": -0.01618863398237152,
+        "upper": 0.0028043382704659187,
+        "samples": 10000,
+        "blockLength": 5,
+        "seed": 20260812
+      }
+    },
+    "folds": [
+      {
+        "meanReturn": -0.03309582897294061,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": -0.003024297284421237,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0,
+        "profitFactor": 0
+      },
+      {
+        "meanReturn": 0.004675767416775324,
+        "profitFactor": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "walkForward": {
+    "tradeCount": 1,
+    "totalReturn": 0.0011783660052742254,
+    "maxDrawdown": 0,
+    "winRate": 1,
+    "profitFactor": null,
+    "meanReturn": 0.013496987951807206,
+    "medianReturn": 0.013496987951807206,
+    "averageHoldingHours": 11.999999722222222,
+    "medianHoldingHours": 11.999999722222222,
+    "costs": 0.017461169995583285,
+    "foldExpectancy": [
+      0,
+      0,
+      0.013496987951807206,
+      0,
+      0
+    ],
+    "yearly": {
+      "2025": {
+        "tradeCount": 1,
+        "totalReturn": 0.0011783660052742254,
+        "meanReturn": 0.013496987951807206,
+        "medianReturn": 0.013496987951807206
+      }
+    },
+    "bootstrapInterval": {
+      "lower": 0.013496987951807206,
+      "upper": 0.013496987951807206,
+      "samples": 10000,
+      "blockLength": 5,
+      "seed": 20260812
+    }
+  },
+  "holdout": null
+}

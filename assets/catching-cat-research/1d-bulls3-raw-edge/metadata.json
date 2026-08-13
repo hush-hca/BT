@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-08-12T06:16:39.597Z",
+  "sourceInput": "C:\\Users\\USER\\Documents\\Codex\\2026-06-27\\d\\outputs\\catching-cat\\research\\1d-bulls2\\20220701-20260630-futures",
+  "sourceEventCount": 24335,
+  "deduplicatedEventCount": 7409,
+  "splitCounts": {
+    "development": 4445,
+    "validation": 1480,
+    "holdout": 1484
+  },
+  "enrichedCounts": {
+    "development": 4445,
+    "validation": 1480,
+    "holdout": 0
+  },
+  "archiveRequests": 2736,
+  "archiveSource": "https://data.binance.vision/data/futures/um/monthly/klines",
+  "interval": "15m",
+  "roundTripCost": 0.002,
+  "holdoutStatus": "sealed",
+  "strategyGridStatus": "stopped-raw-edge-gate-failed"
+}

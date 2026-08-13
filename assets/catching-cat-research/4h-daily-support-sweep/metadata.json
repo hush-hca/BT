@@ -1,0 +1,10 @@
+{
+  "pipeline": [
+    "discover",
+    "raw-development",
+    "raw-validation"
+  ],
+  "holdoutStatus": "sealed",
+  "signalCount": 6948,
+  "dataFailureCount": 8629
+}
