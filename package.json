@@ -2,8 +2,9 @@
   "name": "backtest-research-lab",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "node scripts/verify-dashboard.mjs"
+    "build": "node --test scripts/*.test.mjs && node scripts/verify-dashboard.mjs"
   },
   "engines": {
     "node": ">=20"
