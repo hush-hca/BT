@@ -46,11 +46,11 @@ All 27 combinations of trough similarity (2%, 3%, 5%), support tolerance (1%, 2%
 
 ## Reproduction and files
 
-Prerequisites are Python 3.11 or newer, internet access to Binance's public spot API for an uncached run, and the pinned packages in `outputs/requirements.txt`. From the repository root, create a virtual environment with `python -m venv .venv`, then activate it with `. .venv/bin/activate` on macOS/Linux or `.\.venv\Scripts\Activate.ps1` in Windows PowerShell. Then run:
+Prerequisites are Python 3.11 or newer, internet access to Binance's public spot API for an uncached run, and the pinned packages in `requirements.txt`. From this packaged study directory, create a virtual environment with `python -m venv .venv`, then activate it with `. .venv/bin/activate` on macOS/Linux or `.\.venv\Scripts\Activate.ps1` in Windows PowerShell. Then run:
 
 ```text
-python -m pip install -r outputs/requirements.txt
-python outputs/run_backtest.py
+python -m pip install -r requirements.txt
+python backtest/run_backtest.py
 ```
 
 On some Windows installations the Python launcher command is `py` instead of `python`. The run downloads or validates cached source candles, so it is not a zero-setup/offline reproduction. The CSVs are the numeric source for this report and its charts: `trades.csv`, `baseline_summary.csv`, `sensitivity_summary.csv`, and `equity_curve.csv`.

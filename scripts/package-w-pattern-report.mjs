@@ -1,4 +1,4 @@
-import { access, copyFile, mkdir, rm, writeFile } from 'node:fs/promises';
+import { access, copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,6 +21,25 @@ const CHARTS = new Map([
 
 const MODULES = ['__init__.py', 'config.py', 'data.py', 'patterns.py', 'engine.py', 'metrics.py', 'reporting.py', 'cli.py'];
 const PACKAGE_NAMESPACE = 'daily-w-pattern-neckline-retest-2026-08-16';
+
+const SOURCE_REPRODUCTION_INSTRUCTIONS = `Prerequisites are Python 3.11 or newer, internet access to Binance's public spot API for an uncached run, and the pinned packages in \`outputs/requirements.txt\`. From the repository root, create a virtual environment with \`python -m venv .venv\`, then activate it with \`. .venv/bin/activate\` on macOS/Linux or \`.\\.venv\\Scripts\\Activate.ps1\` in Windows PowerShell. Then run:
+
+\`\`\`text
+python -m pip install -r outputs/requirements.txt
+python outputs/run_backtest.py
+\`\`\``;
+
+const PACKAGED_REPRODUCTION_INSTRUCTIONS = `Prerequisites are Python 3.11 or newer, internet access to Binance's public spot API for an uncached run, and the pinned packages in \`requirements.txt\`. From this packaged study directory, create a virtual environment with \`python -m venv .venv\`, then activate it with \`. .venv/bin/activate\` on macOS/Linux or \`.\\.venv\\Scripts\\Activate.ps1\` in Windows PowerShell. Then run:
+
+\`\`\`text
+python -m pip install -r requirements.txt
+python backtest/run_backtest.py
+\`\`\``;
+
+const SOURCE_GENERATOR_REPRODUCTION_INSTRUCTIONS = SOURCE_REPRODUCTION_INSTRUCTIONS
+  .replaceAll('\\', '\\\\');
+const PACKAGED_GENERATOR_REPRODUCTION_INSTRUCTIONS = PACKAGED_REPRODUCTION_INSTRUCTIONS
+  .replaceAll('\\', '\\\\');
 
 const PACKAGED_RUNNER = `from pathlib import Path
 import sys
@@ -50,6 +69,16 @@ function resolveInside(root, relativePath) {
 
 async function requireSources(paths) {
   await Promise.all(paths.map((source) => access(source)));
+}
+
+async function writeAdaptedReproductionInstructions(sourcePath, destination, sourceInstructions, packagedInstructions) {
+  const source = await readFile(sourcePath, 'utf8');
+  const normalized = source.replace(/\r\n/g, '\n');
+  const occurrences = normalized.split(sourceInstructions).length - 1;
+  if (occurrences !== 1) {
+    throw new Error(`Expected exactly one source reproduction block in ${sourcePath}; found ${occurrences}`);
+  }
+  await writeFile(destination, normalized.replace(sourceInstructions, packagedInstructions), 'utf8');
 }
 
 export async function packageWPatternReport({ sourceRoot, packageRoot, dashboardRoot }) {
@@ -95,7 +124,23 @@ export async function packageWPatternReport({ sourceRoot, packageRoot, dashboard
 
   for (const { source: sourcePath, destination } of [...evidenceCopies, ...moduleCopies]) {
     await mkdir(path.dirname(destination), { recursive: true });
-    await copyFile(sourcePath, destination);
+    if (path.basename(destination) === 'SUMMARY.md') {
+      await writeAdaptedReproductionInstructions(
+        sourcePath,
+        destination,
+        SOURCE_REPRODUCTION_INSTRUCTIONS,
+        PACKAGED_REPRODUCTION_INSTRUCTIONS,
+      );
+    } else if (destination.endsWith(path.join('backtest', 'w_backtest', 'reporting.py'))) {
+      await writeAdaptedReproductionInstructions(
+        sourcePath,
+        destination,
+        SOURCE_GENERATOR_REPRODUCTION_INSTRUCTIONS,
+        PACKAGED_GENERATOR_REPRODUCTION_INSTRUCTIONS,
+      );
+    } else {
+      await copyFile(sourcePath, destination);
+    }
   }
   await writeFile(runnerDestination, PACKAGED_RUNNER, 'utf8');
   for (const { source: sourcePath, destination } of chartCopies) {

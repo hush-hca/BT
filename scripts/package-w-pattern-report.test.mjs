@@ -37,7 +37,25 @@ async function seedAuditedOutputs(source) {
   const sensitivityRows = ['variant,net_r', ...Array.from({ length: 27 }, (_, index) => `${index + 1},${index + 0.5}`)];
   const tradeRows = ['trade_id,symbol', ...Array.from({ length: 70 }, (_, index) => `${index + 1},BTCUSDT`)];
 
-  await write(source, 'outputs/w_pattern_retest_report.md', '# W-pattern report\n');
+  await write(
+    source,
+    'outputs/w_pattern_retest_report.md',
+    `# W-pattern report
+
+Across the portfolio, the audited result was **70 trades**, **27.18 net R**, and **29.53%**.
+
+## Reproduction and files
+
+Prerequisites are Python 3.11 or newer, internet access to Binance's public spot API for an uncached run, and the pinned packages in \`outputs/requirements.txt\`. From the repository root, create a virtual environment with \`python -m venv .venv\`, then activate it with \`. .venv/bin/activate\` on macOS/Linux or \`.\\.venv\\Scripts\\Activate.ps1\` in Windows PowerShell. Then run:
+
+\`\`\`text
+python -m pip install -r outputs/requirements.txt
+python outputs/run_backtest.py
+\`\`\`
+
+The CSVs remain the numeric source for the report.
+`,
+  );
   await write(
     source,
     'outputs/baseline_summary.csv',
@@ -60,7 +78,18 @@ async function seedAuditedOutputs(source) {
 
 async function seedBacktestModules(source) {
   for (const filename of MODULES) {
-    await write(source, `work/w_backtest/${filename}`, `# ${filename}\n`);
+    const contents = filename === 'reporting.py'
+      ? `REPORT = r\"\"\"
+Prerequisites are Python 3.11 or newer, internet access to Binance's public spot API for an uncached run, and the pinned packages in \`outputs/requirements.txt\`. From the repository root, create a virtual environment with \`python -m venv .venv\`, then activate it with \`. .venv/bin/activate\` on macOS/Linux or \`.\\\\.venv\\\\Scripts\\\\Activate.ps1\` in Windows PowerShell. Then run:
+
+\`\`\`text
+python -m pip install -r outputs/requirements.txt
+python outputs/run_backtest.py
+\`\`\`
+\"\"\"
+`
+      : `# ${filename}\n`;
+    await write(source, `work/w_backtest/${filename}`, contents);
   }
 }
 
@@ -111,6 +140,28 @@ test('packages only declared W-pattern evidence and a self-contained runner', as
   assert.match(runner, /sys\.path\.insert\(0, str\(HERE\)\)/);
   assert.match(runner, /STUDY_ROOT \/ "regenerated"/);
 
+  const summary = await readFile(path.join(packageRoot, 'SUMMARY.md'), 'utf8');
+  const sourceSummary = await readFile(path.join(source, 'outputs', 'w_pattern_retest_report.md'), 'utf8');
+  const expectedSummary = sourceSummary
+    .replaceAll('outputs/requirements.txt', 'requirements.txt')
+    .replace('From the repository root', 'From this packaged study directory')
+    .replace('python outputs/run_backtest.py', 'python backtest/run_backtest.py');
+  assert.equal(summary, expectedSummary);
+  assert.match(summary, /Across the portfolio, the audited result was \*\*70 trades\*\*, \*\*27\.18 net R\*\*, and \*\*29\.53%\*\*\./);
+  assert.match(summary, /From this packaged study directory/);
+  assert.match(summary, /python -m pip install -r requirements\.txt/);
+  assert.match(summary, /python backtest\/run_backtest\.py/);
+  assert.doesNotMatch(summary, /outputs\/requirements\.txt/);
+  assert.doesNotMatch(summary, /outputs\/run_backtest\.py/);
+  assert.doesNotMatch(summary, /From the repository root/);
+
+  const reportGenerator = await readFile(path.join(packageRoot, 'backtest', 'w_backtest', 'reporting.py'), 'utf8');
+  assert.match(reportGenerator, /From this packaged study directory/);
+  assert.match(reportGenerator, /python -m pip install -r requirements\.txt/);
+  assert.match(reportGenerator, /python backtest\/run_backtest\.py/);
+  assert.doesNotMatch(reportGenerator, /outputs\/(?:requirements\.txt|run_backtest\.py)/);
+  assert.doesNotMatch(reportGenerator, /From the repository root/);
+
   const baseline = await readFile(path.join(packageRoot, 'baseline_summary.csv'), 'utf8');
   const sensitivity = await readFile(path.join(packageRoot, 'sensitivity_summary.csv'), 'utf8');
   const trades = await readFile(path.join(packageRoot, 'trades.csv'), 'utf8');
@@ -146,9 +197,18 @@ test('frozen packaged evidence retains the audited metric anchors', async () => 
   const baseline = await readFile(new URL('baseline_summary.csv', packageUrl), 'utf8');
   const sensitivity = await readFile(new URL('sensitivity_summary.csv', packageUrl), 'utf8');
   const trades = await readFile(new URL('trades.csv', packageUrl), 'utf8');
+  const summary = await readFile(new URL('SUMMARY.md', packageUrl), 'utf8');
+  const reportGenerator = await readFile(new URL('backtest/w_backtest/reporting.py', packageUrl), 'utf8');
 
   assert.match(baseline, /COMBINED,2017-08-18,2026-08-15,12561,413,249,113,70,29,41/);
   assert.match(baseline, /0\.2953176899298943,129531\.76899298944,0\.07179788390712454/);
   assert.equal(sensitivity.trim().split(/\r?\n/).length, 28);
   assert.equal(trades.trim().split(/\r?\n/).length, 71);
+  assert.match(summary, /From this packaged study directory/);
+  assert.match(summary, /python -m pip install -r requirements\.txt/);
+  assert.match(summary, /python backtest\/run_backtest\.py/);
+  assert.doesNotMatch(summary, /outputs\/(?:requirements\.txt|run_backtest\.py)/);
+  assert.match(reportGenerator, /From this packaged study directory/);
+  assert.match(reportGenerator, /python backtest\/run_backtest\.py/);
+  assert.doesNotMatch(reportGenerator, /outputs\/(?:requirements\.txt|run_backtest\.py)/);
 });
