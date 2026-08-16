@@ -1,0 +1,28 @@
+{
+  "end_date": "2026-08-15",
+  "strategy": {
+    "breakeven_r": 1.0,
+    "breakout_window": 60,
+    "fee_rate": 0.001,
+    "initial_equity": 100000.0,
+    "max_holding_bars": 60,
+    "max_trough_bars": 60,
+    "min_trough_bars": 5,
+    "pivot_span": 3,
+    "retest_tolerance": 0.01,
+    "retest_window": 30,
+    "reward_r": 2.0,
+    "risk_fraction": 0.01,
+    "stop_buffer": 0.01,
+    "support_tolerance": 0.02,
+    "support_touches": 2,
+    "trough_similarity": 0.03
+  },
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "PEPEUSDT",
+    "DOGEUSDT"
+  ]
+}
