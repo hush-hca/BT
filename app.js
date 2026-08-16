@@ -7,6 +7,18 @@ const baseline = [
   { id: 3350, btc: [23, 26.1, 0.02, 1.03], eth: [17, 41.2, 0.60, 2.02], rules: [40, 0.50, 30, 30, 0, 0.50, 3] },
 ];
 
+const dailyWPattern = [{
+  id: 1,
+  assets: {
+    BTCUSDT: [21, 47.61904761904761, 0.4638673906146409, 2.2366243428062362],
+    ETHUSDT: [19, 47.368421052631575, 0.4617782234700181, 2.6512017652944007],
+    SOLUSDT: [12, 25, 0.12386567447216211, 1.307159664306917],
+    PEPEUSDT: [5, 40, 0.27117421303702194, 1.6324571191802077],
+    DOGEUSDT: [13, 38.46153846153847, 0.4475659569224605, 2.347326343334808],
+  },
+  rules: [],
+}];
+
 const variants = [
   { id: 21, btc: [13, 38.5, 0.47, 1.76], eth: [14, 50.0, 0.96, 2.92], rules: [60, 0.75, 30, 30, 0, 0.50, 3] },
   { id: 20, btc: [13, 30.8, 0.15, 1.22], eth: [14, 50.0, 0.95, 2.91], rules: [60, 0.75, 30, 30, 0, 0.10, 3] },
@@ -32,6 +44,40 @@ const fourHour2r = [
 ];
 
 const reports = [
+  {
+    id: 'daily-w-pattern-neckline-retest-2026-08-16', date: '2026-08-16', multiAsset: true, timeframe: 'Daily',
+    marketLabel: 'BTCUSDT / ETHUSDT / SOLUSDT / PEPEUSDT / DOGEUSDT',
+    name: { ko: '일봉 W 패턴 넥라인 리테스트', en: 'Daily W-Pattern Neckline Retest' },
+    desc: {
+      ko: '일봉 지지구간에서 형성된 W 패턴이 넥라인을 돌파한 뒤, 리테스트를 확인하고 다음 일봉 시가에 진입하는 전략의 과거 인샘플 기계적 백테스트입니다. 투자 자문이 아닙니다.',
+      en: 'Historical in-sample mechanical backtest of entering at the next daily open after a support-qualified W breaks out and retests its neckline. This is not financial advice.',
+    },
+    status: {
+      ko: '70건 거래 · +27.18 순 R · +29.53% · PF 2.01 · 최대 종가 자산 낙폭 7.18%. 과거 인샘플 기계적 연구 결과로, 투자 자문이 아닙니다.',
+      en: '70 trades · +27.18 net R · +29.53% · PF 2.01 · max drawdown 7.18%. Historical in-sample mechanical research; not financial advice.',
+    },
+    configs: dailyWPattern,
+    customRules: [
+      { label: { ko: '일봉 피봇', en: 'Daily pivots' }, value: { ko: '좌우 각 3개 캔들, 세 번째 우측 캔들 후 확정', en: 'Three candles left and right; confirmed after the third right candle' } },
+      { label: { ko: '선행 지지선', en: 'Pre-existing support' }, value: { ko: '2% 이내의 이전 확정 피봇 저점 최소 2개', en: 'At least two earlier confirmed pivot lows within 2%' } },
+      { label: { ko: 'W 저점', en: 'W troughs' }, value: { ko: '5–60봉 간격, 서로 3% 이내', en: '5–60 bars apart and within 3% of each other' } },
+      { label: { ko: '돌파', en: 'Breakout' }, value: { ko: '60봉 이내 중간 고점 넥라인 상향 첫 종가', en: 'First close above the intervening-high neckline within 60 bars' } },
+      { label: { ko: '리테스트', en: 'Retest' }, value: { ko: '30봉 이내 ±1% 넥라인 구간을 터치하고 넥라인 이상에서 종가한 첫 캔들', en: 'First later candle intersecting the ±1% neckline band and closing at or above it, within 30 bars' } },
+      { label: { ko: '진입', en: 'Entry' }, value: { ko: '다음 일봉 시가', en: 'Next daily open' } },
+      { label: { ko: '리스크 관리', en: 'Risk management' }, value: { ko: '더 낮은 저점 1% 아래 손절, 1R 도달 다음 캔들부터 본전, 2R 목표, 60봉 시간 청산', en: 'Stop 1% below the lower trough, breakeven after 1R starting next candle, 2R target, 60-bar time exit' } },
+      { label: { ko: '비용 및 사이징', en: 'Costs and sizing' }, value: { ko: '진입·청산 각 10bp, 진입당 포트폴리오 리스크 1%', en: '10 bps each side and 1% portfolio risk per entry' } },
+    ],
+    charts: ['/charts/daily-w-pattern-equity-2026-08-16.png', '/charts/daily-w-pattern-drawdown-2026-08-16.png', '/charts/daily-w-pattern-assets-2026-08-16.png', '/charts/daily-w-pattern-sensitivity-2026-08-16.png'],
+    captions: ['Combined closed-equity curve', 'Combined closed-equity drawdown', 'Independent per-asset net R', 'Sensitivity robustness across 27 variants'],
+    files: [
+      ['연구 요약', 'Research summary', '/assets/daily-w-pattern-neckline-retest-2026-08-16/SUMMARY.md'],
+      ['기준 결과', 'Baseline summary', '/assets/daily-w-pattern-neckline-retest-2026-08-16/baseline_summary.csv'],
+      ['민감도 결과', 'Sensitivity summary', '/assets/daily-w-pattern-neckline-retest-2026-08-16/sensitivity_summary.csv'],
+      ['거래 원장', 'Trade ledger', '/assets/daily-w-pattern-neckline-retest-2026-08-16/trades.csv'],
+      ['고정 설정', 'Frozen configuration', '/assets/daily-w-pattern-neckline-retest-2026-08-16/config.json'],
+      ['패키지 실행기', 'Packaged runner', '/assets/daily-w-pattern-neckline-retest-2026-08-16/backtest/run_backtest.py'],
+    ],
+  },
   {
     id: 'daily-support-bounce', date: '2026-08-03',
     name: { ko: '일봉 지지선 강세 캔들', en: 'Daily Support Bullish Candle' },

@@ -36,3 +36,6 @@ test('rejects promote verdicts', () => rejectsMutation('research-reports.js', "v
 test('rejects runtime log and cache references', () => rejectsMutation('app.js', "import { researchReports", "const forbidden = '.cache/runtime.log';\nimport { researchReports", /forbidden path/i));
 test('rejects a missing renderer import', () => rejectsMutation('app.js', "import { renderResearchReport } from './research-renderer.js';", '', /renderer import/i));
 test('rejects legacy Config #5016 regression', () => rejectsMutation('app.js', 'btc: [18, 27.8, 0.07, 1.09]', 'btc: [18, 27.8, 0.08, 1.09]', /5016/i));
+test('rejects a W-pattern headline regression', () => rejectsMutation('app.js', '+27.18 net R', '+27.19 net R', /headline metrics/i));
+test('rejects a missing W-pattern chart path', () => rejectsMutation('app.js', '/charts/daily-w-pattern-drawdown-2026-08-16.png', '/charts/missing-w-pattern-drawdown.png', /W-pattern chart/i));
+test('rejects a missing W-pattern Korean title', () => rejectsMutation('app.js', "ko: '일봉 W 패턴 넥라인 리테스트'", "ko: ''", /Korean title/i));

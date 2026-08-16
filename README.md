@@ -33,6 +33,16 @@ node scripts/package-catching-cat-research.mjs --source ../outputs/catching-cat 
 
 The destination is rebuilt from the manifest. Runtime logs, caches, `attempts.json`, `candidates.json`, undeclared files, and large row-level artifacts must never be copied into the dashboard repository.
 
+### Daily W-pattern packaged study
+
+The BT Lab report `daily-w-pattern-neckline-retest-2026-08-16` is packaged from the audited backtest deliverables in `../../outputs` and the reproducible source package in `../../work/w_backtest`. Refresh its allowlisted evidence, runner, and four charts from the repository root with:
+
+```powershell
+node scripts/package-w-pattern-report.mjs
+```
+
+This report uses the legacy BT Lab schema because it is an independent historical in-sample mechanical backtest. It is intentionally excluded from the exact nine-study Catching Cat lineage and its controlled-verdict policy.
+
 ## Verdict policy
 
 Research verdicts use the controlled values `reject`, `inconclusive`, or `promote`. A verdict must reflect the frozen validation gates and holdout state, not an attractive development metric. Positive development results must be shown with the adjacent validation failure, and a sealed holdout must not be described as evaluated performance. The current nine-study Catching Cat dataset contains no promotable result, so the validator rejects `promote` for this release.
