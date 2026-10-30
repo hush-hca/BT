@@ -3,6 +3,15 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateResearchReports } from './research-reports-schema.mjs';
 
+const CAT3_QUALIFIED_FILES = [
+  'SUMMARY.md',
+  'trades-B-hold48-shortlist.csv', 'trades-B-hold48-filterfirst.csv',
+  'trades-B-fixed5-shortlist.csv', 'trades-B-fixed5-filterfirst.csv',
+  'trades-B-atr2-shortlist.csv', 'trades-B-atr2-filterfirst.csv',
+  'trades-B-atr3-shortlist.csv', 'trades-B-atr3-filterfirst.csv',
+  'trades-B-structure-shortlist.csv', 'trades-B-structure-filterfirst.csv',
+  'trades-B-stalled-shortlist.csv', 'trades-B-stalled-filterfirst.csv',
+];
 const REQUIRED_FILES = [
   'index.html', 'app.js', 'styles.css', 'research-reports.js', 'research-renderer.js',
   'charts/config-5016-btc-equity.png', 'charts/config-5016-eth-equity.png',
@@ -32,8 +41,9 @@ const REQUIRED_FILES = [
   'assets/catching-cat3-quality-2026-10-31/trades-selected.csv',
   'assets/catching-cat3-quality-2026-10-31/cat3-quality-run.cjs',
   'assets/catching-cat3-quality-2026-10-31/cat3-quality.test.cjs',
+  ...CAT3_QUALIFIED_FILES.map((file) => 'assets/catching-cat3-qualified-fixed-2026-10-31/' + file),
 ];
-const REQUIRED_CONTENT = ['styles.css', 'app.js', 'reports', 'language-toggle', 'config-detail-row', 'file-select', 'file-content', 'daily-support-variants', 'sweep-reclaim', 'support-variants-sweep-21-btc.png', 'support-variants-sweep-21-eth.png', 'daily-w-pattern-neckline-retest-2026-08-16', 'cat3-walk-forward-quality'];
+const REQUIRED_CONTENT = ['styles.css', 'app.js', 'reports', 'language-toggle', 'config-detail-row', 'file-select', 'file-content', 'daily-support-variants', 'sweep-reclaim', 'support-variants-sweep-21-btc.png', 'support-variants-sweep-21-eth.png', 'daily-w-pattern-neckline-retest-2026-08-16', 'cat3-walk-forward-quality', 'cat3-qualified-fixed-policies'];
 const EXPECTED_IDS = ['1d-bulls2-validation', '1d-bulls2-six-hour', '1d-bulls2-execution', '1d-bulls3-raw-edge', '1d-bulls4-daily-support', '1d-bulls5-selective-trend', '4h-daily-support-sweep', '4h-daily-support-volume-lock', 'daily-support-1h-confirmation'];
 const ANCHORS = [
   ['1d-bulls3-raw-edge', 'validationMean', -0.204],
@@ -76,6 +86,11 @@ export async function verifyDashboard(root = process.cwd()) {
   requireText(app, "id: 'cat3-walk-forward-quality'", 'Cat3 walk-forward report ID');
   requireText(app, "metrics: ['483', '+21.77%', '20.28%', '+0.48%', '1.26']", 'Cat3 walk-forward metrics');
   requireText(app, '/assets/catching-cat3-quality-2026-10-31/trades-selected.csv', 'Cat3 selected trade ledger');
+  requireText(app, "id: 'cat3-qualified-fixed-policies'", 'Cat3 qualified fixed-policy report ID');
+  requireText(app, "metrics: ['631', '+67.27%', '37.28%', '+0.97%', '48.81%', '1.39', '10.49%']", 'Cat3 B hold48 filter-first metrics');
+  for (const file of CAT3_QUALIFIED_FILES) {
+    requireText(app, '/assets/catching-cat3-qualified-fixed-2026-10-31/' + file, 'Cat3 qualified evidence ' + file);
+  }
   for (const chart of [
     '/charts/daily-w-pattern-equity-2026-08-16.png',
     '/charts/daily-w-pattern-drawdown-2026-08-16.png',

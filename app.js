@@ -59,7 +59,51 @@ const cat3Quality = [
   },
 ];
 
+const cat3QualifiedFixed = [
+  { id: 1, label: { ko: 'B · Hold 48h · Shortlist', en: 'B · Hold 48h · Shortlist' }, metrics: ['539', '+55.18%', '31.23%', '+0.96%', '49.17%', '1.37', '8.98%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '48시간 보유 후 시간 청산 / 48-hour time exit'], ['랭킹 / Ranking', 'shortlist 후 B 필터 적용 / rank shortlist, then apply B'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 2, label: { ko: 'B · Hold 48h · Filter-first', en: 'B · Hold 48h · Filter-first' }, metrics: ['631', '+67.27%', '37.28%', '+0.97%', '48.81%', '1.39', '10.49%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '48시간 보유 후 시간 청산 / 48-hour time exit'], ['랭킹 / Ranking', 'B 필터 후 shortlist 랭킹 / apply B, then rank shortlist'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 3, label: { ko: 'B · Fixed 5% · Shortlist', en: 'B · Fixed 5% · Shortlist' }, metrics: ['559', '+32.36%', '24.82%', '+0.62%', '42.93%', '1.25', '7.13%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '고정 -5% 손절 또는 48시간 시간 청산 / fixed -5% stop or 48-hour exit'], ['랭킹 / Ranking', 'shortlist 후 B 필터 적용 / rank shortlist, then apply B'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 4, label: { ko: 'B · Fixed 5% · Filter-first', en: 'B · Fixed 5% · Filter-first' }, metrics: ['651', '+42.60%', '27.15%', '+0.66%', '43.63%', '1.28', '8.49%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '고정 -5% 손절 또는 48시간 시간 청산 / fixed -5% stop or 48-hour exit'], ['랭킹 / Ranking', 'B 필터 후 shortlist 랭킹 / apply B, then rank shortlist'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 5, label: { ko: 'B · ATR 2x · Shortlist', en: 'B · ATR 2x · Shortlist' }, metrics: ['567', '+10.18%', '28.99%', '+0.29%', '38.45%', '1.11', '6.43%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '진입 시점 고정 4시간 ATR14의 2배 손절 또는 48시간 청산'], ['랭킹 / Ranking', 'shortlist 후 B 필터 적용 / rank shortlist, then apply B'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 6, label: { ko: 'B · ATR 2x · Filter-first', en: 'B · ATR 2x · Filter-first' }, metrics: ['661', '+18.09%', '30.54%', '+0.36%', '39.64%', '1.15', '7.63%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '진입 시점 고정 4시간 ATR14의 2배 손절 또는 48시간 청산'], ['랭킹 / Ranking', 'B 필터 후 shortlist 랭킹 / apply B, then rank shortlist'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 7, label: { ko: 'B · ATR 3x · Shortlist', en: 'B · ATR 3x · Shortlist' }, metrics: ['551', '+29.75%', '32.77%', '+0.62%', '44.65%', '1.22', '7.72%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '진입 시점 고정 4시간 ATR14의 3배 손절 또는 48시간 청산'], ['랭킹 / Ranking', 'shortlist 후 B 필터 적용 / rank shortlist, then apply B'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 8, label: { ko: 'B · ATR 3x · Filter-first', en: 'B · ATR 3x · Filter-first' }, metrics: ['650', '+35.12%', '34.80%', '+0.60%', '44.46%', '1.23', '9.09%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '진입 시점 고정 4시간 ATR14의 3배 손절 또는 48시간 청산'], ['랭킹 / Ranking', 'B 필터 후 shortlist 랭킹 / apply B, then rank shortlist'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 9, label: { ko: 'B · Structure · Shortlist', en: 'B · Structure · Shortlist' }, metrics: ['581', '+31.39%', '23.14%', '+0.58%', '35.97%', '1.26', '5.85%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', 'boxHigh - 0.5 ATR 구조 이탈, 3 ATR 비상 손절, 최대 48시간'], ['랭킹 / Ranking', 'shortlist 후 B 필터 적용 / rank shortlist, then apply B'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 10, label: { ko: 'B · Structure · Filter-first', en: 'B · Structure · Filter-first' }, metrics: ['685', '+50.75%', '25.17%', '+0.70%', '37.37%', '1.34', '7.07%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', 'boxHigh - 0.5 ATR 구조 이탈, 3 ATR 비상 손절, 최대 48시간'], ['랭킹 / Ranking', 'B 필터 후 shortlist 랭킹 / apply B, then rank shortlist'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 11, label: { ko: 'B · Stalled · Shortlist', en: 'B · Stalled · Shortlist' }, metrics: ['583', '+10.49%', '29.64%', '+0.27%', '36.54%', '1.11', '6.42%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '12시간 수익 비양수 및 저항선 아래 종가 시 청산, 3 ATR 손절, 최대 48시간'], ['랭킹 / Ranking', 'shortlist 후 B 필터 적용 / rank shortlist, then apply B'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+  { id: 12, label: { ko: 'B · Stalled · Filter-first', en: 'B · Stalled · Filter-first' }, metrics: ['679', '+19.99%', '32.15%', '+0.37%', '37.85%', '1.16', '7.70%'], rules: [['필터 / Filter', 'B · 훈련 구간 BTC 상대 7일 로그수익 하위 20% / lowest training quintile'], ['청산 / Exit', '12시간 수익 비양수 및 저항선 아래 종가 시 청산, 3 ATR 손절, 최대 48시간'], ['랭킹 / Ranking', 'B 필터 후 shortlist 랭킹 / apply B, then rank shortlist'], ['포트폴리오 / Portfolio', '최대 10개 · 진입당 자산 10% · 무레버리지'], ['비용 / Friction', '왕복 0.20% 수수료·슬리피지 · funding 제외'], ['상태 / Status', '전체 기간 사후 진단 통과 · 실전 승격 아님']] },
+];
+
 const reports = [
+  {
+    id: 'cat3-qualified-fixed-policies',
+    date: '2026-10-31',
+    customPerformance: true,
+    timeframe: '1h / 48h maximum',
+    marketLabel: 'Binance USD-M futures · Cat3 B-filter',
+    name: { ko: 'Catching Cat 3 · 통과한 고정 정책', en: 'Catching Cat 3 · Qualified Fixed Policies' },
+    desc: { ko: '고정된 전체 기간 진단 기준을 통과한 B 필터 정책 12개입니다. 사후 관찰 결과이며, 워크포워드로 사전 선택된 실전 후보가 아닙니다.', en: 'Twelve B-filter policies that passed the frozen full-period diagnostic gate. These are post-hoc observations, not walk-forward-selected deployable candidates.' },
+    status: { ko: '양수·최소 거래·실패율·정체 손실 기준을 모두 통과한 12개만 포함 · 왕복 0.20% 비용 반영 · funding 및 실제 체결 충격 제외', en: 'Only 12 policies passing return, trade-count, failure-rate, and stagnant-loss gates · 0.20% modeled round-trip friction · funding and live impact excluded' },
+    configs: cat3QualifiedFixed,
+    performance: { headers: { ko: ['거래', '순수익', '최대 낙폭', '평균 거래', '승률', 'PF', '노출'], en: ['Trades', 'Net return', 'Max DD', 'Mean trade', 'Win rate', 'PF', 'Exposure'] } },
+    charts: [],
+    captions: [],
+    files: [
+      ['통과 정책 요약', 'Qualified-policy summary', '/assets/catching-cat3-qualified-fixed-2026-10-31/SUMMARY.md'],
+      ['B Hold48 Shortlist 거래', 'B Hold48 Shortlist trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-hold48-shortlist.csv'],
+      ['B Hold48 Filter-first 거래', 'B Hold48 Filter-first trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-hold48-filterfirst.csv'],
+      ['B Fixed5 Shortlist 거래', 'B Fixed5 Shortlist trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-fixed5-shortlist.csv'],
+      ['B Fixed5 Filter-first 거래', 'B Fixed5 Filter-first trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-fixed5-filterfirst.csv'],
+      ['B ATR2 Shortlist 거래', 'B ATR2 Shortlist trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-atr2-shortlist.csv'],
+      ['B ATR2 Filter-first 거래', 'B ATR2 Filter-first trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-atr2-filterfirst.csv'],
+      ['B ATR3 Shortlist 거래', 'B ATR3 Shortlist trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-atr3-shortlist.csv'],
+      ['B ATR3 Filter-first 거래', 'B ATR3 Filter-first trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-atr3-filterfirst.csv'],
+      ['B Structure Shortlist 거래', 'B Structure Shortlist trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-structure-shortlist.csv'],
+      ['B Structure Filter-first 거래', 'B Structure Filter-first trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-structure-filterfirst.csv'],
+      ['B Stalled Shortlist 거래', 'B Stalled Shortlist trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-stalled-shortlist.csv'],
+      ['B Stalled Filter-first 거래', 'B Stalled Filter-first trades', '/assets/catching-cat3-qualified-fixed-2026-10-31/trades-B-stalled-filterfirst.csv'],
+    ],
+  },
   {
     id: 'cat3-walk-forward-quality',
     date: '2026-10-31',
@@ -277,8 +321,9 @@ function render() {
   const isCustom = Boolean(report.customPerformance);
   const customRows = isCustom ? report.configs.map((config) => {
     const cells = config.metrics.map((value) => '<td>' + value + '</td>').join('');
-    const detail = selectedId === config.id ? '<tr class="config-detail-row"><td colspan="6"><div class="config-grid">' + reportRuleCards(report, config, lang, t) + '</div></td></tr>' : '';
-    return '<tr class="' + (selectedId === config.id ? 'selected' : '') + '"><td><button class="config-select" data-id="' + config.id + '">Walk-forward</button></td>' + cells + '</tr>' + detail;
+    const detail = selectedId === config.id ? '<tr class="config-detail-row"><td colspan="' + (config.metrics.length + 1) + '"><div class="config-grid">' + reportRuleCards(report, config, lang, t) + '</div></td></tr>' : '';
+    const label = config.label?.[lang] || 'Walk-forward';
+    return '<tr class="' + (selectedId === config.id ? 'selected' : '') + '"><td><button class="config-select" data-id="' + config.id + '">' + escapeHtml(label) + '</button></td>' + cells + '</tr>' + detail;
   }).join('') : '';
   const rows = isCustom ? customRows : report.configs.map((config) => {
     if (isMultiAsset) {
@@ -293,7 +338,7 @@ function render() {
   }).join('');
 
   const marketLabel = resolveMarketLabel(report, isMultiAsset);
-  const tableLabels = isCustom ? '<th>Strategy</th>' + report.performance.headers.map((header) => '<th>' + header + '</th>').join('') : isMultiAsset ? '<th>Config</th><th>Asset</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : isSingleAsset ? '<th>Config</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : '<th>Config</th><th>Trades<br>BTC / ETH</th><th>Win rate<br>BTC / ETH</th><th>Expectancy R<br>BTC / ETH</th><th>PF<br>BTC / ETH</th>';
+  const tableLabels = isCustom ? '<th>Strategy</th>' + (report.performance.headers[lang] || report.performance.headers).map((header) => '<th>' + header + '</th>').join('') : isMultiAsset ? '<th>Config</th><th>Asset</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : isSingleAsset ? '<th>Config</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : '<th>Config</th><th>Trades<br>BTC / ETH</th><th>Win rate<br>BTC / ETH</th><th>Expectancy R<br>BTC / ETH</th><th>PF<br>BTC / ETH</th>';
   document.querySelector('#app').innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control">${t.reports}<select id="report">${reports.map((item) => `<option value="${item.id}" ${item.id === report.id ? 'selected' : ''}>${item.name[lang]} · ${item.date}</option>`).join('')}</select></label><div id="language-toggle" role="group" aria-label="Language"><button type="button" data-lang="ko" class="${lang === 'ko' ? 'active' : ''}" aria-pressed="${lang === 'ko'}">KR</button><button type="button" data-lang="en" class="${lang === 'en' ? 'active' : ''}" aria-pressed="${lang === 'en'}">EN</button></div></div></nav><p class="eyebrow">${marketLabel} · ${report.timeframe || 'Daily'} <span class="date-chip">${report.date}</span></p><h1>${report.name[lang]}</h1><p class="sub">${report.desc[lang]}</p><div class="banner"><b>${t.result}</b> ${report.status[lang]}</div><section><h2>${t.rules}: #${selectedId}</h2><div class="rules">${reportRuleCards(report, activeConfig, lang, t)}</div></section><section><h2>${t.equity}</h2><div class="charts">${report.charts.map((path, index) => `<figure><img src="${path}" alt="${t.equity}"/><figcaption>${report.captions[index]}</figcaption></figure>`).join('')}</div></section><section><h2>${t.perf}</h2><div class="table-wrap"><table><thead><tr>${tableLabels}</tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><div class="file-layout"><div class="file-list">${report.files.map(([ko, en, path]) => `<button type="button" class="file-select" data-path="${path}">${lang === 'ko' ? ko : en}</button>`).join('')}</div><div class="file-viewer"><div class="file-toolbar"><b id="file-name"></b><button type="button" id="copy-file" class="icon-button" aria-label="${t.copied}" title="${t.copied}"><span aria-hidden="true">⧉</span></button></div><pre id="file-content">${t.loading}</pre><p id="copy-status" class="sr-only" aria-live="polite"></p></div></div></section></div>`;
 
   document.querySelector('.brand').innerHTML = '<img src="/assets/brand/bt-logo.png" alt="BT Lab logo"/><span class="brand-copy">BT LAB<small>BACKTEST RESEARCH</small></span>';
