@@ -77,7 +77,7 @@ const cat3QualifiedFixed = [
 const reports = [
   {
     id: 'cat3-qualified-fixed-policies',
-    date: '2026-10-31',
+    date: '2026-09-01',
     customPerformance: true,
     timeframe: '1h / 48h maximum',
     marketLabel: 'Binance USD-M futures · Cat3 B-filter',
@@ -106,7 +106,7 @@ const reports = [
   },
   {
     id: 'cat3-walk-forward-quality',
-    date: '2026-10-31',
+    date: '2026-09-01',
     customPerformance: true,
     timeframe: '1h / 48h',
     marketLabel: '638 Binance USD-M futures contracts',
