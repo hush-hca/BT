@@ -43,7 +43,50 @@ const fourHour2r = [
   { id: 29, assets: { BTCUSDT: [116, 38.8, 0.09, 1.14], ETHUSDT: [101, 32.7, -0.08, 0.88], PEPEUSDT: [57, 40.4, 0.17, 1.28], XRPUSDT: [102, 29.4, -0.18, 0.75], SOLUSDT: [107, 35.5, 0.02, 1.03], ADAUSDT: [102, 40.2, 0.14, 1.23], AVAXUSDT: [108, 29.6, -0.15, 0.78], LINKUSDT: [102, 37.3, 0.06, 1.10] }, rules: [60, 0.75, 50, 30, 0, 0.50, 2] },
 ];
 
+const cat3Quality = [
+  {
+    id: 1,
+    metrics: ['483', '+21.77%', '20.28%', '+0.48%', '1.26'],
+    rules: [
+      ['Signal universe', 'Cat3 fresh breakouts · 638 contracts'],
+      ['Walk-forward split', '12M train · 6M validation · 3M outer test'],
+      ['Portfolio', '10 positions · 10% current-equity notional · no leverage'],
+      ['Entry', 'First executable hourly open after the completed trigger'],
+      ['Exit', 'Validation-selected policy · 48h maximum hold'],
+      ['Friction', '0.20% round-trip fee/slippage · funding excluded'],
+      ['Selection gate', 'Positive validation return and mean trade; otherwise cash'],
+    ],
+  },
+];
+
 const reports = [
+  {
+    id: 'cat3-walk-forward-quality',
+    date: '2026-10-31',
+    customPerformance: true,
+    timeframe: '1h / 48h',
+    marketLabel: '638 Binance USD-M futures contracts',
+    name: { ko: 'Catching Cat 3 · 저실패율 워크포워드', en: 'Catching Cat 3 · Low-Failure Walk-Forward' },
+    desc: {
+      ko: '시간순 외부 검증 구간에서 선택된 양의 수익 포트폴리오입니다. 실패한 후보와 음수 결과는 이 리포트에 포함하지 않았습니다.',
+      en: 'A positive-return portfolio selected on chronological outer-test segments. Failed candidates and negative results are intentionally excluded from this report.',
+    },
+    status: {
+      ko: '483건 · 수수료·슬리피지 0.20% 반영 후 +21.77% · PF 1.26 · 자금조달비와 실제 체결 충격은 미반영',
+      en: '483 trades · +21.77% after 0.20% modeled friction · PF 1.26 · funding and live market impact excluded',
+    },
+    configs: cat3Quality,
+    performance: { headers: ['Trades', 'Net return', 'Max DD', 'Mean trade', 'PF'] },
+    charts: [],
+    captions: [],
+    files: [
+      ['양의 결과 요약', 'Positive-result summary', '/assets/catching-cat3-quality-2026-10-31/SUMMARY.md'],
+      ['전략 및 실행 가정', 'Strategy and execution assumptions', '/assets/catching-cat3-quality-2026-10-31/EXECUTION.md'],
+      ['선택된 거래 원장', 'Selected trade ledger', '/assets/catching-cat3-quality-2026-10-31/trades-selected.csv'],
+      ['워크포워드 러너', 'Walk-forward runner', '/assets/catching-cat3-quality-2026-10-31/cat3-quality-run.cjs'],
+      ['검증 테스트', 'Validation tests', '/assets/catching-cat3-quality-2026-10-31/cat3-quality.test.cjs'],
+    ],
+  },
   {
     id: 'daily-w-pattern-neckline-retest-2026-08-16', date: '2026-08-16', multiAsset: true, timeframe: 'Daily',
     marketLabel: 'BTCUSDT / ETHUSDT / SOLUSDT / PEPEUSDT / DOGEUSDT',
@@ -136,8 +179,8 @@ const copy = {
 };
 
 let lang = 'ko';
-let selectedReport = 'four-hour-fixed-sweep-reclaim-2r';
-let selectedId = 21;
+let selectedReport = 'cat3-walk-forward-quality';
+let selectedId = 1;
 
 export function escapeHtml(value) {
   return String(value)
@@ -149,6 +192,9 @@ export function escapeHtml(value) {
 }
 
 export function ruleCards(ruleSet, t) {
+  if (Array.isArray(ruleSet?.[0])) {
+    return ruleSet.map(([label, value]) => '<div><span>' + label + '</span><b>' + value + '</b></div>').join('');
+  }
   return [[t.support, `${ruleSet[0]} bars (3-left / 3-right swing low)`], [t.touch, `±${ruleSet[1].toFixed(2)}%`], [t.body, `≥ ${ruleSet[2]}% of range`], [t.close, `Top ${ruleSet[3]}%`], [t.trend, ruleSet[4] ? `Close > SMA ${ruleSet[4]}` : t.none], [t.stop, `${ruleSet[5].toFixed(2)}% below signal low`], [t.target, `${ruleSet[6].toFixed(1)}R`]]
     .map(([label, value]) => `<div><span>${label}</span><b>${value}</b></div>`).join('');
 }
@@ -228,7 +274,13 @@ function render() {
   const activeConfig = report.configs.find((item) => item.id === selectedId);
   const isSingleAsset = Boolean(report.symbol);
   const isMultiAsset = Boolean(report.multiAsset);
-  const rows = report.configs.map((config) => {
+  const isCustom = Boolean(report.customPerformance);
+  const customRows = isCustom ? report.configs.map((config) => {
+    const cells = config.metrics.map((value) => '<td>' + value + '</td>').join('');
+    const detail = selectedId === config.id ? '<tr class="config-detail-row"><td colspan="6"><div class="config-grid">' + reportRuleCards(report, config, lang, t) + '</div></td></tr>' : '';
+    return '<tr class="' + (selectedId === config.id ? 'selected' : '') + '"><td><button class="config-select" data-id="' + config.id + '">Walk-forward</button></td>' + cells + '</tr>' + detail;
+  }).join('') : '';
+  const rows = isCustom ? customRows : report.configs.map((config) => {
     if (isMultiAsset) {
       const assetRows = Object.entries(config.assets).map(([symbol, values]) => `<tr class="${selectedId === config.id ? 'selected' : ''}"><td><button class="config-select" data-id="${config.id}">#${config.id}</button></td><td>${symbol}</td><td>${values[0]}</td><td>${values[1].toFixed(1)}%</td><td>${values[2] >= 0 ? '+' : ''}${values[2].toFixed(2)}R</td><td>${values[3].toFixed(2)}</td></tr>`).join('');
       const detail = selectedId === config.id ? `<tr class="config-detail-row"><td colspan="6"><div class="config-grid">${reportRuleCards(report, config, lang, t)}</div></td></tr>` : '';
@@ -241,7 +293,7 @@ function render() {
   }).join('');
 
   const marketLabel = resolveMarketLabel(report, isMultiAsset);
-  const tableLabels = isMultiAsset ? '<th>Config</th><th>Asset</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : isSingleAsset ? '<th>Config</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : '<th>Config</th><th>Trades<br>BTC / ETH</th><th>Win rate<br>BTC / ETH</th><th>Expectancy R<br>BTC / ETH</th><th>PF<br>BTC / ETH</th>';
+  const tableLabels = isCustom ? '<th>Strategy</th>' + report.performance.headers.map((header) => '<th>' + header + '</th>').join('') : isMultiAsset ? '<th>Config</th><th>Asset</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : isSingleAsset ? '<th>Config</th><th>Trades</th><th>Win rate</th><th>Expectancy R</th><th>PF</th>' : '<th>Config</th><th>Trades<br>BTC / ETH</th><th>Win rate<br>BTC / ETH</th><th>Expectancy R<br>BTC / ETH</th><th>PF<br>BTC / ETH</th>';
   document.querySelector('#app').innerHTML = `<div class="wrap"><nav><span class="brand">BT LAB<span>BACKTEST RESEARCH</span></span><div class="nav-controls"><label class="report-control">${t.reports}<select id="report">${reports.map((item) => `<option value="${item.id}" ${item.id === report.id ? 'selected' : ''}>${item.name[lang]} · ${item.date}</option>`).join('')}</select></label><div id="language-toggle" role="group" aria-label="Language"><button type="button" data-lang="ko" class="${lang === 'ko' ? 'active' : ''}" aria-pressed="${lang === 'ko'}">KR</button><button type="button" data-lang="en" class="${lang === 'en' ? 'active' : ''}" aria-pressed="${lang === 'en'}">EN</button></div></div></nav><p class="eyebrow">${marketLabel} · ${report.timeframe || 'Daily'} <span class="date-chip">${report.date}</span></p><h1>${report.name[lang]}</h1><p class="sub">${report.desc[lang]}</p><div class="banner"><b>${t.result}</b> ${report.status[lang]}</div><section><h2>${t.rules}: #${selectedId}</h2><div class="rules">${reportRuleCards(report, activeConfig, lang, t)}</div></section><section><h2>${t.equity}</h2><div class="charts">${report.charts.map((path, index) => `<figure><img src="${path}" alt="${t.equity}"/><figcaption>${report.captions[index]}</figcaption></figure>`).join('')}</div></section><section><h2>${t.perf}</h2><div class="table-wrap"><table><thead><tr>${tableLabels}</tr></thead><tbody>${rows}</tbody></table></div></section><section><h2>${t.files}</h2><div class="file-layout"><div class="file-list">${report.files.map(([ko, en, path]) => `<button type="button" class="file-select" data-path="${path}">${lang === 'ko' ? ko : en}</button>`).join('')}</div><div class="file-viewer"><div class="file-toolbar"><b id="file-name"></b><button type="button" id="copy-file" class="icon-button" aria-label="${t.copied}" title="${t.copied}"><span aria-hidden="true">⧉</span></button></div><pre id="file-content">${t.loading}</pre><p id="copy-status" class="sr-only" aria-live="polite"></p></div></div></section></div>`;
 
   document.querySelector('.brand').innerHTML = '<img src="/assets/brand/bt-logo.png" alt="BT Lab logo"/><span class="brand-copy">BT LAB<small>BACKTEST RESEARCH</small></span>';

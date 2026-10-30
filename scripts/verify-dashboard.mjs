@@ -27,8 +27,13 @@ const REQUIRED_FILES = [
   'assets/daily-w-pattern-neckline-retest-2026-08-16/backtest/w_backtest/metrics.py',
   'assets/daily-w-pattern-neckline-retest-2026-08-16/backtest/w_backtest/reporting.py',
   'assets/daily-w-pattern-neckline-retest-2026-08-16/backtest/w_backtest/cli.py',
+  'assets/catching-cat3-quality-2026-10-31/SUMMARY.md',
+  'assets/catching-cat3-quality-2026-10-31/EXECUTION.md',
+  'assets/catching-cat3-quality-2026-10-31/trades-selected.csv',
+  'assets/catching-cat3-quality-2026-10-31/cat3-quality-run.cjs',
+  'assets/catching-cat3-quality-2026-10-31/cat3-quality.test.cjs',
 ];
-const REQUIRED_CONTENT = ['styles.css', 'app.js', 'reports', 'language-toggle', 'config-detail-row', 'file-select', 'file-content', 'daily-support-variants', 'sweep-reclaim', 'support-variants-sweep-21-btc.png', 'support-variants-sweep-21-eth.png', 'daily-w-pattern-neckline-retest-2026-08-16'];
+const REQUIRED_CONTENT = ['styles.css', 'app.js', 'reports', 'language-toggle', 'config-detail-row', 'file-select', 'file-content', 'daily-support-variants', 'sweep-reclaim', 'support-variants-sweep-21-btc.png', 'support-variants-sweep-21-eth.png', 'daily-w-pattern-neckline-retest-2026-08-16', 'cat3-walk-forward-quality'];
 const EXPECTED_IDS = ['1d-bulls2-validation', '1d-bulls2-six-hour', '1d-bulls2-execution', '1d-bulls3-raw-edge', '1d-bulls4-daily-support', '1d-bulls5-selective-trend', '4h-daily-support-sweep', '4h-daily-support-volume-lock', 'daily-support-1h-confirmation'];
 const ANCHORS = [
   ['1d-bulls3-raw-edge', 'validationMean', -0.204],
@@ -68,6 +73,9 @@ export async function verifyDashboard(root = process.cwd()) {
   requireText(app, 'SOLUSDT: [12, 25, 0.12386567447216211, 1.307159664306917]', 'W-pattern SOL metrics');
   requireText(app, 'PEPEUSDT: [5, 40, 0.27117421303702194, 1.6324571191802077]', 'W-pattern PEPE metrics');
   requireText(app, 'DOGEUSDT: [13, 38.46153846153847, 0.4475659569224605, 2.347326343334808]', 'W-pattern DOGE metrics');
+  requireText(app, "id: 'cat3-walk-forward-quality'", 'Cat3 walk-forward report ID');
+  requireText(app, "metrics: ['483', '+21.77%', '20.28%', '+0.48%', '1.26']", 'Cat3 walk-forward metrics');
+  requireText(app, '/assets/catching-cat3-quality-2026-10-31/trades-selected.csv', 'Cat3 selected trade ledger');
   for (const chart of [
     '/charts/daily-w-pattern-equity-2026-08-16.png',
     '/charts/daily-w-pattern-drawdown-2026-08-16.png',
