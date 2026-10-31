@@ -224,7 +224,7 @@ const copy = {
 };
 
 let lang = 'ko';
-let selectedReport = 'cat3-walk-forward-quality';
+let selectedReport = 'cat3-tag-performance';
 let selectedId = 1;
 
 export function escapeHtml(value) {
